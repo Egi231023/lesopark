@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesopark Prievidza</title>
+<meta name="description" content="Súkromný lesopark na Kopaniciach v Prievidzi. Altánky s ohniskom, ohniská, amfiteáter, rozhľadňa, drevené sochy a pizzeria s terasou.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f1ece2; --paper2:#e7e0d2; --ink:#1c2420; --ink2:#4b554e; --ink3:#7a837c;
+  --forest:#13211a; --ember:#c4622d; --ember2:#e08a52;
+  --line:rgba(28,36,32,.14); --line-d:rgba(241,236,226,.14);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:Manrope,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+svg{display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+@media(min-width:760px){.wrap{padding:0 40px}}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
+.dark .eyebrow{color:rgba(241,236,226,.55)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.02}
+h2{font-size:clamp(2.4rem,5.2vw,4.4rem)}
+h1 em,h2 em{font-style:italic}
+section{position:relative}
+.pad{padding:clamp(80px,11vw,150px) 0}
+.dark{background:var(--forest);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:12px;font:600 .88rem var(--sans);letter-spacing:.02em;padding:15px 26px;border-radius:2px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .25s,color .25s,border-color .25s}
+.btn-ember{background:var(--ember);color:#fff}
+.btn-ember:hover{background:#a9521f}
+.btn-line{border-color:rgba(241,236,226,.4);color:var(--paper)}
+.btn-line:hover{border-color:var(--paper);background:rgba(241,236,226,.06)}
+.arrow{width:18px;height:10px;transition:transform .25s}
+.btn:hover .arrow,.go:hover .arrow{transform:translateX(4px)}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .35s,border-color .35s,color .35s;border-bottom:1px solid transparent;color:var(--paper)}
+nav.solid{background:rgba(241,236,226,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line);color:var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font-family:var(--serif);font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+.brand span{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;opacity:.6}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{text-decoration:none;font-size:.86rem;font-weight:500;opacity:.8;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-tel{font-size:.86rem;font-weight:600;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.burger{display:none;background:none;border:0;color:inherit;cursor:pointer;padding:6px}
+@media(max-width:900px){
+  .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;gap:0;background:var(--paper);color:var(--ink);transform:translateY(-130%);transition:transform .4s;border-bottom:1px solid var(--line)}
+  .nav-links.open{transform:none}
+  .nav-links a{display:block;padding:16px;border-top:1px solid var(--line);font-size:1rem}
+  .burger{display:block}
+  .nav-tel{display:none}
+}
+
+/* HERO */
+#hero{height:100vh;height:100svh;min-height:600px;background:#0e1712;overflow:hidden;color:var(--paper)}
+#forest{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-shade{position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(90deg,rgba(9,15,12,.72) 0%,rgba(9,15,12,.3) 45%,rgba(9,15,12,0) 70%),
+  linear-gradient(0deg,rgba(9,15,12,.85) 0%,rgba(9,15,12,0) 32%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:clamp(100px,15vh,160px)}
+.hero-copy .eyebrow{color:rgba(241,236,226,.7)}
+.hero-copy h1{font-size:clamp(3.2rem,8.4vw,7.4rem);margin:18px 0 24px;max-width:8.5em}
+.hero-copy p{max-width:31em;color:rgba(241,236,226,.8);font-size:1.02rem;margin-bottom:34px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{position:absolute;left:0;right:0;bottom:0;border-top:1px solid var(--line-d)}
+.hero-meta .wrap{display:flex;gap:40px;height:64px;align-items:center;font-size:.82rem;color:rgba(241,236,226,.7)}
+.hero-meta b{color:var(--paper);font-weight:600}
+.scroll{margin-left:auto;display:flex;align-items:center;gap:10px}
+.scroll i{width:1px;height:26px;background:rgba(241,236,226,.3);position:relative;overflow:hidden}
+.scroll i::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--paper);animation:drip 2s infinite}
+@keyframes drip{to{top:100%}}
+@media(max-width:760px){
+  .hero-meta .wrap{gap:20px;font-size:.76rem}.scroll,.hide-m{display:none}
+  .hero-shade{background:linear-gradient(0deg,rgba(9,15,12,.9) 0%,rgba(9,15,12,.55) 45%,rgba(9,15,12,0) 75%)}
+  .hero-copy p{font-size:.95rem;margin-bottom:26px}
+}
+.no-gl #forest{background:radial-gradient(ellipse at 60% 70%,#6b5a3a 0%,#2c3a31 40%,#0e1712 80%)}
+
+/* INTRO */
+.intro-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
+.intro-lead{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.22}
+.intro-lead em{color:var(--ember)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:80px;border-top:1px solid var(--line)}
+.fact{padding:28px 24px 0 0}
+.fact+.fact{padding-left:24px;border-left:1px solid var(--line)}
+.fact .n{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.8rem);line-height:1}
+.fact .l{font-size:.84rem;color:var(--ink2);margin-top:8px}
+@media(max-width:860px){.intro-grid{grid-template-columns:1fr;gap:20px}.facts{grid-template-columns:1fr 1fr;margin-top:50px}.fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line);margin-top:28px}}
+
+/* SITE MODEL */
+#areal{background:var(--paper2)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px 40px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head h2{margin-top:16px}
+.sec-head p{max-width:30em;color:var(--ink2)}
+.dark .sec-head p{color:rgba(241,236,226,.65)}
+.model{display:grid;grid-template-columns:1fr 360px;border:1px solid var(--line)}
+.model-view{position:relative;height:min(72vh,680px);min-height:440px;border-right:1px solid var(--line);overflow:hidden}
+#site{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#site.drag{cursor:grabbing}
+#markers{position:absolute;inset:0;pointer-events:none}
+.mk{position:absolute;left:0;top:0;pointer-events:auto;cursor:pointer;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--paper);border:1px solid var(--ink);font:600 .72rem var(--sans);display:grid;place-items:center;transition:background .2s,color .2s,opacity .3s,box-shadow .2s;will-change:transform}
+.mk:hover,.mk.on{background:var(--ink);color:var(--paper)}
+.mk.on{box-shadow:0 0 0 6px rgba(28,36,32,.14)}
+.mk.off{opacity:0;pointer-events:none}
+.mk .tip{position:absolute;left:36px;top:50%;transform:translateY(-50%);white-space:nowrap;background:var(--ink);color:var(--paper);font-weight:500;font-size:.76rem;padding:5px 10px;opacity:0;pointer-events:none;transition:opacity .2s}
+.mk:hover .tip{opacity:1}
+.model-ctl{position:absolute;left:16px;bottom:16px;display:flex;gap:6px}
+.ctl{width:38px;height:38px;border:1px solid var(--line);background:rgba(241,236,226,.88);color:var(--ink);font:500 1.05rem var(--sans);cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.ctl:hover{background:var(--paper)}
+.model-note{position:absolute;right:16px;bottom:16px;font-size:.72rem;color:var(--ink3);letter-spacing:.04em}
+.legend{list-style:none;overflow:auto;max-height:min(72vh,680px)}
+.legend li{border-bottom:1px solid var(--line);cursor:pointer;transition:background .2s}
+.legend li:hover{background:rgba(255,255,255,.3)}
+.legend .row{display:flex;gap:16px;align-items:baseline;padding:15px 22px}
+.legend .num{font-size:.72rem;font-weight:600;color:var(--ink3);width:18px;flex-shrink:0}
+.legend .nm{font-family:var(--serif);font-size:1.35rem;line-height:1.15}
+.legend .desc{max-height:0;overflow:hidden;transition:max-height .45s ease;padding:0 22px 0 56px;font-size:.88rem;color:var(--ink2)}
+.legend li.on{background:var(--paper)}
+.legend li.on .desc{max-height:260px}
+.legend .desc>div{padding-bottom:18px}
+.legend .desc a{display:inline-block;margin-top:10px;font-weight:600;color:var(--ember);text-decoration:none;border-bottom:1px solid currentColor}
+@media(max-width:700px){.model-note{top:12px;bottom:auto;left:16px;right:auto}}
+@media(max-width:960px){.model{grid-template-columns:1fr}.model-view{border-right:0;border-bottom:1px solid var(--line);height:60vh;min-height:380px}.legend{max-height:none}}
+
+/* EXPERIENCES */
+.exp{border-top:1px solid var(--line-d)}
+.exp-item{display:grid;grid-template-columns:80px 1.1fr 1.4fr 130px;gap:30px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--line-d);transition:padding .35s}
+.exp-item:hover{padding-left:14px}
+.exp-item .no{font-size:.78rem;color:rgba(241,236,226,.45);font-weight:600;letter-spacing:.1em}
+.exp-item h3{font-size:clamp(1.8rem,3vw,2.5rem)}
+.exp-item p{color:rgba(241,236,226,.68);font-size:.95rem}
+.go{justify-self:end;font:600 .8rem var(--sans);color:var(--ember2);display:flex;gap:8px;align-items:center;white-space:nowrap;background:none;border:0;cursor:pointer}
+@media(max-width:860px){.exp-item{grid-template-columns:44px 1fr;gap:6px 14px;padding:28px 0}.exp-item p,.exp-item .go{grid-column:2}.exp-item .go{justify-self:start;margin-top:8px}}
+
+/* PRICING */
+.price-wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,6vw,90px);align-items:start}
+@media(max-width:960px){.price-wrap{grid-template-columns:1fr}}
+.menu h3{font-size:1.75rem;margin:52px 0 0;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:12px}
+.menu h3:first-child{margin-top:0}
+.menu h3 small{font:600 .68rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.mrow{display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.mrow .t{font-weight:600}
+.mrow .s{display:block;font-size:.84rem;color:var(--ink3);font-weight:400;margin-top:2px}
+.mrow .p{font-family:var(--serif);font-size:1.65rem;text-align:right;min-width:74px;line-height:1}
+.mrow .p small{display:block;font:500 .66rem var(--sans);color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
+.mrow.x{grid-template-columns:1fr auto}
+@media(max-width:520px){.mrow{gap:14px}.mrow .p{min-width:56px;font-size:1.45rem}}
+.fine{margin-top:26px;font-size:.84rem;color:var(--ink2);max-width:36em}
+.calc{background:var(--forest);color:var(--paper);padding:clamp(26px,4vw,44px);position:sticky;top:96px}
+.calc h3{font-size:2.1rem;margin-bottom:6px}
+.calc>p{font-size:.88rem;color:rgba(241,236,226,.6);margin-bottom:26px}
+.f{margin-bottom:18px}
+.f>label,.f>.lbl{display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,236,226,.55);margin-bottom:8px}
+.f input,.f select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(241,236,226,.25);color:var(--paper);font:500 1rem var(--sans);padding:8px 0 10px;outline:none;border-radius:0;transition:border-color .2s;color-scheme:dark}
+.f input:focus,.f select:focus{border-color:var(--ember2)}
+.f input::placeholder{color:rgba(241,236,226,.35)}
+.f select option{background:var(--forest)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(241,236,226,.25)}
+.seg button{background:none;border:0;color:rgba(241,236,226,.65);font:600 .84rem var(--sans);padding:11px;cursor:pointer;transition:all .2s}
+.seg button.on{background:var(--paper);color:var(--ink)}
+.xrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-d);font-size:.9rem}
+.xrow span{color:rgba(241,236,226,.55);font-size:.82rem;margin-left:6px;white-space:nowrap}
+.stp{display:flex;align-items:center;gap:12px}
+.stp button{width:28px;height:28px;border:1px solid rgba(241,236,226,.25);background:none;color:var(--paper);cursor:pointer;font-size:1rem;line-height:1}
+.stp button:hover{border-color:var(--paper)}
+.stp output{min-width:14px;text-align:center;font-weight:600}
+.cap-warn{font-size:.78rem;color:#f0a878;margin-top:6px;min-height:1.2em}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:24px 0 20px;padding-top:20px;border-top:1px solid var(--paper)}
+.total span:first-child{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,236,226,.6)}
+.total .v{font-family:var(--serif);font-size:3.2rem;line-height:1}
+.calc .btns{display:grid;gap:10px}
+.calc .btns .btn{justify-content:center}
+.calc small{display:block;margin-top:14px;font-size:.76rem;color:rgba(241,236,226,.5)}
+
+/* EVENTS */
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.ev{background:var(--paper);padding:clamp(28px,4vw,48px)}
+.ev .eyebrow{color:var(--ember)}
+.ev h3{font-size:2.2rem;margin:14px 0 12px}
+.ev p{color:var(--ink2);max-width:28em}
+@media(max-width:760px){.ev-grid{grid-template-columns:1fr}}
+
+/* VISIT */
+.visit{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(30px,5vw,70px)}
+@media(max-width:900px){.visit{grid-template-columns:1fr}}
+.vrow{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.vrow:first-child{border-top:1px solid var(--line)}
+.vrow .k{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);padding-top:4px}
+.vrow .v a{text-decoration:none;border-bottom:1px solid var(--ink3)}
+@media(max-width:520px){.vrow{grid-template-columns:1fr;gap:4px}}
+.stars{display:inline-flex;gap:2px;vertical-align:-2px;margin-right:8px}
+.map{border:1px solid var(--line);min-height:420px;background:var(--paper);position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.55) sepia(.12)}
+
+/* FAQ */
+.faq{max-width:880px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:26px 0;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:1.55rem;line-height:1.2}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";width:14px;height:14px;flex-shrink:0;margin-top:8px;background:linear-gradient(var(--ink),var(--ink)) center/100% 1px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1px 100% no-repeat;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 40px 26px 0;color:var(--ink2);max-width:40em}
+
+/* FOOTER */
+footer{background:var(--forest);color:rgba(241,236,226,.6);padding:80px 0 34px;font-size:.86rem}
+.foot-top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;padding-bottom:60px;border-bottom:1px solid var(--line-d)}
+.foot-top h2{color:var(--paper);font-size:clamp(2.6rem,6vw,5rem)}
+.foot-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px}
+.foot-bot a{text-decoration:none}
+.foot-bot a:hover{color:var(--paper)}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#hero"><b>Lesopark</b><span>Prievidza</span></a>
+    <ul class="nav-links" id="links">
+      <li><a href="#areal">Areál</a></li>
+      <li><a href="#zazitky">Čo tu nájdete</a></li>
+      <li><a href="#cennik">Cenník</a></li>
+      <li><a href="#navsteva">Návšteva</a></li>
+    </ul>
+    <a class="nav-tel" href="tel:+421951446317">0951 446 317</a>
+    <button class="burger" id="burger" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h18M3 16h18"/></svg></button>
+  </div>
+</nav>
+
+<!-- HERO: 3D borovicový les -->
+<section id="hero">
+  <canvas id="forest" aria-hidden="true"></canvas>
+  <div class="hero-shade"></div>
+  <div class="hero-copy">
+    <div class="wrap">
+      <div class="eyebrow">Kopanice · Prievidza</div>
+      <h1>Ticho <em>borovíc</em> nad mestom</h1>
+      <p>Súkromný lesopark nad sídliskom Sever. Altánky s ohniskom, amfiteáter, rozhľadňa, drevené sochy a pizzeria s terasou – uprostred borovíc a agátov.</p>
+      <div class="hero-btns">
+        <a class="btn btn-ember" href="#cennik">Rezervovať altánok <svg class="arrow" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h16M12 1l4 4-4 4"/></svg></a>
+        <a class="btn btn-line" href="#areal">Prejsť areálom</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="wrap">
+      <span><b>Vstup voľný</b></span>
+      <span><b>Otvorené</b> nonstop</span>
+      <span class="hide-m"><b>4,3</b> / 5 · 575 hodnotení</span>
+      <span class="scroll">Posúvajte <i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="pad">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="eyebrow rv">O lesoparku</div>
+      <p class="intro-lead rv">Miesto, kam sa z Prievidze chodí vydýchnuť. Značené chodníky sa v lese delia, križujú a znova spájajú, vysoké borovice dávajú <em>tieň aj v najteplejších dňoch</em> a večer sa pri altánkoch rozhorí oheň.</p>
+    </div>
+    <div class="facts rv">
+      <div class="fact"><div class="n">0 €</div><div class="l">vstupné aj parkovanie</div></div>
+      <div class="fact"><div class="n">1985</div><div class="l">rok postavenia rozhľadne</div></div>
+      <div class="fact"><div class="n">17</div><div class="l">schodov na vyhliadku</div></div>
+      <div class="fact"><div class="n">1. 4.</div><div class="l">začiatok sezóny služieb</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AREÁL: 3D model -->
+<section id="areal" class="pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Areál</div><h2 class="rv">Prejdite sa <em>areálom</em></h2></div>
+      <p class="rv">Skutočný terén, lesy, chodníky a budovy lesoparku s vrstevnicami po 5 m. Otáčajte ťahaním, kliknite na číslo alebo miesto v zozname.</p>
+    </div>
+    <div class="model rv">
+      <div class="model-view">
+        <canvas id="site" aria-label="3D model areálu lesoparku"></canvas>
+        <div id="markers"></div>
+        <div class="model-ctl">
+          <button class="ctl" id="mIn" aria-label="Priblížiť">+</button>
+          <button class="ctl" id="mOut" aria-label="Oddialiť">−</button>
+          <button class="ctl" id="mReset" aria-label="Celý areál"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9M2.5 2v3h3"/></svg></button>
+        </div>
+        <div class="model-note">Mapové dáta © prispievatelia OpenStreetMap · výšky Terrain Tiles</div>
+      </div>
+      <ol class="legend" id="legend"></ol>
+    </div>
+  </div>
+</section>
+
+<!-- ČO TU NÁJDETE -->
+<section id="zazitky" class="pad dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Čo tu nájdete</div><h2 class="rv">Les, oheň <em>a ľudia</em></h2></div>
+    </div>
+    <div class="exp" id="exp"></div>
+  </div>
+</section>
+
+<!-- CENNÍK -->
+<section id="cennik" class="pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow rv">Cenník a rezervácia</div><h2 class="rv">Prenájom <em>altánkov</em> a ohnísk</h2></div>
+      <p class="rv">Rezervujte si miesto na opekačku, oslavu alebo stretnutie s kolegami. Termín potvrdzujeme telefonicky.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="menu rv" id="menu"></div>
+      <form class="calc rv" id="calc" onsubmit="return false">
+        <h3>Rezervácia</h3>
+        <p>Spočítajte si cenu a pošlite nám dopyt cez SMS.</p>
+        <div class="f"><label for="cPlace">Miesto</label><select id="cPlace"></select></div>
+        <div class="f2">
+          <div class="f"><label for="cDate">Dátum</label><input type="date" id="cDate"></div>
+          <div class="f"><label for="cPpl">Počet osôb</label><input type="number" id="cPpl" min="1" max="200" value="10"><div class="cap-warn" id="capWarn"></div></div>
+        </div>
+        <div class="f"><span class="lbl">Dĺžka</span><div class="seg" id="cDur"><button type="button" data-v="blok" class="on">Blok</button><button type="button" data-v="den">Celý deň</button></div></div>
+        <div class="f"><span class="lbl">Doplnky</span><div id="cX"></div></div>
+        <div class="f"><label for="cName">Meno</label><input id="cName" autocomplete="name" placeholder="Vaše meno"></div>
+        <div class="total"><span>Spolu</span><span class="v" id="cTotal">0 €</span></div>
+        <div class="btns">
+          <a class="btn btn-ember" id="smsBtn" href="#">Poslať dopyt cez SMS</a>
+          <a class="btn btn-line" href="tel:+421951446317">Zavolať 0951 446 317</a>
+        </div>
+        <small>Rezervácia platí po potvrdení termínu. Platba na mieste.</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PODUJATIA -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="ev-grid rv">
+      <div class="ev"><div class="eyebrow">Leto v amfiteátri</div><h3>Koncerty pod borovicami</h3><p>Prírodný amfiteáter v lese počas letných mesiacov ožíva koncertmi a podujatiami. Program sledujte na našom Facebooku.</p></div>
+      <div class="ev"><div class="eyebrow">Sochárske sympózium</div><h3>Ľudová plastika v lese</h3><p>Drevené sochy ľudí aj rozprávkových postáv vznikajú priamo v lesoparku počas Sochárskeho sympózia ľudovej plastiky. Sochárov môžete vidieť pri práci.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NÁVŠTEVA -->
+<section id="navsteva" class="pad" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">Návšteva</div><h2 class="rv">Ako k nám</h2></div></div>
+    <div class="visit">
+      <div class="rv">
+        <div class="vrow"><div class="k">Adresa</div><div class="v">Kopanice 570, 971 01 Prievidza<br>koniec ulice Lesný park, odbočka z Bôrovej</div></div>
+        <div class="vrow"><div class="k">Park</div><div class="v">Prístupný nonstop. Prenájmy v sezóne od 1. apríla.</div></div>
+        <div class="vrow"><div class="k">Reštaurácia</div><div class="v">Po – št 11:00 – 19:00<br>Pi – so 11:00 – 20:00<br>Ne 13:00 – 19:00</div></div>
+        <div class="vrow"><div class="k">Telefón</div><div class="v"><a href="tel:+421951446317">0951 446 317</a></div></div>
+        <div class="vrow"><div class="k">Parkovanie</div><div class="v">Bezplatné parkovisko pri vstupe a reštaurácii.</div></div>
+        <div class="vrow"><div class="k">Psy</div><div class="v">Vítané. Prosíme, upratujte po nich.</div></div>
+        <div class="vrow"><div class="k">Hodnotenie</div><div class="v"><span class="stars" aria-hidden="true" id="stars"></span>4,3 z 5 · 575 hodnotení na Google</div></div>
+      </div>
+      <div class="map rv"><iframe loading="lazy" title="Mapa – Lesopark Prievidza" src="https://www.google.com/maps?q=48.78385,18.65600&z=16&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="pad">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow rv">Otázky</div><h2 class="rv">Dobré vedieť</h2></div></div>
+    <div class="faq rv">
+      <details><summary>Platí sa vstup do lesoparku?</summary><p>Nie. Vstup do lesoparku aj parkovanie sú zdarma. Platí sa len prenájom altánku alebo ohniska a doplnky.</p></details>
+      <details><summary>Ako si rezervujem altánok alebo ohnisko?</summary><p>Zavolajte nám na 0951 446 317 alebo si v kalkulačke vyššie spočítajte cenu a pošlite nám dopyt cez SMS. Termín vám potvrdíme.</p></details>
+      <details><summary>Môžem si priniesť vlastné jedlo a drevo?</summary><p>Áno. Drevo a grilovacie náčinie si môžete priniesť, alebo ich u nás dokúpiť k prenájmu.</p></details>
+      <details><summary>Je lesopark vhodný pre deti?</summary><p>Áno. Na okraji lesa je voľne prístupné detské ihrisko s preliezačkami, hojdačkami, lezeckou stenou, pieskoviskom, šmykľavkami a tunelom. Vedľa je aj plocha na loptové hry.</p></details>
+      <details><summary>Môžem prísť so psom?</summary><p>Áno, psy sú v lesoparku vítané.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <h2>Vidíme sa <em>v lese</em></h2>
+      <a class="btn btn-ember" href="tel:+421951446317">0951 446 317</a>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> Lesopark Prievidza · Bôrová cesta, 971 01 Prievidza</span>
+      <a href="https://www.facebook.com/p/Lesopark-Prievidza-s%C3%BAkromn%C3%BD-park-100063628597171/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* =====================================================================
+   CENNÍK – ceny sú zatiaľ orientačné, upravte podľa skutočnosti
+   ===================================================================== */
+const RENT = [
+  {id:'alt-m', group:'Altánky s ohniskom', name:'Malý altánok', sub:'krytý, stôl s lavicami, vlastné ohnisko', cap:15, blok:25, den:50, blokH:'4 h'},
+  {id:'alt-v', group:'Altánky s ohniskom', name:'Veľký altánok', sub:'krytý, pre väčšie oslavy a firmy', cap:30, blok:40, den:80, blokH:'4 h'},
+  {id:'ohn',   group:'Ohniská', name:'Ohnisko s lavicami', sub:'kamenné ohnisko v lese', cap:12, blok:10, den:25, blokH:'3 h'},
+];
+const EXTRAS = [
+  {id:'drevo', name:'Kôš dreva', price:6, qty:true},
+  {id:'rost',  name:'Grilovací rošt a kliešte', price:3},
+  {id:'stol',  name:'Stôl s lavicami navyše', price:5, qty:true},
+];
+const PHONE = '+421951446317';
+
+const EXP = [
+  {name:'Altánky s ohniskom', text:'Kryté drevené altánky so stolmi a vlastným ohniskom. Pre oslavy, partie aj firemné opekačky – aj keď prší.', spot:0},
+  {name:'Ohniská', text:'Kamenné ohniská s lavicami, rozmiestnené medzi borovicami. Drevo si prineste alebo kúpte u nás.', spot:6},
+  {name:'Amfiteáter', text:'Prírodné hľadisko v lese, kde sa v lete konajú koncerty a kultúrne podujatia.', spot:4},
+  {name:'Vyhliadka', text:'Rozhľadňa na hrane skalnej steny nad údolím Handlovky. 17 schodov a výhľad na mesto, Veľkú a Malú Lehôtku a Hradec.', spot:5},
+  {name:'Drevené sochy', text:'Diela Sochárskeho sympózia ľudovej plastiky – ľudia aj rozprávkové postavy popri chodníkoch.', spot:0},
+  {name:'Detské ihrisko', text:'Ihrisko na okraji lesa pri reštaurácii, s preliezačkami, lezeckou stenou a pieskoviskom. Otvorené od apríla do októbra.', spot:3},
+  {name:'Reštaurácia s terasou', text:'Reštaurácia Lesopark – pizza a regionálna kuchyňa, terasa, jedlo so sebou aj donáška.', spot:2},
+  {name:'Značené trasy', text:'Žlté trasy „Lesný park – Vyhliadka“ a Prievidzský okruh a červená okružná trasa „Lesopark Prievidza“.', spot:7},
+];
+
+const eur=n=>n.toLocaleString('sk-SK')+' €';
+const ARROW='<svg class="arrow" viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 5h16M12 1l4 4-4 4"/></svg>';
+
+/* ---------- základ ---------- */
+document.getElementById('yr').textContent=new Date().getFullYear();
+const nav=document.getElementById('nav'),links=document.getElementById('links');
+const onScroll=()=>nav.classList.toggle('solid',scrollY>innerHeight-80);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.getElementById('stars').innerHTML=[1,1,1,1,.3].map((f,i)=>`<svg width="14" height="14" viewBox="0 0 24 24"><defs><linearGradient id="sg${i}"><stop offset="${f*100}%" stop-color="#c4622d"/><stop offset="${f*100}%" stop-color="#c9c1b2"/></linearGradient></defs><path fill="url(#sg${i})" d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg>`).join('');
+
+/* ---------- čo tu nájdete ---------- */
+document.getElementById('exp').innerHTML=EXP.map((e,i)=>`<div class="exp-item rv"><span class="no">${String(i+1).padStart(2,'0')}</span><h3>${e.name}</h3><p>${e.text}</p>${e.spot?`<button class="go" data-spot="${e.spot}">Na mape ${ARROW}</button>`:'<span></span>'}</div>`).join('');
+
+/* ---------- cenník ---------- */
+const groups=[...new Set(RENT.map(p=>p.group))];
+document.getElementById('menu').innerHTML=groups.map(g=>`<h3>${g}<small>blok · celý deň</small></h3>`+
+  RENT.filter(p=>p.group===g).map(p=>`<div class="mrow"><div class="t">${p.name}<span class="s">do ${p.cap} osôb · ${p.sub}</span></div><div class="p">${p.blok} €<small>${p.blokH}</small></div><div class="p">${p.den} €<small>deň</small></div></div>`).join('')).join('')
+  +`<h3>Doplnky<small>cena</small></h3>`+EXTRAS.map(x=>`<div class="mrow x"><div class="t">${x.name}${x.qty?'<span class="s">za kus</span>':''}</div><div class="p">${x.price} €</div></div>`).join('')
+  +`<p class="fine">Vstup do lesoparku a parkovanie sú zdarma. Uvedené ceny sú orientačné, aktuálnu cenu a voľný termín vám potvrdíme telefonicky. Celý deň = 9:00 – 22:00.</p>`;
+
+/* ---------- kalkulačka ---------- */
+const cPlace=document.getElementById('cPlace'),cDate=document.getElementById('cDate'),cPpl=document.getElementById('cPpl'),cName=document.getElementById('cName');
+cPlace.innerHTML=RENT.map(p=>`<option value="${p.id}">${p.name} · do ${p.cap} osôb</option>`).join('');
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const d0=new Date();cDate.min=iso(d0);d0.setDate(d0.getDate()+((6-d0.getDay()+7)%7||7));cDate.value=iso(d0);
+let dur='blok';const xs={};EXTRAS.forEach(x=>xs[x.id]=0);
+document.getElementById('cX').innerHTML=EXTRAS.map(x=>`<div class="xrow"><div>${x.name}<span>${x.price} €</span></div><div class="stp"><button type="button" data-d="-1" data-x="${x.id}" aria-label="Menej">−</button><output id="o-${x.id}">0</output><button type="button" data-d="1" data-x="${x.id}" aria-label="Viac">+</button></div></div>`).join('');
+document.getElementById('cX').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const x=EXTRAS.find(q=>q.id===b.dataset.x);
+  xs[x.id]=Math.max(0,Math.min(x.qty?20:1,xs[x.id]+(+b.dataset.d)));document.getElementById('o-'+x.id).textContent=xs[x.id];calc()});
+document.querySelectorAll('#cDur button').forEach(b=>b.onclick=()=>{dur=b.dataset.v;document.querySelectorAll('#cDur button').forEach(q=>q.classList.toggle('on',q===b));calc()});
+[cPlace,cDate,cPpl,cName].forEach(el=>el.addEventListener('input',calc));
+let shown=0;
+function calc(){
+  const p=RENT.find(q=>q.id===cPlace.value);let total=p[dur];
+  const lines=[`${p.name}, ${dur==='blok'?'blok '+p.blokH:'celý deň'}`];
+  EXTRAS.forEach(x=>{if(xs[x.id]){total+=x.price*xs[x.id];lines.push(`${x.name}${x.qty?' ×'+xs[x.id]:''}`)}});
+  document.getElementById('capWarn').textContent=+cPpl.value>p.cap?`Kapacita tohto miesta je ${p.cap} osôb.`:'';
+  const el=document.getElementById('cTotal'),from=shown,t0=performance.now();shown=total;
+  (function st(t){const k=Math.min(1,(t-t0)/450);el.textContent=eur(Math.round(from+(total-from)*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(st)})(t0);
+  const dt=cDate.value?cDate.value.split('-').reverse().join('.'):'';
+  const body=`Dobrý deň, chcem si rezervovať: ${lines.join(', ')}. Dátum: ${dt}. Počet osôb: ${cPpl.value}. Orientačná cena: ${eur(total)}.${cName.value.trim()?' '+cName.value.trim():''}`;
+  document.getElementById('smsBtn').href=`sms:${PHONE}?&body=${encodeURIComponent(body)}`;
+}
+calc();
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---------- spoločné pomôcky ---------- */
+function hash(x,z){const s=Math.sin(x*127.1+z*311.7)*43758.5453;return s-Math.floor(s)}
+function vnoise(x,z){const xi=Math.floor(x),zi=Math.floor(z),xf=x-xi,zf=z-zi,u=xf*xf*(3-2*xf),v=zf*zf*(3-2*zf);
+  const a=hash(xi,zi),b=hash(xi+1,zi),c=hash(xi,zi+1),d=hash(xi+1,zi+1);return a+(b-a)*u+(c-a)*v+(a-b-c+d)*u*v}
+function fbm(x,z){return vnoise(x,z)*.5+vnoise(x*2.1,z*2.1)*.25+vnoise(x*4.3,z*4.3)*.125}
+function mkRand(seed){return()=>((seed=(seed*16807)%2147483647)-1)/2147483646}
+function onVisible(el){let v=false;new IntersectionObserver(([e])=>{v=e.isIntersecting},{rootMargin:'100px'}).observe(el);return()=>v}
+const HAS_GL=(()=>{try{const c=document.createElement('canvas');return !!(window.THREE&&(c.getContext('webgl2')||c.getContext('webgl')))}catch(e){return false}})();
+
+/* =====================================================================
+   HERO – les borovíc a agátov, hmla a oheň pri altánku
+   ===================================================================== */
+(function forest(){
+  const canvas=document.getElementById('forest');
+  if(!HAS_GL){document.body.classList.add('no-gl');return}
+  const mobile=innerWidth<760;
+  const R=new THREE.WebGLRenderer({canvas,antialias:!mobile,powerPreference:'high-performance'});
+  R.setPixelRatio(Math.min(devicePixelRatio,mobile?1.5:1.75));
+  R.outputEncoding=THREE.sRGBEncoding;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.1;
+  const S=new THREE.Scene();
+  const FOG=new THREE.Color('#4d5646');
+  S.background=FOG;S.fog=new THREE.FogExp2(FOG,.036);
+  const cam=new THREE.PerspectiveCamera(52,1,.1,220);
+  const rnd=mkRand(11);
+
+  // svetlo za stromami
+  const bc=document.createElement('canvas');bc.width=512;bc.height=256;const bx=bc.getContext('2d');
+  let g=bx.createLinearGradient(0,0,0,256);g.addColorStop(0,'#27322b');g.addColorStop(.55,'#6e6f58');g.addColorStop(.7,'#4d5646');g.addColorStop(1,'#2c342b');bx.fillStyle=g;bx.fillRect(0,0,512,256);
+  g=bx.createRadialGradient(270,165,0,270,165,230);g.addColorStop(0,'rgba(236,190,120,.85)');g.addColorStop(.35,'rgba(200,150,90,.35)');g.addColorStop(1,'rgba(0,0,0,0)');bx.fillStyle=g;bx.fillRect(0,0,512,256);
+  const bt=new THREE.CanvasTexture(bc);bt.encoding=THREE.sRGBEncoding;
+  const back=new THREE.Mesh(new THREE.PlaneGeometry(420,210),new THREE.MeshBasicMaterial({map:bt,fog:false,depthWrite:false}));
+  back.position.set(0,30,-120);S.add(back);
+
+  S.add(new THREE.HemisphereLight('#b8c2a4','#2a241a',.75));
+  const sun=new THREE.DirectionalLight('#ffd49a',1.3);sun.position.set(-10,25,-60);S.add(sun);
+  const fill=new THREE.DirectionalLight('#7f93a0',.25);fill.position.set(10,10,30);S.add(fill);
+
+  const pathX=z=>Math.sin(z*.07)*2.2+Math.sin(z*.021)*3;
+  const groundY=(x,z)=>(fbm(x*.08,z*.08)-.4)*1.4+Math.max(0,-z-60)*.05;
+  const FIRE=new THREE.Vector3(pathX(-30),0,-30);
+
+  // pôda – ihličie, mach, chodník
+  const gg=new THREE.PlaneGeometry(240,240,140,140);gg.rotateX(-Math.PI/2);
+  const gp=gg.attributes.position,gc=[];const cNeedle=new THREE.Color('#3a2f22'),cMoss=new THREE.Color('#3f4a2d'),cPath=new THREE.Color('#6d5d44'),tc=new THREE.Color();
+  for(let i=0;i<gp.count;i++){const x=gp.getX(i),z=gp.getZ(i);gp.setY(i,groundY(x,z));
+    const dp=Math.abs(x-pathX(z));tc.copy(cNeedle).lerp(cMoss,Math.min(1,Math.max(0,fbm(x*.15+9,z*.15)*1.8-.5)));
+    if(dp<1.3&&z>-28)tc.lerp(cPath,(1-dp/1.3)*.8);gc.push(tc.r,tc.g,tc.b)}
+  gg.setAttribute('color',new THREE.Float32BufferAttribute(gc,3));gg.computeVertexNormals();
+  S.add(new THREE.Mesh(gg,new THREE.MeshLambertMaterial({vertexColors:true})));
+
+  // kmene s farebným prechodom (borovica lesná: sivá kôra dole, oranžová hore)
+  function trunkGeo(cols,stops){const t=new THREE.CylinderGeometry(.62,1,1,7,10,true);t.translate(0,.5,0);
+    const p=t.attributes.position,c=[];const a=new THREE.Color(),b=new THREE.Color();
+    for(let i=0;i<p.count;i++){const y=p.getY(i);let k=0;while(k<stops.length-2&&y>stops[k+1])k++;
+      const f=Math.min(1,Math.max(0,(y-stops[k])/(stops[k+1]-stops[k])));a.set(cols[k]).lerp(b.set(cols[k+1]),f);
+      const j=(hash(p.getX(i)*9,y*40)-.5)*.08;c.push(a.r+j,a.g+j,a.b+j)}
+    t.setAttribute('color',new THREE.Float32BufferAttribute(c,3));return t}
+  const pineG=trunkGeo(['#2a2520','#4a3d31','#8e5634','#b0683c'],[0,.3,.6,1]);
+  const acaG=trunkGeo(['#27231f','#3b3530','#4d4640'],[0,.5,1]);
+  const tMat=new THREE.MeshLambertMaterial({vertexColors:true});
+  const clear=(x,z)=>(Math.abs(x-pathX(z))<2.4&&z>-40)||Math.hypot(x-FIRE.x,z-FIRE.z)<8||Math.hypot(x-FIRE.x-7,z-FIRE.z+5)<5;
+  const pines=[],acas=[];
+  for(let i=0;i<(mobile?420:620);i++){const x=(rnd()-.5)*110,z=24-rnd()*130;if(clear(x,z))continue;(rnd()<.68?pines:acas).push({x,z,a:rnd(),b:rnd(),c:rnd()})}
+  const dm=new THREE.Object3D();
+  function instTrunks(list,geo,rmin,rmax,hmin,hmax,tilt){const m=new THREE.InstancedMesh(geo,tMat,list.length);
+    list.forEach((t,i)=>{const r=rmin+t.a*(rmax-rmin);t.h=hmin+t.b*(hmax-hmin);dm.position.set(t.x,groundY(t.x,t.z)-.2,t.z);
+      dm.rotation.set((t.c-.5)*tilt,t.c*6,(t.a-.5)*tilt);dm.scale.set(r,t.h,r);dm.updateMatrix();m.setMatrixAt(i,dm.matrix)});S.add(m)}
+  instTrunks(pines,pineG,.16,.34,20,32,.04);instTrunks(acas,acaG,.14,.3,11,17,.16);
+
+  // koruny
+  const crowns=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,1),new THREE.MeshLambertMaterial({color:'#26331f'}),pines.length*3+acas.length*4);let ci=0;
+  pines.forEach(p=>{for(let k=0;k<3;k++){dm.position.set(p.x+(hash(ci,1)-.5)*3,p.h*(.86+k*.06),p.z+(hash(ci,2)-.5)*3);dm.rotation.set(0,hash(ci,3)*6,0);
+    const s=2+hash(ci,4)*1.6;dm.scale.set(s*1.3,s*.55,s*1.2);dm.updateMatrix();crowns.setMatrixAt(ci++,dm.matrix)}});
+  acas.forEach(p=>{for(let k=0;k<4;k++){dm.position.set(p.x+(hash(ci,1)-.5)*4,p.h*(.75+hash(ci,5)*.3),p.z+(hash(ci,2)-.5)*4);dm.rotation.set(0,0,0);
+    const s=1.3+hash(ci,4)*1.2;dm.scale.set(s,s*.7,s);dm.updateMatrix();crowns.setMatrixAt(ci++,dm.matrix)}});
+  S.add(crowns);
+
+  // podrast a tráva
+  const bushes=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,0),new THREE.MeshLambertMaterial({color:'#ffffff'}),mobile?260:420);
+  const bc2=new THREE.Color();
+  for(let i=0;i<bushes.count;i++){let x,z;do{x=(rnd()-.5)*90;z=22-rnd()*110}while(clear(x,z));
+    dm.position.set(x,groundY(x,z),z);dm.rotation.set(0,rnd()*6,0);const s=.4+rnd()*.9;dm.scale.set(s*1.4,s*.6,s*1.2);dm.updateMatrix();bushes.setMatrixAt(i,dm.matrix);
+    bushes.setColorAt(i,bc2.setHSL(.24+rnd()*.06,.22+rnd()*.12,.13+rnd()*.07))}
+  S.add(bushes);
+  const grassG=new THREE.ConeGeometry(.035,.55,3);grassG.translate(0,.27,0);
+  const grass=new THREE.InstancedMesh(grassG,new THREE.MeshLambertMaterial({color:'#5a6238'}),mobile?1500:3200);
+  for(let i=0;i<grass.count;i++){const x=(rnd()-.5)*30,z=20-rnd()*58;const s=Math.abs(x-pathX(z))<1.1?0:.6+rnd()*.9;dm.scale.set(s,s,s);
+    dm.position.set(x,groundY(x,z)-.05,z);dm.rotation.set((rnd()-.5)*.5,rnd()*6,(rnd()-.5)*.5);dm.updateMatrix();grass.setMatrixAt(i,dm.matrix)}
+  S.add(grass);
+
+  // altánok pri ohni
+  const wood=new THREE.MeshLambertMaterial({color:'#5b4332'}),roofM=new THREE.MeshLambertMaterial({color:'#2f241c'});
+  const gz=new THREE.Group();const GR=2.8;
+  for(let i=0;i<6;i++){const a=i/6*Math.PI*2,p=new THREE.Mesh(new THREE.BoxGeometry(.2,2.7,.2),wood);p.position.set(Math.cos(a)*GR,1.55,Math.sin(a)*GR);gz.add(p)}
+  const fl=new THREE.Mesh(new THREE.CylinderGeometry(GR+.3,GR+.3,.25,6),wood);fl.position.y=.15;gz.add(fl);
+  const rf=new THREE.Mesh(new THREE.ConeGeometry(GR+1,1.7,6),roofM);rf.position.y=3.7;gz.add(rf);
+  const tb=new THREE.Mesh(new THREE.BoxGeometry(2.6,.12,1),wood);tb.position.y=1.05;gz.add(tb);
+  [-.85,.85].forEach(z=>{const b=new THREE.Mesh(new THREE.BoxGeometry(2.6,.1,.35),wood);b.position.set(0,.65,z);gz.add(b)});
+  gz.position.set(FIRE.x+7,groundY(FIRE.x+7,FIRE.z-5),FIRE.z-5);gz.rotation.y=.4;S.add(gz);
+
+  // ohnisko
+  const fy=groundY(FIRE.x,FIRE.z);
+  const stoneM=new THREE.MeshLambertMaterial({color:'#5d5a54'}),stG=new THREE.DodecahedronGeometry(.28,0);
+  for(let i=0;i<11;i++){const a=i/11*Math.PI*2,s=new THREE.Mesh(stG,stoneM);s.position.set(FIRE.x+Math.cos(a)*.9,fy+.1,FIRE.z+Math.sin(a)*.9);s.scale.set(1,.7,1);S.add(s)}
+  const logG=new THREE.CylinderGeometry(.18,.2,2.4,6);
+  [[2.4,0,.3],[-.8,2.3,1.6],[-1.9,-1.6,-.8]].forEach(([x,z,r])=>{const l=new THREE.Mesh(logG,wood);l.rotation.set(0,r,Math.PI/2);l.position.set(FIRE.x+x,fy+.2,FIRE.z+z);S.add(l)});
+  function sprTex(stops){const c=document.createElement('canvas');c.width=c.height=128;const x=c.getContext('2d');const gr=x.createRadialGradient(64,64,0,64,64,64);stops.forEach(([o,col])=>gr.addColorStop(o,col));x.fillStyle=gr;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(c)}
+  const flameT=sprTex([[0,'rgba(255,245,210,1)'],[.25,'rgba(255,190,90,.9)'],[.55,'rgba(230,100,30,.45)'],[1,'rgba(200,60,10,0)']]);
+  const glowT=sprTex([[0,'rgba(255,170,80,.55)'],[.4,'rgba(255,120,40,.15)'],[1,'rgba(255,100,30,0)']]);
+  const addMat=map=>new THREE.SpriteMaterial({map,blending:THREE.AdditiveBlending,depthWrite:false,transparent:true,fog:false});
+  const flames=[];for(let i=0;i<5;i++){const sp=new THREE.Sprite(addMat(flameT));sp.position.set(FIRE.x+(rnd()-.5)*.35,fy+.5+i*.18,FIRE.z+(rnd()-.5)*.35);S.add(sp);flames.push({sp,ph:rnd()*10,b:.9-i*.1})}
+  const glow=new THREE.Sprite(addMat(glowT));glow.position.set(FIRE.x,fy+.8,FIRE.z);glow.scale.set(9,6,1);S.add(glow);
+  const fireL=new THREE.PointLight('#ff8a3a',3.2,34,2);fireL.position.set(FIRE.x,fy+1.3,FIRE.z);S.add(fireL);
+  const EN=70,ep=new Float32Array(EN*3),ev=[];for(let i=0;i<EN;i++)ev.push([(rnd()-.5)*.6,rnd()*5,(rnd()-.5)*.6,.6+rnd()*1.2,rnd()*6]);
+  const eg=new THREE.BufferGeometry();eg.setAttribute('position',new THREE.BufferAttribute(ep,3));
+  S.add(new THREE.Points(eg,new THREE.PointsMaterial({color:'#ffb466',size:.07,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false,fog:false})));
+
+  // lúče svetla medzi kmeňmi
+  const rc=document.createElement('canvas');rc.width=64;rc.height=256;const rx=rc.getContext('2d');
+  let rg=rx.createLinearGradient(0,0,64,0);rg.addColorStop(0,'rgba(255,230,180,0)');rg.addColorStop(.5,'rgba(255,230,180,1)');rg.addColorStop(1,'rgba(255,230,180,0)');rx.fillStyle=rg;rx.fillRect(0,0,64,256);
+  rx.globalCompositeOperation='destination-in';rg=rx.createLinearGradient(0,0,0,256);rg.addColorStop(0,'rgba(0,0,0,0)');rg.addColorStop(.35,'rgba(0,0,0,1)');rg.addColorStop(1,'rgba(0,0,0,0)');rx.fillStyle=rg;rx.fillRect(0,0,64,256);
+  const rayT=new THREE.CanvasTexture(rc);const rays=[];
+  for(let i=0;i<7;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(2.5+rnd()*3,46),new THREE.MeshBasicMaterial({map:rayT,transparent:true,opacity:0,blending:THREE.AdditiveBlending,depthWrite:false,fog:false,side:THREE.DoubleSide}));
+    m.position.set(-16+rnd()*30,14,-8-rnd()*45);m.rotation.z=-.42;S.add(m);rays.push({m,o:.05+rnd()*.07,ph:rnd()*6})}
+
+  // prach vo vzduchu
+  const DN=mobile?250:500,dp=new Float32Array(DN*3),db=[];for(let i=0;i<DN;i++)db.push([(rnd()-.5)*18,rnd()*7,20-rnd()*55,rnd()*6]);
+  const dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+  S.add(new THREE.Points(dg,new THREE.PointsMaterial({color:'#f2dfae',size:.05,transparent:true,opacity:.55,blending:THREE.AdditiveBlending,depthWrite:false})));
+
+  function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.fov=w/h<.8?64:52;cam.updateProjectionMatrix()}
+  addEventListener('resize',resize);resize();
+  let mx=0,my=0,smx=0,smy=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});
+  const isVis=onVisible(canvas),clock=new THREE.Clock(),look=new THREE.Vector3();
+  (function loop(){requestAnimationFrame(loop);if(!isVis())return;const t=clock.getElapsedTime();
+    const prog=Math.min(1,scrollY/innerHeight);
+    smx+=(mx-smx)*.04;smy+=(my-smy)*.04;
+    const z=17-prog*22-Math.sin(t*.05)*1.2,x=pathX(z);
+    cam.position.set(x+smx*1.2,1.75+groundY(x,z)+Math.sin(t*.7)*.03,z);
+    look.set(pathX(z-14)+smx*4,2.9-smy*1.6+prog*.6,z-14);cam.lookAt(look);
+    flames.forEach((f,i)=>{const k=Math.sin(t*9+f.ph)*.15+Math.sin(t*17+f.ph*2)*.1;f.sp.scale.set(f.b*(1.1+k*.4),f.b*(1.7+k),1);f.sp.position.y=fy+.45+i*.2+k*.08});
+    fireL.intensity=3.2+Math.sin(t*11)*.35+Math.sin(t*23)*.25;glow.material.opacity=.8+Math.sin(t*7)*.1;
+    for(let i=0;i<EN;i++){const e=ev[i];e[1]+=e[3]*.016;if(e[1]>5.5)e[1]=0;ep[i*3]=FIRE.x+e[0]+Math.sin(t*2+e[4])*.08*e[1];ep[i*3+1]=fy+.4+e[1];ep[i*3+2]=FIRE.z+e[2]+Math.cos(t*1.7+e[4])*.2}
+    eg.attributes.position.needsUpdate=true;
+    for(let i=0;i<DN;i++){const d=db[i];dp[i*3]=d[0]+Math.sin(t*.15+d[3])*.8;dp[i*3+1]=d[1]+Math.sin(t*.22+d[3]*2)*.5;dp[i*3+2]=d[2]+Math.cos(t*.12+d[3])*.6}
+    dg.attributes.position.needsUpdate=true;
+    rays.forEach(r=>r.m.material.opacity=r.o*(.75+Math.sin(t*.3+r.ph)*.25));
+    R.render(S,cam)})();
+})();
+
+const PARK={"forest":[[[32.19,54.74],[22.84,55.0],[13.07,52.19],[3.87,45.95],[6.54,44.12],[14.52,48.48],[25.21,52.18],[28.44,51.2],[29.16,47.68],[23.44,44.06],[15.44,34.84],[10.47,35.22],[5.09,37.3],[1.55,42.11],[-4.62,36.32],[8.25,30.89],[27.52,23.92],[22.14,14.07],[8.71,19.22],[-8.8,25.64],[-14.75,28.1],[-24.53,15.24],[-29.05,13.75],[-37.21,11.81],[-41.9,14.26],[-44.49,14.52],[-51.59,22.42],[-63.43,19.77],[-45.33,2.78],[-48.0,-0.26],[-60.25,-9.0],[-62.85,-9.33],[-65.36,-8.82],[-69.32,-8.02],[-77.69,-6.89],[-80.05,-6.27],[-84.36,-3.38],[-91.74,4.03],[-100.6,1.41],[-106.46,0.57],[-113.07,1.29],[-115.61,0.18],[-117.13,-0.53],[-115.26,-2.29],[-119.29,-6.34],[-126.17,0.21],[-127.1,-0.98],[-126.45,-2.25],[-125.02,-6.19],[-119.59,-10.34],[-116.98,-14.32],[-115.16,-12.7],[-97.04,-36.2],[-99.25,-38.85],[-98.21,-40.65],[-97.97,-41.08],[-93.33,-49.17],[-94.15,-49.55],[-96.19,-49.49],[-105.32,-54.72],[-110.49,-57.05],[-116.62,-62.79],[-120.08,-65.0],[-121.64,-66.39],[-123.66,-68.91],[-125.35,-69.51],[-126.15,-70.21],[-123.38,-73.44],[-116.93,-68.56],[-109.82,-69.1],[-100.33,-70.6],[-93.03,-75.5],[-84.52,-74.7],[-76.27,-78.73],[-73.99,-83.83],[-68.48,-85.81],[-65.1,-88.52],[-61.66,-97.66],[-59.81,-103.45],[-62.31,-107.21],[-57.53,-111.97],[-52.15,-113.79],[-45.46,-115.55],[-38.09,-120.98],[-29.19,-128.75],[-24.32,-136.05],[-23.61,-140.47],[-26.58,-145.93],[-27.49,-149.86],[-25.24,-154.32],[-21.37,-156.79],[-10.89,-160.26],[-7.73,-154.86],[-8.42,-146.44],[-10.27,-141.88],[-11.9,-129.88],[-11.61,-121.89],[-9.05,-120.02],[-0.55,-116.33],[1.47,-113.28],[-1.36,-109.5],[-4.45,-107.03],[-10.74,-105.25],[-21.03,-104.93],[-33.5,-98.2],[-34.89,-91.8],[-32.34,-86.32],[-20.99,-77.94],[-8.94,-73.67],[-8.02,-71.75],[-5.42,-68.38],[3.7,-62.21],[16.26,-58.15],[20.84,-55.29],[24.54,-48.46],[22.88,-37.45],[14.26,-41.59],[7.62,-48.5],[1.49,-49.67],[-4.26,-49.9],[-14.44,-51.49],[-28.97,-60.09],[-32.2,-56.97],[-22.58,-49.59],[-11.74,-46.34],[-0.95,-44.62],[0.74,-39.55],[-4.26,-35.81],[-18.94,-26.03],[-18.39,-25.34],[-13.2,-19.8],[-13.19,-19.34],[-12.58,-18.35],[-10.0,-18.57],[-1.73,-25.3],[-3.46,-27.29],[-3.66,-30.2],[3.63,-35.16],[10.06,-24.18],[11.16,-21.67],[12.49,-20.56],[13.49,-20.73],[19.83,-24.96],[22.47,-27.78],[28.66,-27.47],[31.35,-23.31],[38.84,-20.09],[47.33,-19.85],[50.37,-18.45],[52.94,-16.03],[58.09,-10.74],[77.25,-22.69],[91.13,-28.47],[107.89,-24.66],[111.62,-23.81],[106.87,-19.31],[102.26,-18.08],[97.24,-18.6],[95.41,-17.93],[103.09,-13.86],[104.09,-8.65],[100.27,-5.58],[98.43,-7.22],[91.68,-8.01],[85.88,-5.32],[89.09,4.88],[92.49,15.61],[93.55,24.23],[92.63,33.41],[89.6,38.65],[87.17,40.33],[85.84,39.23],[85.71,37.28],[81.63,33.67],[78.41,32.81],[74.64,33.82],[71.19,36.96],[63.9,42.41],[59.2,48.63],[54.35,59.53],[52.53,63.59],[50.32,63.52],[48.66,63.3],[46.44,60.32],[41.35,56.93],[36.94,56.68],[39.14,63.87],[41.58,66.59],[40.48,70.05],[32.92,64.86],[31.98,67.45],[25.8,61.63],[22.69,60.22],[24.86,56.48],[28.63,57.7],[32.19,54.74]],[[-42.0,27.71],[-39.6,47.8],[-51.4,62.22],[-73.97,78.59],[-82.35,88.4],[-90.98,100.77],[-98.15,105.75],[-103.71,111.58],[-116.99,116.06],[-130.77,119.6],[-141.16,125.24],[-150.6,131.84],[-153.57,129.23],[-149.43,124.92],[-149.47,123.52],[-143.5,118.09],[-138.71,114.53],[-137.65,112.26],[-137.27,112.09],[-134.09,112.82],[-129.8,112.73],[-126.44,111.65],[-125.77,109.44],[-124.65,107.78],[-119.99,108.92],[-117.74,108.58],[-119.25,102.44],[-100.51,89.15],[-102.1,82.66],[-86.01,64.77],[-78.22,71.19],[-50.34,43.66],[-42.0,27.71]],[[-39.24,16.19],[-37.19,41.27],[-30.11,35.93],[-22.79,31.88],[-17.01,29.95],[-31.57,15.88],[-39.24,16.19]],[[334.21,-293.49],[322.75,-296.01],[318.12,-303.85],[315.01,-304.9],[310.84,-310.69],[301.66,-310.61],[299.16,-307.07],[292.39,-307.07],[287.18,-305.72],[284.18,-307.98],[283.64,-310.54],[284.9,-313.85],[288.9,-313.3],[291.49,-315.59],[292.68,-318.85],[296.57,-322.08],[298.74,-329.86],[296.47,-331.23],[291.42,-334.8],[286.46,-338.42],[288.49,-347.09],[284.0,-352.05],[280.41,-351.29],[276.54,-347.46],[274.36,-348.54],[272.77,-347.23],[266.01,-344.64],[264.72,-345.75],[259.41,-342.15],[260.39,-340.45],[259.25,-339.53],[258.06,-340.89],[255.89,-337.94],[257.85,-336.3],[255.77,-335.79],[253.99,-336.77],[252.89,-337.17],[247.86,-334.11],[246.28,-332.65],[244.67,-327.92],[240.23,-326.8],[237.95,-327.21],[236.16,-328.84],[236.56,-329.72],[239.5,-331.6],[242.39,-331.61],[243.19,-332.67],[246.44,-334.5],[252.76,-338.59],[257.99,-343.72],[256.73,-346.49],[255.47,-351.94],[244.69,-364.29],[235.9,-367.81],[232.47,-370.74],[229.55,-371.87],[226.96,-371.05],[225.4,-368.81],[225.45,-365.73],[226.53,-361.06],[225.54,-357.08],[227.1,-353.91],[224.94,-346.55],[225.04,-343.85],[223.69,-343.2],[222.02,-345.66],[219.55,-350.28],[216.5,-360.61],[215.15,-360.5],[214.7,-358.83],[214.93,-357.03],[216.47,-354.08],[215.9,-352.69],[216.64,-349.9],[215.53,-346.14],[217.49,-342.83],[223.19,-338.58],[224.16,-336.82],[223.16,-336.38],[221.2,-336.09],[219.85,-334.71],[217.7,-333.89],[216.58,-331.85],[217.66,-330.79],[218.72,-328.66],[220.3,-328.19],[221.68,-325.32],[223.53,-321.47],[222.85,-313.84],[227.03,-311.5],[229.05,-312.14],[231.78,-311.07],[234.66,-307.4],[240.2,-304.27],[249.52,-301.68],[252.8,-301.95],[261.42,-302.16],[255.49,-300.13],[258.97,-297.29],[265.58,-297.45],[270.59,-293.54],[264.81,-291.6],[262.03,-289.07],[260.2,-290.49],[250.86,-285.47],[251.1,-283.81],[254.3,-281.64],[259.13,-280.81],[262.6,-274.4],[260.16,-270.55],[256.59,-268.79],[248.47,-277.73],[245.56,-279.46],[243.24,-283.36],[242.38,-288.31],[243.32,-294.31],[239.57,-294.4],[235.82,-296.61],[235.28,-298.91],[232.33,-301.87],[229.98,-302.32],[220.51,-296.21],[225.37,-282.63],[229.48,-284.04],[230.21,-282.54],[227.19,-279.65],[227.42,-276.71],[234.58,-274.44],[236.79,-267.08],[234.68,-263.1],[229.61,-261.12],[227.59,-257.67],[227.98,-247.86],[229.64,-243.99],[225.07,-240.65],[222.49,-240.64],[221.41,-238.99],[227.78,-224.51],[229.0,-208.93],[233.4,-202.41],[235.19,-193.89],[231.25,-194.84],[231.96,-188.31],[233.59,-187.26],[233.58,-185.63],[231.63,-187.25],[229.28,-195.34],[222.64,-201.72],[214.01,-185.35],[224.1,-180.97],[222.43,-178.65],[230.36,-175.15],[240.75,-173.03],[254.64,-164.83],[236.49,-159.95],[229.2,-166.64],[225.83,-167.89],[224.1,-167.3],[222.8,-168.15],[223.81,-170.8],[219.95,-175.2],[214.57,-167.69],[217.12,-165.09],[220.72,-164.86],[223.95,-165.66],[226.27,-162.88],[231.14,-160.17],[233.31,-157.7],[233.13,-147.88],[245.24,-144.38],[241.2,-140.94],[236.58,-138.6],[235.36,-136.08],[233.83,-133.27],[240.67,-135.87],[243.58,-134.51],[243.14,-131.27],[247.35,-127.78],[250.02,-120.03],[249.61,-117.58],[245.48,-110.56],[247.28,-109.85],[248.71,-108.28],[249.13,-108.55],[249.54,-108.09],[248.99,-107.3],[248.97,-106.64],[248.37,-106.29],[247.53,-106.57],[247.23,-104.44],[243.44,-103.23],[244.37,-100.94],[243.59,-99.62],[245.58,-97.92],[248.29,-96.8],[252.0,-92.87],[257.56,-82.06],[260.24,-78.05],[264.3,-75.29],[266.95,-70.76],[272.34,-62.58],[276.5,-57.95],[285.19,-45.16],[287.14,-39.74],[289.34,-35.19],[289.2,-32.84],[289.19,-32.65],[286.3,-30.07],[281.19,-29.93],[276.91,-33.89],[275.15,-33.8],[270.5,-30.19],[270.37,-28.91],[272.31,-25.48],[268.48,-22.15],[261.76,-28.34],[254.86,-35.31],[253.37,-39.47],[253.95,-45.56],[252.5,-49.69],[243.71,-55.2],[232.54,-62.53],[230.49,-65.15],[226.69,-66.55],[216.58,-76.73],[210.48,-77.8],[203.91,-78.18],[197.29,-74.59],[203.23,-70.69],[195.76,-55.18],[176.99,-42.34],[172.38,-43.1],[154.39,-28.21],[145.69,-26.9],[131.41,-20.49],[111.62,-23.81],[107.89,-24.66],[91.13,-28.47],[77.25,-22.69],[58.09,-10.74],[52.94,-16.03],[50.37,-18.45],[47.33,-19.85],[38.84,-20.09],[31.35,-23.31],[28.66,-27.47],[22.47,-27.78],[19.83,-24.96],[13.49,-20.73],[12.49,-20.56],[11.16,-21.67],[10.06,-24.18],[3.63,-35.16],[-3.66,-30.2],[-3.46,-27.29],[-1.73,-25.3],[-10.0,-18.57],[-12.58,-18.35],[-13.19,-19.34],[-13.2,-19.8],[-18.39,-25.34],[-18.94,-26.03],[-4.26,-35.81],[0.74,-39.55],[-0.95,-44.62],[-11.74,-46.34],[-22.58,-49.59],[-32.2,-56.97],[-28.97,-60.09],[-14.44,-51.49],[-4.26,-49.9],[1.49,-49.67],[7.62,-48.5],[14.26,-41.59],[22.88,-37.45],[24.54,-48.46],[20.84,-55.29],[16.26,-58.15],[3.7,-62.21],[-5.42,-68.38],[-8.02,-71.75],[-8.94,-73.67],[-20.99,-77.94],[-32.34,-86.32],[-34.89,-91.8],[-33.5,-98.2],[-21.03,-104.93],[-10.74,-105.25],[-4.45,-107.03],[-1.36,-109.5],[1.47,-113.28],[-0.55,-116.33],[-9.05,-120.02],[-11.61,-121.89],[-11.9,-129.88],[-10.27,-141.88],[-8.42,-146.44],[-7.73,-154.86],[-10.89,-160.26],[-7.12,-165.83],[-7.18,-169.33],[-10.32,-174.23],[-15.91,-177.51],[-26.1,-184.15],[-34.82,-193.33],[-33.17,-202.83],[-30.36,-208.86],[-30.03,-212.87],[-29.9,-224.83],[-29.91,-228.23],[-27.49,-243.8],[-27.76,-248.25],[-28.83,-253.21],[-28.6,-262.17],[-32.2,-272.11],[-24.07,-288.35],[-21.05,-296.71],[-14.39,-294.91],[-11.64,-297.3],[-8.28,-298.17],[-3.83,-299.33],[-2.83,-297.05],[-4.78,-294.3],[1.77,-291.06],[5.33,-288.72],[13.87,-285.48],[18.61,-288.86],[20.7,-276.24],[21.83,-270.27],[23.93,-266.89],[26.98,-264.98],[33.92,-265.25],[44.34,-275.28],[50.13,-279.41],[59.06,-272.52],[61.63,-270.1],[65.23,-265.47],[67.42,-261.66],[71.06,-260.85],[79.62,-249.34],[89.52,-244.74],[92.03,-240.81],[93.16,-231.81],[92.44,-224.34],[89.18,-218.29],[83.88,-212.13],[77.66,-208.13],[67.51,-205.18],[55.28,-202.0],[51.88,-197.15],[52.11,-189.6],[79.63,-171.4],[87.15,-172.03],[94.04,-167.09],[97.51,-156.5],[100.91,-149.85],[106.1,-148.41],[111.59,-149.78],[117.75,-155.92],[121.24,-159.17],[125.56,-160.1],[131.66,-154.74],[133.07,-148.04],[132.06,-141.65],[134.55,-136.98],[140.62,-132.86],[147.21,-129.62],[155.67,-128.83],[159.14,-129.48],[162.52,-131.58],[167.84,-135.75],[170.26,-138.27],[171.01,-146.29],[163.06,-161.45],[157.39,-167.28],[152.74,-174.09],[151.64,-177.5],[150.39,-200.37],[144.61,-210.09],[128.27,-223.54],[111.92,-240.78],[109.21,-251.81],[109.66,-262.93],[103.06,-271.46],[94.44,-282.2],[91.48,-283.06],[92.35,-284.63],[110.45,-289.15],[129.38,-292.11],[131.71,-293.77],[149.2,-318.11],[138.59,-328.11],[121.08,-306.07],[117.84,-307.64],[110.05,-314.59],[108.37,-317.34],[114.43,-327.9],[112.8,-329.05],[99.36,-338.22],[83.94,-333.76],[65.31,-317.21],[70.36,-308.59],[64.24,-297.53],[51.57,-305.14],[48.38,-311.49],[48.21,-315.49],[49.64,-317.53],[50.54,-321.01],[46.72,-331.44],[51.5,-340.04],[54.66,-352.78],[56.59,-369.54],[56.97,-376.75],[58.73,-397.46],[62.18,-409.08],[77.17,-417.36],[79.55,-412.31],[97.02,-414.65],[100.34,-414.79],[114.6,-415.38],[117.17,-418.05],[118.49,-419.41],[121.32,-422.35],[123.77,-424.9],[131.23,-426.13],[133.7,-425.21],[142.17,-425.96],[149.51,-429.24],[152.36,-432.33],[166.62,-438.82],[171.9,-440.46],[176.0,-438.88],[178.49,-433.24],[183.33,-426.36],[185.69,-426.18],[193.88,-430.31],[196.2,-429.6],[214.97,-438.28],[228.6,-443.33],[229.2,-447.97],[227.77,-450.02],[210.66,-450.1],[200.51,-452.29],[183.88,-453.21],[182.58,-457.65],[202.34,-458.4],[200.26,-464.55],[192.22,-462.12],[189.19,-467.73],[181.72,-466.91],[179.12,-473.22],[190.73,-476.96],[190.79,-481.01],[188.09,-482.36],[171.67,-475.41],[171.22,-485.97],[185.19,-492.93],[189.83,-496.22],[191.68,-501.07],[185.46,-502.75],[181.12,-508.12],[178.39,-506.35],[175.01,-510.52],[163.7,-506.76],[161.54,-510.84],[170.23,-516.62],[168.68,-523.36],[163.57,-525.16],[159.44,-528.26],[156.76,-531.55],[149.39,-529.03],[146.41,-534.42],[153.88,-540.53],[151.32,-542.68],[147.35,-540.53],[145.97,-547.0],[151.0,-553.82],[148.8,-557.32],[136.32,-575.32],[417.15,-646.85],[437.3,-634.75],[440.49,-632.91],[442.55,-634.83],[450.26,-627.29],[450.67,-627.05],[457.92,-621.09],[464.93,-614.78],[470.45,-609.61],[471.14,-609.08],[474.28,-606.31],[482.01,-604.36],[482.45,-600.3],[484.15,-596.39],[486.8,-585.72],[492.69,-576.0],[492.91,-568.87],[488.32,-563.17],[476.57,-558.06],[473.52,-554.0],[473.71,-547.65],[474.27,-543.06],[486.13,-543.42],[490.37,-534.29],[499.69,-531.92],[503.73,-523.65],[513.38,-507.98],[519.21,-503.81],[527.11,-501.65],[532.01,-496.64],[532.26,-488.3],[534.05,-481.65],[538.83,-480.59],[545.12,-482.38],[556.12,-487.01],[568.3,-492.42],[571.3,-492.51],[585.32,-489.48],[596.21,-491.3],[607.67,-490.69],[610.14,-489.77],[614.75,-485.9],[615.81,-483.94],[615.43,-480.02],[611.6,-475.86],[611.22,-471.9],[614.28,-469.99],[618.76,-470.17],[624.16,-471.78],[634.97,-476.15],[638.95,-476.72],[646.89,-477.01],[656.8,-477.8],[660.78,-478.42],[664.14,-481.52],[669.2,-479.22],[677.15,-478.9],[678.66,-478.5],[691.67,-474.44],[692.04,-474.2],[700.83,-468.71],[698.48,-453.49],[695.71,-439.1],[689.04,-423.01],[683.64,-418.1],[668.72,-414.51],[659.14,-415.77],[645.24,-402.66],[633.53,-396.76],[634.56,-388.89],[634.02,-380.13],[619.38,-366.99],[607.78,-355.55],[600.02,-351.32],[595.37,-346.43],[592.86,-324.85],[597.45,-323.14],[603.47,-322.37],[608.52,-320.57],[612.1,-317.63],[615.72,-311.79],[618.41,-305.41],[621.62,-298.06],[623.22,-294.61],[626.25,-291.7],[628.25,-291.81],[638.61,-296.11],[641.61,-294.2],[641.74,-289.71],[633.36,-272.56],[631.97,-270.52],[627.99,-268.4],[621.11,-268.19],[612.6,-268.89],[605.72,-266.69],[604.72,-265.16],[604.8,-262.21],[605.86,-260.24],[611.44,-257.46],[614.5,-255.05],[614.62,-251.05],[609.47,-241.45],[606.59,-237.36],[603.75,-233.83],[604.85,-213.41],[607.44,-195.09],[607.92,-194.15],[618.72,-200.27],[620.01,-210.66],[618.82,-224.08],[622.64,-229.79],[636.93,-227.81],[641.91,-221.61],[642.31,-208.12],[651.25,-199.64],[657.77,-193.48],[668.06,-181.59],[664.23,-174.02],[654.32,-158.28],[660.01,-151.5],[662.94,-153.53],[669.13,-162.22],[675.87,-168.87],[680.72,-172.01],[694.09,-173.96],[699.01,-174.6],[705.09,-171.83],[708.28,-163.68],[707.06,-162.44],[687.63,-149.17],[676.54,-149.59],[665.56,-144.51],[669.03,-135.12],[675.23,-124.55],[679.85,-120.24],[682.51,-114.87],[684.24,-108.47],[684.59,-95.08],[687.84,-88.17],[701.09,-77.11],[708.12,-73.87],[716.02,-71.93],[716.14,-72.42],[716.63,-82.75],[715.46,-95.42],[716.81,-103.39],[723.86,-105.98],[726.58,-113.22],[728.74,-122.93],[734.44,-133.0],[744.45,-142.4],[757.06,-136.33],[762.78,-122.06],[758.22,-118.6],[751.24,-113.25],[746.29,-106.75],[745.73,-98.78],[746.26,-94.4],[746.77,-90.53],[749.97,-80.56],[756.61,-70.44],[757.81,-59.52],[759.27,-59.08],[769.94,-52.95],[778.17,-42.74],[782.79,-38.42],[784.81,-37.48],[790.87,-35.16],[791.96,-32.19],[795.09,-27.34],[799.68,-24.02],[806.63,-23.72],[816.0,-26.0],[821.95,-27.17],[825.41,-26.83],[828.9,-24.93],[836.11,-17.64],[838.13,-16.75],[843.16,-15.4],[852.1,-15.21],[862.45,-18.01],[868.84,-19.7],[878.36,-18.48],[885.45,-14.73],[889.99,-11.42],[897.75,-2.19],[899.73,-0.75],[901.74,-0.31],[906.69,-1.95],[911.64,-1.65],[921.29,4.07],[921.69,4.82],[917.97,4.4],[913.69,8.1],[917.85,16.42],[918.45,19.69],[917.95,21.72],[914.86,19.89],[912.66,19.57],[909.24,22.18],[912.92,23.8],[914.51,25.18],[912.88,28.63],[912.28,29.04],[908.27,27.18],[907.17,27.61],[904.53,25.66],[896.79,31.68],[889.2,35.21],[883.7,41.7],[875.38,46.19],[873.97,49.27],[875.44,57.19],[881.6,57.74],[883.31,56.56],[887.82,61.06],[890.73,68.14],[894.56,77.79],[899.17,77.24],[898.69,65.25],[895.39,63.83],[896.81,60.45],[904.52,61.52],[913.16,64.1],[918.01,66.78],[922.33,63.25],[926.39,63.09],[930.46,66.86],[936.35,68.67],[940.21,68.24],[939.46,65.8],[935.4,64.45],[936.32,62.81],[933.79,61.44],[933.81,56.72],[932.11,54.64],[927.63,51.05],[922.49,43.83],[921.42,41.37],[919.59,35.02],[921.51,29.18],[926.98,30.38],[928.46,26.6],[930.25,23.51],[931.16,24.76],[930.57,27.75],[931.87,31.44],[940.39,32.32],[950.4,30.38],[966.45,34.27],[950.24,40.88],[944.33,47.81],[947.37,50.86],[951.73,49.28],[956.01,52.7],[963.5,53.64],[974.3,64.58],[978.92,64.27],[979.08,65.76],[976.36,67.02],[973.1,69.34],[970.98,70.99],[972.47,74.84],[980.58,77.99],[981.68,80.5],[976.12,78.01],[974.86,78.44],[970.19,78.77],[961.89,96.34],[959.53,100.85],[958.65,104.88],[958.79,109.88],[961.5,117.25],[964.04,118.62],[967.7,124.52],[968.56,136.94],[969.6,138.36],[979.13,140.08],[983.07,139.97],[986.62,141.87],[990.56,157.65],[989.39,170.69],[982.41,174.69],[978.41,172.73],[974.67,182.01],[969.48,183.46],[970.82,190.22],[979.4,189.91],[975.06,199.65],[968.65,210.59],[963.23,221.7],[962.65,224.06],[962.52,226.57],[964.46,229.76],[975.04,238.6],[984.5,237.88],[990.74,234.55],[997.76,227.04],[998.63,219.22],[1000.89,217.9],[1005.16,215.48],[1012.65,212.31],[1019.25,207.52],[1025.02,201.8],[1028.5,198.1],[1032.4,196.44],[1046.54,200.73],[1050.51,200.06],[1052.44,199.51],[1053.41,198.48],[1054.83,195.94],[1054.99,185.43],[1061.67,169.41],[1073.3,163.86],[1069.97,187.63],[1063.5,232.3],[1062.08,233.24],[1060.92,254.5],[1071.71,271.92],[1075.23,277.3],[1072.63,283.62],[1071.17,282.13],[1069.11,282.13],[1067.7,283.03],[1067.85,296.92],[1068.23,309.53],[1071.12,317.29],[1062.54,319.08],[1056.99,324.22],[1043.81,326.29],[1035.03,331.37],[1037.09,332.95],[1038.6,334.25],[1048.6,334.42],[1053.55,337.58],[1052.56,349.77],[1052.51,353.4],[1051.89,362.3],[1051.28,363.27],[1050.79,352.51],[1044.32,355.44],[1041.14,353.85],[1035.56,356.34],[1035.03,357.7],[1033.61,358.99],[1029.32,361.71],[1024.95,359.06],[1021.25,363.73],[1018.29,364.4],[1015.91,370.28],[1016.45,371.68],[1018.09,370.44],[1018.37,368.25],[1018.91,367.7],[1020.84,370.58],[1022.76,371.4],[1023.58,372.78],[1022.76,379.36],[1020.97,380.32],[1018.64,387.31],[1016.45,386.08],[1014.53,383.88],[1012.54,380.92],[1009.32,382.01],[1004.9,384.97],[1002.77,387.5],[1003.31,388.77],[1003.27,390.08],[1002.57,391.07],[999.75,389.84],[996.74,393.88],[994.54,393.81],[993.4,394.87],[992.58,396.38],[986.86,392.23],[983.29,389.29],[983.15,385.17],[985.45,381.2],[982.33,373.59],[981.39,371.21],[980.45,370.06],[979.21,369.85],[979.42,363.61],[982.07,362.65],[981.7,361.47],[978.14,362.79],[977.63,363.68],[975.16,367.45],[975.03,366.01],[976.4,362.31],[976.33,360.8],[973.31,361.35],[968.24,358.68],[964.21,354.99],[955.72,349.15],[950.3,343.32],[943.34,342.05],[939.85,342.68],[933.84,339.65],[933.93,337.64],[929.35,332.75],[922.76,330.11],[920.46,327.51],[919.16,323.95],[924.58,319.6],[929.23,319.01],[927.87,317.27],[925.33,318.23],[925.26,316.51],[924.03,316.79],[923.55,316.24],[922.25,316.99],[922.38,318.43],[919.85,318.78],[917.38,320.76],[918.1,322.56],[917.18,323.91],[915.18,321.79],[911.48,320.56],[907.22,316.99],[906.4,314.39],[904.69,313.29],[896.32,343.69],[894.75,340.98],[893.82,340.91],[893.22,339.49],[890.97,338.0],[886.19,340.9],[884.35,342.37],[881.79,343.7],[878.29,344.26],[876.93,344.93],[870.98,346.87],[867.31,347.66],[867.05,347.26],[873.6,345.25],[877.03,343.8],[885.93,340.35],[890.68,337.03],[889.25,335.35],[888.07,332.81],[887.86,335.11],[886.47,335.73],[883.29,338.85],[879.23,335.48],[878.28,333.68],[876.76,332.84],[874.89,332.73],[870.25,333.66],[866.62,334.86],[860.19,335.69],[865.22,333.32],[868.68,332.38],[870.06,332.77],[874.38,331.06],[875.0,329.27],[871.82,324.07],[867.33,321.85],[863.93,321.84],[862.51,303.73],[865.2,299.05],[865.15,294.9],[866.38,291.89],[862.36,289.49],[860.15,289.72],[856.18,292.59],[854.77,291.77],[853.01,284.76],[846.29,279.3],[876.87,244.27],[854.46,247.98],[854.01,244.84],[836.33,244.77],[827.48,252.1],[816.76,248.42],[812.56,260.92],[810.27,249.88],[808.4,250.17],[807.4,248.33],[803.27,250.94],[798.44,251.29],[795.52,254.38],[794.99,257.31],[796.98,264.7],[790.63,268.3],[791.53,264.35],[791.05,260.7],[788.93,255.04],[788.72,251.01],[807.19,243.75],[805.47,238.13],[805.65,235.26],[806.69,234.73],[804.82,230.57],[805.37,226.62],[807.13,227.63],[808.38,229.63],[810.17,231.05],[811.41,229.25],[809.73,217.94],[810.53,211.38],[827.37,214.47],[837.57,206.72],[849.62,195.81],[864.3,187.43],[869.64,182.33],[882.94,162.99],[886.78,159.38],[890.58,152.82],[891.92,149.28],[891.82,145.78],[890.67,140.36],[888.12,136.94],[883.09,135.63],[879.13,136.7],[869.78,139.52],[866.36,140.12],[853.95,140.49],[839.03,140.47],[833.48,138.64],[828.34,133.34],[824.12,125.51],[822.89,117.6],[823.05,106.14],[814.11,90.51],[807.55,87.7],[804.41,85.08],[803.93,83.2],[797.14,76.14],[793.69,76.2],[792.93,76.25],[791.85,70.98],[788.7,68.55],[774.76,92.5],[772.93,91.64],[774.64,88.35],[775.58,85.43],[781.05,76.01],[783.76,71.34],[781.79,60.45],[777.56,52.24],[774.39,48.2],[771.19,41.19],[768.48,36.65],[766.93,36.85],[765.85,37.81],[762.88,38.37],[762.69,38.51],[759.16,41.17],[759.16,38.48],[752.97,32.48],[747.21,27.81],[738.08,30.71],[735.41,32.04],[732.83,34.45],[728.95,38.64],[728.08,35.8],[726.97,33.23],[724.5,32.68],[724.01,29.76],[723.85,28.37],[725.68,29.2],[726.07,26.73],[726.72,25.86],[727.89,26.69],[731.63,30.09],[732.51,29.64],[733.42,28.1],[735.29,26.38],[734.73,24.37],[728.44,19.82],[723.97,15.21],[723.23,7.7],[721.72,4.73],[723.31,-2.34],[722.61,-7.49],[723.85,-10.45],[724.3,-16.68],[722.51,-18.61],[716.03,-15.3],[712.38,-7.54],[708.28,0.94],[705.18,4.95],[702.19,11.57],[710.79,25.78],[714.47,32.46],[715.36,31.9],[712.72,27.44],[712.84,24.66],[713.69,24.75],[715.02,27.25],[718.43,30.99],[718.89,34.41],[717.08,34.99],[709.59,40.44],[706.43,46.69],[707.2,49.1],[704.28,48.93],[700.85,49.88],[699.65,44.15],[697.52,41.59],[703.07,38.15],[697.95,14.17],[699.44,10.17],[705.25,-0.81],[707.9,-7.34],[713.15,-16.47],[717.27,-21.4],[720.27,-22.99],[720.04,-25.12],[716.17,-26.85],[710.03,-32.14],[709.14,-23.82],[707.19,-30.01],[707.5,-34.77],[708.3,-35.93],[712.95,-42.66],[708.61,-48.62],[707.4,-49.52],[702.73,-52.04],[701.65,-53.17],[698.83,-57.05],[692.57,-59.46],[689.14,-61.95],[685.82,-61.41],[684.08,-58.6],[681.88,-60.7],[674.57,-67.02],[661.99,-68.91],[664.91,-75.3],[662.65,-74.41],[658.16,-68.8],[656.96,-68.57],[656.21,-70.44],[659.13,-73.51],[661.83,-75.46],[663.78,-77.96],[660.85,-77.38],[658.03,-77.55],[659.36,-74.34],[657.71,-73.89],[655.76,-73.96],[649.9,-78.05],[642.83,-80.79],[641.0,-83.61],[639.69,-85.65],[635.64,-87.53],[631.63,-87.91],[627.35,-82.91],[619.92,-85.55],[615.45,-88.52],[612.65,-91.74],[611.04,-95.7],[602.95,-96.13],[594.15,-100.84],[590.59,-104.95],[587.22,-111.33],[584.01,-118.19],[574.54,-132.86],[569.14,-132.7],[560.71,-137.97],[555.83,-140.82],[552.44,-143.01],[547.36,-147.81],[545.31,-152.82],[543.08,-160.08],[541.91,-163.65],[538.83,-163.59],[537.04,-169.67],[530.94,-173.09],[527.04,-174.06],[525.5,-175.51],[523.55,-180.15],[514.48,-187.71],[497.86,-201.57],[488.27,-206.73],[475.28,-213.24],[466.17,-215.37],[461.1,-221.63],[459.62,-223.3],[453.39,-239.43],[451.4,-240.93],[448.0,-240.79],[446.96,-242.84],[444.87,-241.8],[442.4,-238.1],[437.53,-233.35],[429.35,-227.62],[424.35,-233.95],[423.59,-236.84],[419.78,-227.3],[419.55,-227.43],[417.73,-228.52],[413.56,-240.93],[411.19,-244.0],[414.34,-248.65],[418.16,-251.85],[420.22,-252.09],[422.04,-250.48],[425.21,-254.85],[425.36,-258.07],[420.48,-266.05],[418.75,-267.15],[416.63,-267.71],[415.02,-267.34],[409.11,-271.83],[404.49,-273.98],[402.18,-273.88],[400.44,-274.83],[400.13,-279.25],[400.6,-282.52],[405.35,-286.12],[405.38,-288.44],[402.49,-289.24],[400.51,-291.31],[398.24,-289.99],[396.03,-291.48],[394.24,-294.67],[396.02,-296.8],[393.14,-300.58],[383.76,-285.38],[371.82,-262.45],[368.3,-257.06],[360.7,-262.84],[342.05,-240.94],[333.85,-247.9],[328.62,-245.24],[326.37,-240.19],[323.13,-241.42],[331.08,-259.4],[336.55,-269.47],[334.63,-270.96],[327.52,-260.43],[321.11,-260.31],[317.01,-255.99],[309.23,-253.42],[325.58,-272.13],[337.08,-287.4],[334.21,-293.49]],[[5.77,78.57],[14.25,82.67],[26.92,80.25],[26.36,96.71],[33.78,100.06],[38.29,99.93],[41.15,99.12],[43.12,97.55],[46.04,96.36],[50.94,96.94],[53.38,98.6],[35.78,107.64],[22.07,113.95],[8.75,118.38],[7.84,117.45],[2.66,113.69],[-5.25,110.95],[-12.88,108.78],[-13.32,110.64],[-17.32,113.45],[-20.46,112.85],[-21.51,108.36],[-30.22,106.94],[-34.81,109.24],[-37.51,107.52],[-34.14,99.94],[-39.59,93.57],[-45.33,92.77],[-49.49,94.19],[-52.6,105.21],[-61.9,105.65],[-59.52,99.81],[-48.47,91.44],[-41.41,83.96],[-35.32,75.29],[-31.47,67.01],[-24.02,50.76],[-7.25,37.48],[-4.22,41.04],[-6.43,43.35],[-9.14,49.84],[-8.74,53.4],[-4.85,54.56],[-2.82,60.95],[-4.29,65.41],[1.27,73.03],[5.77,78.57]]],"open":[{"k":"residential","p":[[-91.74,4.03],[-84.36,-3.38],[-80.05,-6.27],[-77.69,-6.89],[-69.32,-8.02],[-65.36,-8.82],[-62.85,-9.33],[-60.25,-9.0],[-48.0,-0.26],[-45.33,2.78],[-63.43,19.77],[-72.28,27.89],[-78.99,19.34],[-80.27,14.48],[-81.9,12.0],[-91.74,4.03]]},{"k":"residential","p":[[-113.45,72.51],[-105.17,80.17],[-102.1,82.66],[-86.01,64.77],[-78.22,71.19],[-50.34,43.66],[-42.0,27.71],[-41.9,14.26],[-44.49,14.52],[-51.59,22.42],[-64.21,36.09],[-78.83,35.7],[-83.52,36.15],[-85.52,39.81],[-100.18,56.4],[-99.14,57.32],[-113.45,72.51]]},{"k":"farmland","p":[[-37.51,107.52],[-34.81,109.24],[-30.22,106.94],[-21.51,108.36],[-20.46,112.85],[-17.32,113.45],[-13.32,110.64],[-12.88,108.78],[-5.25,110.95],[2.66,113.69],[7.84,117.45],[-14.2,124.36],[-27.36,128.11],[-37.55,129.36],[-52.34,133.3],[-51.17,135.99],[-57.15,144.06],[-63.98,144.92],[-69.43,145.93],[-78.34,147.85],[-85.21,149.07],[-96.2,135.14],[-96.45,130.88],[-96.2,127.13],[-97.12,123.75],[-97.62,121.63],[-103.3,123.46],[-113.77,126.82],[-115.18,122.12],[-116.7,117.04],[-116.99,116.06],[-103.71,111.58],[-98.15,105.75],[-90.98,100.77],[-82.35,88.4],[-73.97,78.59],[-66.71,76.23],[-65.09,77.04],[-66.63,80.89],[-63.17,82.86],[-54.9,79.44],[-51.99,75.86],[-49.63,64.7],[-51.4,62.22],[-39.6,47.8],[-37.19,41.27],[-30.11,35.93],[-22.79,31.88],[-17.01,29.95],[-15.28,31.72],[-18.5,35.45],[-22.64,43.04],[-26.89,46.85],[-33.61,51.26],[-45.46,65.05],[-46.76,76.57],[-50.3,81.84],[-52.13,85.3],[-56.46,86.54],[-60.98,92.33],[-62.5,94.87],[-66.65,94.38],[-69.5,92.84],[-72.22,94.16],[-70.35,96.36],[-66.0,97.5],[-60.61,96.17],[-59.31,93.69],[-51.73,87.79],[-47.07,83.37],[-43.81,77.55],[-43.83,71.7],[-41.88,65.93],[-37.94,59.71],[-30.63,51.98],[-25.19,50.6],[-36.41,74.33],[-48.47,91.44],[-59.52,99.81],[-63.83,101.41],[-74.93,109.39],[-80.67,114.74],[-81.78,117.37],[-80.01,118.08],[-73.94,115.15],[-71.78,114.11],[-70.21,111.71],[-64.7,107.08],[-61.9,105.65],[-52.6,105.21],[-49.49,94.19],[-45.33,92.77],[-39.59,93.57],[-34.14,99.94],[-37.51,107.52]]},{"k":"farmland","p":[[-5.78,25.54],[1.03,27.96],[7.92,25.28],[10.44,21.74],[8.54,19.94],[0.43,22.47],[-5.78,25.54]]}],"paths":[{"k":"footway","n":"","p":[[-19.57,-6.05],[-16.85,-3.42]]},{"k":"path","n":"","p":[[-8.39,-6.42],[-2.1,-1.45],[5.06,3.38],[6.95,9.29]]},{"k":"track","n":"Lesn\u00fd park","p":[[-22.89,-9.5],[-20.53,-10.9],[-19.59,-11.45],[-14.52,-14.67],[-12.84,-15.74],[-9.59,-17.82],[-9.09,-18.14],[-6.52,-19.72],[-3.62,-21.32],[-1.72,-22.18],[2.31,-23.78],[4.12,-24.31],[5.74,-24.63],[7.41,-24.86],[8.94,-24.97],[14.53,-25.28]]},{"k":"residential","n":"B\u00f4rov\u00e1","p":[[-93.45,5.65],[-85.14,-2.75],[-83.28,-4.5],[-81.02,-5.84],[-79.46,-6.41],[-76.96,-6.93],[-69.65,-7.88],[-66.5,-8.59],[-62.88,-9.74],[-61.58,-9.85],[-60.07,-9.4],[-54.81,-5.77],[-48.71,-1.55],[-47.16,-0.0],[-45.55,1.62],[-44.5,2.92]]},{"k":"residential","n":"Dubov\u00e1","p":[[-47.16,-0.0],[-51.07,3.81],[-56.2,8.8],[-61.42,13.88],[-62.45,14.86],[-63.58,15.21],[-64.9,14.66],[-65.23,13.95],[-66.38,9.55],[-66.49,9.2],[-67.36,6.76]]},{"k":"service","n":"Lesn\u00fd park","p":[[-44.5,2.92],[-42.8,2.22],[-37.42,-0.9],[-24.0,-8.84]]},{"k":"service","n":"","p":[[-44.5,2.92],[-44.11,6.0],[-43.41,6.92],[-42.62,6.97]]},{"k":"residential","n":"Smrekov\u00e1","p":[[-67.36,6.76],[-65.44,4.84],[-60.16,-0.43],[-54.81,-5.77]]},{"k":"service","n":"Na karasiny","p":[[-35.17,9.19],[-38.1,11.89],[-41.21,13.68],[-43.1,14.32],[-45.24,15.28],[-46.56,17.43],[-51.25,21.31],[-52.18,24.07],[-53.92,26.18],[-54.82,27.08],[-58.35,30.61]]},{"k":"path","n":"","p":[[-15.17,-1.79],[-8.39,-6.42]]},{"k":"service","n":"","p":[[-51.07,3.81],[-52.18,0.58]]},{"k":"service","n":"Ag\u00e1tov\u00e1","p":[[-52.18,24.07],[-47.67,28.03]]},{"k":"track","n":"","p":[[14.53,-25.28],[23.52,-25.27],[29.54,-23.04],[33.95,-21.89],[37.61,-22.34],[41.65,-24.35],[49.22,-32.32],[51.27,-34.47],[55.99,-39.58],[60.79,-48.19],[62.55,-49.1],[68.99,-52.3],[74.11,-56.71],[79.37,-62.93],[88.04,-66.44],[90.44,-70.16],[92.68,-79.41],[92.18,-81.98],[89.64,-86.91],[90.16,-90.75],[94.17,-95.22],[98.2,-101.04],[101.14,-103.19],[105.06,-102.75],[113.05,-101.73],[115.97,-102.08],[118.37,-103.66],[119.89,-106.32],[122.11,-114.01],[125.47,-118.8],[129.33,-126.52],[130.58,-133.32],[129.5,-149.27],[131.35,-161.14],[134.73,-182.79],[136.6,-196.12],[140.42,-216.09],[140.03,-221.15],[138.7,-225.37],[138.28,-230.91],[139.49,-235.75],[142.57,-243.53],[145.02,-261.64],[144.3,-265.93],[136.46,-279.28],[134.78,-283.73],[134.44,-287.57]]},{"k":"residential","n":"Bazov\u00e1","p":[[-60.91,33.22],[-53.74,40.54],[-52.46,41.85]]},{"k":"track","n":"","p":[[-43.41,6.92],[-42.87,9.55],[-42.86,13.26],[-43.1,14.32]]},{"k":"track","n":"","p":[[-14.52,-14.67],[-14.0,-15.82],[-13.27,-17.58],[-12.38,-19.73],[-11.09,-22.37],[-10.12,-23.43],[-8.81,-24.3]]},{"k":"path","n":"","p":[[-8.39,-6.42],[-2.35,-13.26],[4.4,-21.91],[8.03,-22.37],[13.31,-23.69],[14.53,-25.28]]},{"k":"track","n":"","p":[[-23.68,-9.03],[-25.27,-10.69],[-26.0,-11.82],[-26.98,-13.33],[-28.16,-18.03],[-28.51,-19.57],[-28.47,-20.84]]},{"k":"path","n":"","p":[[-35.17,9.19],[-28.77,7.5],[-16.96,-0.61],[-15.17,-1.79]]},{"k":"footway","n":"","p":[[-19.57,-6.05],[-23.04,-2.97],[-32.84,6.56],[-35.17,9.19]]},{"k":"footway","n":"","p":[[-22.89,-9.5],[-21.49,-8.22],[-19.57,-6.05]]},{"k":"track","n":"","p":[[14.53,-25.28],[15.56,-25.66],[17.04,-26.42],[17.62,-27.11],[18.12,-27.72],[18.34,-29.45]]},{"k":"path","n":"","p":[[-2.1,-1.45],[1.13,-2.25],[3.35,-2.8]]},{"k":"path","n":"","p":[[-57.59,-11.26],[-55.93,-11.11],[-53.5,-10.66],[-50.6,-9.77],[-46.66,-9.13],[-42.62,-10.16],[-37.48,-9.81],[-34.95,-9.17],[-31.19,-8.74],[-28.5,-9.08],[-25.11,-9.13],[-24.0,-8.84]]},{"k":"service","n":"Lesn\u00fd park","p":[[-24.0,-8.84],[-23.68,-9.03],[-22.89,-9.5]]},{"k":"path","n":"","p":[[-57.59,-11.26],[-53.58,-12.65],[-50.87,-14.09],[-48.59,-15.27],[-45.99,-16.43],[-38.34,-17.84],[-33.18,-18.92],[-30.03,-19.47],[-28.47,-20.84]]},{"k":"path","n":"","p":[[-28.77,7.5],[-22.66,6.35],[-20.26,5.93],[-18.09,5.54],[-16.28,4.78],[-16.28,4.19],[-16.28,2.45],[-16.96,-0.61],[-16.85,-3.42]]},{"k":"track","n":"","p":[[11.82,19.05],[11.05,19.2],[7.04,19.96],[-0.91,22.33],[-3.26,23.5],[-5.89,24.45],[-11.27,26.28],[-14.41,28.94],[-15.87,29.1],[-18.79,29.41],[-26.95,33.35],[-31.79,34.48],[-37.4,39.8],[-40.39,44.65],[-41.54,49.27],[-46.74,57.19],[-49.9,59.72],[-55.77,64.15],[-64.05,71.38],[-66.89,74.2],[-68.04,75.35]]},{"k":"path","n":"","p":[[-30.03,-19.47],[-28.51,-19.57]]},{"k":"path","n":"","p":[[-27.87,-23.75],[-27.34,-24.52],[-26.22,-24.84],[-25.49,-24.14],[-24.18,-23.99],[-23.57,-25.32],[-21.38,-26.63],[-20.41,-26.66],[-19.16,-26.34],[-18.12,-26.65],[-16.22,-28.09],[-11.72,-32.98],[-10.83,-34.09],[-7.98,-35.96],[-5.46,-37.57],[-4.89,-37.01],[-4.51,-36.73],[-3.66,-36.56]]},{"k":"path","n":"","p":[[-51.74,-53.84],[-48.89,-53.15],[-40.46,-48.69],[-34.02,-45.14],[-30.94,-34.84],[-27.41,-29.34]]},{"k":"path","n":"","p":[[-28.17,-24.38],[-28.46,-26.31],[-27.41,-29.34],[-27.14,-31.67],[-27.14,-33.87],[-26.24,-38.2],[-24.76,-43.23],[-22.43,-46.43]]},{"k":"track","n":"","p":[[-28.47,-20.84],[-27.87,-23.75],[-28.17,-24.38],[-36.68,-31.47],[-41.09,-34.86],[-47.45,-37.67],[-51.54,-40.32],[-54.72,-41.4],[-59.21,-44.8],[-60.8,-45.29],[-62.63,-45.47],[-64.74,-45.79],[-67.32,-45.41],[-70.72,-44.25],[-73.61,-44.1],[-77.78,-47.06],[-83.29,-50.13],[-85.73,-50.17],[-87.58,-50.89],[-90.2,-53.08]]},{"k":"path","n":"","p":[[-46.66,-9.13],[-48.31,-13.25],[-48.34,-14.25],[-48.59,-15.27]]},{"k":"path","n":"","p":[[-31.19,-8.74],[-33.78,-7.54],[-35.83,-6.4],[-38.68,-3.98],[-41.37,-2.6],[-45.09,-1.44],[-47.16,-0.0]]},{"k":"track","n":"","p":[[-28.97,-52.03],[-26.16,-49.58],[-24.41,-49.05],[-22.43,-46.43],[-19.91,-41.84],[-18.33,-40.53],[-17.09,-38.52],[-15.26,-37.12],[-11.72,-32.98],[-11.03,-31.94],[-9.6,-29.77],[-8.06,-27.62],[-7.54,-26.4],[-7.7,-25.39],[-8.81,-24.3]]},{"k":"track","n":"","p":[[26.84,-45.81],[23.87,-43.27],[20.49,-41.5],[18.23,-40.15],[16.46,-38.59],[13.7,-37.35],[9.43,-36.21],[7.66,-35.01],[6.05,-33.65],[3.37,-31.5],[-2.09,-28.48],[-3.54,-27.58],[-5.8,-26.3],[-7.7,-25.39]]},{"k":"track","n":"","p":[[-9.6,-29.77],[-8.69,-31.23],[-7.47,-32.25],[-5.82,-33.8],[-5.0,-34.43],[-3.66,-36.56],[-2.53,-37.71],[-0.89,-38.14],[1.58,-39.12],[5.33,-39.24],[8.04,-39.95],[10.29,-40.35],[15.65,-43.11],[18.56,-44.17],[22.1,-45.27],[24.17,-45.45],[26.84,-45.81],[28.24,-46.36],[31.42,-47.53],[33.58,-48.41],[36.08,-49.62],[37.72,-49.61],[39.37,-49.41],[42.97,-49.62],[44.97,-49.49],[47.67,-49.11],[50.52,-49.3],[52.71,-49.6],[54.85,-49.51],[60.79,-48.19]]},{"k":"path","n":"","p":[[-36.55,-55.24],[-37.67,-53.33],[-38.72,-51.05],[-40.46,-48.69],[-40.68,-47.24],[-40.57,-45.13],[-40.36,-43.97],[-41.38,-42.6]]},{"k":"service","n":"Ag\u00e1tov\u00e1","p":[[-46.14,26.15],[-47.67,28.03],[-49.39,30.12]]},{"k":"footway","n":"","p":[[-54.82,27.08],[-55.88,26.93],[-59.0,29.89]]},{"k":"track","n":"","p":[[-11.03,-31.94],[-11.09,-22.37],[-9.59,-17.82]]},{"k":"track","n":"","p":[[229.96,7.59],[229.17,5.05],[227.67,4.9],[226.02,5.29],[223.8,5.19],[217.56,2.6],[212.74,2.3],[205.8,-0.31],[199.97,-1.92],[194.82,-2.83],[189.63,-4.46],[187.24,-4.58],[180.5,-6.88],[175.87,-9.47],[171.45,-11.4],[159.31,-14.89],[155.49,-15.82],[153.03,-17.06],[150.36,-19.91],[147.82,-24.11],[146.83,-26.23],[145.77,-28.49],[144.69,-29.16],[141.52,-28.65],[137.67,-30.37],[131.41,-30.56],[123.76,-28.96],[118.94,-29.79],[114.61,-31.28],[109.69,-33.56],[102.69,-33.15],[97.87,-34.8],[92.4,-33.72],[86.71,-36.2],[75.38,-36.28],[72.63,-37.14],[66.88,-35.1],[61.92,-30.62],[57.44,-28.57],[51.4,-21.24],[46.46,-21.2],[45.02,-21.39],[37.61,-22.34]]},{"k":"steps","n":"","p":[[6.95,9.29],[7.04,9.57]]},{"k":"path","n":"","p":[[-4.51,7.93],[-7.58,9.27],[-11.98,10.49],[-14.49,10.6],[-17.19,9.55],[-20.26,5.93]]},{"k":"path","n":"","p":[[-16.28,4.19],[-12.25,3.62],[-4.51,7.93],[2.11,8.45],[5.54,9.39],[6.95,9.29]]},{"k":"footway","n":"","p":[[-16.85,-3.42],[-16.29,-3.56],[-16.42,-5.59]]},{"k":"path","n":"","p":[[-16.85,-3.42],[-15.17,-1.79]]},{"k":"service","n":"","p":[[-42.62,6.97],[-37.86,6.55]]},{"k":"path","n":"","p":[[42.52,-36.86],[43.11,-33.86],[44.59,-32.03],[46.65,-31.72],[49.22,-32.32]]},{"k":"track","n":"","p":[[52.71,-49.6],[48.62,-45.0],[45.0,-38.99],[42.52,-36.86],[35.01,-30.42],[31.96,-28.75],[31.57,-27.35],[29.99,-26.29],[23.52,-25.27]]},{"k":"track","n":"","p":[[-24.41,-49.05],[-21.04,-48.2],[-15.44,-45.57],[-12.17,-45.24],[-10.24,-45.24],[-3.99,-43.55],[2.11,-43.55],[8.29,-42.92],[15.65,-43.11]]},{"k":"residential","n":"Bazov\u00e1","p":[[-53.74,40.54],[-57.25,43.97],[-60.54,45.01],[-61.88,46.1]]},{"k":"path","n":"","p":[[11.05,19.2],[10.89,18.07],[11.77,17.13],[13.9,16.03],[20.49,13.47],[24.06,13.21],[25.42,14.88],[26.86,15.37],[30.16,21.13]]},{"k":"path","n":"","p":[[13.9,16.03],[12.9,14.67],[12.49,13.67]]},{"k":"steps","n":"","p":[[30.16,21.13],[30.33,21.53]]},{"k":"path","n":"","p":[[26.63,23.56],[27.78,24.28],[29.92,24.7],[34.44,26.31],[37.15,25.7],[41.25,25.14],[43.44,25.18]]},{"k":"track","n":"","p":[[-49.9,59.72],[-43.73,60.32],[-42.46,59.93],[-34.75,50.61],[-19.01,34.02],[-17.48,32.08],[-15.87,29.1]]},{"k":"path","n":"","p":[[-24.18,-23.99],[-26.14,-21.5],[-28.51,-19.57]]},{"k":"path","n":"","p":[[-31.19,-8.74],[-29.15,-10.18],[-26.0,-11.82],[-22.42,-13.75],[-12.36,-21.74],[-11.09,-22.37]]},{"k":"path","n":"","p":[[-28.16,-18.03],[-22.42,-13.75],[-20.53,-10.9]]},{"k":"path","n":"","p":[[8.94,-24.97],[8.03,-22.37]]},{"k":"path","n":"","p":[[13.31,-23.69],[25.09,-18.91],[32.95,-13.65],[38.61,-13.23],[43.1,-14.43],[46.0,-15.97],[45.02,-21.39]]}],"bld":[{"p":[[-13.96,-7.77],[-13.47,-6.96],[-13.15,-6.43],[-15.87,-4.85],[-16.15,-5.4],[-14.01,-6.67],[-14.49,-7.48],[-13.96,-7.77]],"h":0.45,"n":"Lesopark","w":false},{"p":[[-54.69,28.07],[-52.97,29.7],[-52.96,29.89],[-53.31,30.27],[-53.5,30.27],[-53.97,29.82],[-54.57,30.46],[-55.15,29.93],[-54.55,29.29],[-55.23,28.64],[-54.69,28.07]],"h":0.45,"n":"","w":false},{"p":[[-50.93,28.88],[-50.44,29.32],[-51.17,30.16],[-51.31,30.15],[-51.61,29.91],[-51.62,29.78],[-51.51,29.66],[-52.43,28.84],[-52.24,28.62],[-52.32,28.56],[-52.31,28.39],[-52.2,28.26],[-52.29,28.19],[-51.89,27.72],[-50.77,28.69],[-50.93,28.88]],"h":0.45,"n":"","w":false},{"p":[[-47.45,28.93],[-47.25,28.68],[-46.78,29.07],[-46.97,29.31],[-46.75,29.5],[-47.22,30.07],[-47.39,29.94],[-47.63,30.22],[-48.21,29.75],[-47.78,29.23],[-47.9,29.13],[-47.71,28.88],[-47.58,28.99],[-47.5,28.89],[-47.45,28.93]],"h":0.45,"n":"","w":false},{"p":[[-44.05,25.61],[-44.3,25.92],[-45.06,25.3],[-44.3,24.37],[-43.02,25.41],[-43.53,26.04],[-44.05,25.61]],"h":0.45,"n":"","w":false},{"p":[[-42.89,18.2],[-43.92,19.43],[-44.23,19.17],[-44.26,19.22],[-44.33,19.23],[-44.49,19.1],[-44.49,19.03],[-44.45,18.99],[-45.46,18.14],[-44.44,16.92],[-42.89,18.2]],"h":0.75,"n":"","w":false},{"p":[[-52.7,37.45],[-52.77,37.52],[-52.55,37.74],[-53.19,38.38],[-53.43,38.14],[-53.37,38.06],[-53.61,37.82],[-53.75,37.96],[-53.97,37.75],[-53.9,37.66],[-53.97,37.59],[-53.27,36.88],[-52.7,37.45]],"h":0.45,"n":"","w":false},{"p":[[-51.85,38.63],[-52.4,39.17],[-52.47,39.1],[-52.54,39.17],[-52.76,38.95],[-52.62,38.81],[-52.87,38.57],[-52.94,38.64],[-53.19,38.38],[-52.55,37.74],[-52.33,37.98],[-52.26,37.91],[-51.69,38.46],[-51.85,38.63]],"h":0.45,"n":"","w":false},{"p":[[-51.85,38.63],[-51.3,39.17],[-51.37,39.24],[-51.17,39.45],[-51.8,40.09],[-52.03,39.86],[-51.96,39.78],[-52.21,39.53],[-52.35,39.68],[-52.55,39.47],[-52.48,39.4],[-52.55,39.34],[-52.4,39.17],[-51.85,38.63]],"h":0.45,"n":"","w":false},{"p":[[-50.96,39.65],[-50.89,39.58],[-50.34,40.12],[-51.05,40.84],[-51.12,40.76],[-51.19,40.84],[-51.4,40.63],[-51.26,40.48],[-51.5,40.24],[-51.57,40.32],[-51.8,40.09],[-51.17,39.45],[-50.96,39.65]],"h":0.45,"n":"","w":false},{"p":[[-50.48,26.12],[-50.65,26.34],[-50.35,26.59],[-51.13,27.51],[-52.12,26.66],[-51.8,26.28],[-51.9,26.2],[-51.27,25.45],[-50.48,26.12]],"h":0.45,"n":"","w":false},{"p":[[-48.23,24.85],[-48.66,25.38],[-48.82,25.25],[-49.16,25.65],[-50.06,24.9],[-49.72,24.48],[-50.28,24.01],[-49.85,23.49],[-48.23,24.85]],"h":0.45,"n":"","w":false},{"p":[[-47.65,23.74],[-47.77,23.63],[-48.06,23.98],[-48.86,23.31],[-48.78,23.22],[-49.03,23.0],[-48.64,22.55],[-48.92,22.32],[-48.47,21.79],[-47.89,22.27],[-47.98,22.37],[-47.11,23.09],[-47.65,23.74]],"h":0.45,"n":"","w":false},{"p":[[-46.97,21.83],[-47.38,21.48],[-47.44,21.57],[-47.69,21.36],[-47.63,21.28],[-47.89,21.06],[-47.16,20.17],[-46.01,21.12],[-46.42,21.62],[-46.64,21.44],[-46.97,21.83]],"h":0.45,"n":"","w":false},{"p":[[-49.75,-0.92],[-50.43,-0.24],[-50.52,-0.16],[-51.07,-0.7],[-50.41,-1.4],[-50.31,-1.49],[-49.75,-0.92]],"h":0.75,"n":"","w":false},{"p":[[-51.72,-1.15],[-51.82,-1.04],[-52.37,-1.59],[-51.71,-2.29],[-51.62,-2.38],[-51.07,-1.84],[-51.72,-1.15]],"h":0.75,"n":"","w":false},{"p":[[-50.41,-1.4],[-51.07,-0.7],[-51.16,-0.61],[-51.72,-1.15],[-51.07,-1.84],[-50.97,-1.94],[-50.41,-1.4]],"h":0.75,"n":"","w":false},{"p":[[-50.91,6.91],[-51.84,5.94],[-51.1,5.21],[-50.17,6.18],[-50.91,6.91]],"h":0.45,"n":"","w":false},{"p":[[-53.01,8.92],[-53.76,9.66],[-54.65,8.74],[-53.91,8.0],[-53.01,8.92]],"h":0.45,"n":"","w":false},{"p":[[-56.29,6.08],[-55.1,5.72],[-54.85,6.5],[-56.05,6.87],[-56.29,6.08]],"h":0.75,"n":"","w":false},{"p":[[-53.94,1.65],[-54.2,0.86],[-53.02,0.48],[-52.77,1.27],[-53.94,1.65]],"h":0.75,"n":"","w":false},{"p":[[-54.2,0.86],[-53.02,0.48],[-53.27,-0.34],[-54.45,0.04],[-54.2,0.86]],"h":0.75,"n":"","w":false},{"p":[[-55.21,11.1],[-56.1,10.18],[-55.36,9.44],[-54.47,10.36],[-55.21,11.1]],"h":0.45,"n":"","w":false},{"p":[[-57.03,3.74],[-55.83,3.38],[-55.58,4.18],[-56.78,4.54],[-57.03,3.74]],"h":0.75,"n":"","w":false},{"p":[[-56.54,5.31],[-56.78,4.54],[-55.58,4.18],[-55.34,4.95],[-56.54,5.31]],"h":0.75,"n":"","w":false},{"p":[[-56.54,5.31],[-55.34,4.95],[-55.1,5.72],[-56.29,6.08],[-56.54,5.31]],"h":0.75,"n":"","w":false},{"p":[[-53.43,7.51],[-52.68,6.78],[-51.79,7.69],[-52.54,8.42],[-53.43,7.51]],"h":0.45,"n":"","w":false},{"p":[[-46.28,2.23],[-47.03,2.96],[-47.91,2.05],[-47.16,1.31],[-46.28,2.23]],"h":0.45,"n":"","w":false},{"p":[[-48.24,4.19],[-49.14,3.28],[-48.4,2.54],[-47.51,3.45],[-48.24,4.19]],"h":0.45,"n":"","w":false},{"p":[[-48.95,4.88],[-49.7,5.63],[-50.6,4.71],[-49.85,3.98],[-48.95,4.88]],"h":0.45,"n":"","w":false},{"p":[[-49.81,0.22],[-49.91,0.31],[-50.43,-0.24],[-49.75,-0.92],[-49.71,-0.95],[-49.16,-0.41],[-49.81,0.22]],"h":0.75,"n":"","w":false},{"p":[[-49.16,-0.41],[-49.07,-0.5],[-48.54,0.03],[-49.27,0.77],[-49.81,0.22],[-49.16,-0.41]],"h":0.75,"n":"","w":false},{"p":[[-54.74,-3.01],[-55.32,-3.59],[-55.22,-3.7],[-55.43,-3.91],[-54.85,-4.5],[-54.35,-4.01],[-54.29,-4.07],[-54.14,-4.07],[-53.99,-3.93],[-53.99,-3.78],[-54.17,-3.6],[-54.08,-3.51],[-54.41,-3.18],[-54.5,-3.27],[-54.74,-3.01]],"h":0.45,"n":"","w":false},{"p":[[-53.66,-2.51],[-52.91,-3.29],[-52.36,-2.76],[-53.03,-2.04],[-53.11,-1.97],[-53.66,-2.51]],"h":0.75,"n":"","w":false},{"p":[[-52.28,-2.84],[-51.71,-2.29],[-52.37,-1.59],[-52.47,-1.49],[-53.03,-2.04],[-52.36,-2.76],[-52.28,-2.84]],"h":0.75,"n":"","w":false},{"p":[[-38.13,4.47],[-38.02,5.75],[-41.68,6.07],[-41.79,4.79],[-38.13,4.47]],"h":0.75,"n":"","w":false},{"p":[[-14.19,4.75],[-14.38,4.45],[-13.68,4.0],[-13.49,4.31],[-14.19,4.75]],"h":0.45,"n":"","w":false},{"p":[[19.36,-32.01],[19.31,-30.72],[17.14,-30.8],[17.2,-32.08],[19.36,-32.01]],"h":0.45,"n":"","w":false},{"p":[[12.54,18.13],[12.63,18.54],[12.27,18.61],[12.18,18.2],[12.54,18.13]],"h":0.45,"n":"","w":false},{"p":[[-30.0,31.47],[-29.41,31.21],[-29.25,31.59],[-29.81,31.8],[-30.0,31.47]],"h":0.45,"n":"","w":false},{"p":[[-22.91,-6.45],[-24.02,-5.93],[-26.97,-4.5],[-27.23,-5.06],[-23.18,-7.01],[-22.91,-6.45]],"h":0.45,"n":"","w":true},{"p":[[-26.08,-4.42],[-26.55,-4.2],[-26.66,-4.44],[-26.2,-4.66],[-26.08,-4.42]],"h":0.45,"n":"","w":true},{"p":[[-24.02,-5.93],[-22.91,-6.45],[-22.67,-5.93],[-23.76,-5.4],[-24.02,-5.93]],"h":0.45,"n":"","w":true},{"p":[[-53.44,3.21],[-52.27,2.84],[-52.52,2.06],[-53.69,2.43],[-53.44,3.21]],"h":0.75,"n":"","w":false},{"p":[[-53.19,4.03],[-52.02,3.66],[-52.27,2.84],[-53.44,3.21],[-53.19,4.03]],"h":0.75,"n":"","w":false},{"p":[[-53.69,2.43],[-52.52,2.06],[-52.77,1.27],[-53.94,1.65],[-53.69,2.43]],"h":0.75,"n":"","w":false},{"p":[[-55.99,24.5],[-55.89,24.49],[-55.42,23.89],[-54.87,24.32],[-54.81,24.24],[-54.0,24.88],[-54.41,25.41],[-55.07,24.9],[-55.37,25.29],[-55.81,24.95],[-55.91,24.97],[-56.07,24.85],[-56.11,24.66],[-55.99,24.5]],"h":0.45,"n":"","w":false},{"p":[[-42.99,23.67],[-43.49,24.28],[-44.23,23.65],[-43.74,23.06],[-42.99,23.67]],"h":0.45,"n":"","w":false},{"p":[[-45.19,19.07],[-44.91,19.3],[-44.98,19.38],[-44.38,19.89],[-44.87,20.48],[-45.1,20.3],[-45.23,20.39],[-45.38,20.44],[-45.55,20.43],[-45.7,20.36],[-45.89,20.57],[-46.48,20.07],[-46.03,19.52],[-46.32,19.28],[-45.82,18.67],[-45.25,19.15],[-45.19,19.07]],"h":0.45,"n":"","w":false},{"p":[[-50.9,31.81],[-49.84,32.74],[-49.94,32.85],[-49.71,33.06],[-49.61,32.95],[-48.52,33.91],[-49.23,34.71],[-49.85,34.17],[-50.3,34.68],[-51.16,33.92],[-50.49,33.17],[-51.4,32.37],[-50.9,31.81]],"h":0.45,"n":"","w":false},{"p":[[-53.05,34.94],[-52.2,34.08],[-51.19,35.09],[-52.04,35.95],[-53.05,34.94]],"h":0.45,"n":"","w":false},{"p":[[-48.87,32.11],[-50.12,31.06],[-49.68,30.55],[-49.22,30.94],[-49.06,30.74],[-48.28,31.4],[-48.87,32.11]],"h":0.45,"n":"","w":false}],"areas":[{"k":"fence","p":[[-42.19,11.87],[-42.62,6.97],[-42.82,4.57],[-42.61,4.29],[-37.79,3.88],[-37.33,4.12],[-36.74,10.18],[-37.96,11.42],[-42.19,11.87]]},{"k":"fence","p":[[22.02,-26.77],[22.45,-34.08],[14.53,-34.13],[12.17,-35.47],[8.41,-34.83],[8.87,-28.07],[16.96,-28.01],[17.62,-27.11],[17.9,-26.73],[22.02,-26.77]]},{"k":"parking","p":[[-55.55,27.48],[-55.9,27.14],[-57.38,28.63],[-57.04,28.97],[-55.55,27.48]],"n":""},{"k":"parking","p":[[-24.85,-9.24],[-22.74,-10.56],[-22.48,-10.13],[-24.59,-8.82],[-24.85,-9.24]],"n":""},{"k":"playground","p":[[-26.37,1.18],[-19.62,-5.09],[-17.38,-3.02],[-17.72,-0.92],[-23.8,3.17],[-26.37,1.18]],"n":"Lesopark"}],"water":[{"k":"river","p":[[15.76,18.28],[10.45,26.36],[1.44,29.68],[-0.67,29.16],[-5.97,26.63],[-10.0,26.94],[-13.63,32.53],[-18.1,37.58],[-25.29,47.15],[-33.08,52.59],[-40.0,60.3],[-44.09,67.23],[-45.28,77.37],[-46.13,79.77],[-47.49,81.63],[-49.6,84.22],[-52.85,87.34],[-55.42,89.4],[-59.66,93.2],[-61.26,95.23],[-62.27,95.97],[-63.67,96.33],[-66.06,96.06],[-68.0,95.45],[-69.71,94.96],[-70.69,94.88],[-71.6,95.17],[-72.65,96.01],[-74.45,98.25],[-75.76,100.63],[-77.93,106.31],[-79.25,109.49],[-80.03,111.04],[-81.35,112.11],[-82.58,112.77],[-85.69,113.32],[-86.79,114.08],[-94.43,121.38],[-95.19,123.09],[-95.51,124.22],[-95.91,126.15],[-96.04,127.77],[-96.6,132.43],[-97.62,134.97],[-98.74,135.46],[-100.23,137.15],[-103.73,139.86],[-107.34,141.67],[-108.69,141.58],[-114.04,138.78],[-115.12,137.98],[-118.73,134.44],[-120.02,133.6],[-121.31,132.88],[-121.82,132.74],[-122.46,132.62],[-122.98,132.57],[-123.67,132.62],[-128.12,133.9],[-129.46,134.08],[-131.52,134.04],[-133.72,134.28],[-135.01,134.92],[-135.86,135.48],[-140.17,142.41],[-140.71,145.71],[-141.34,148.27],[-143.65,151.59]]},{"k":"river","p":[[237.66,26.84],[233.7,26.22],[228.46,20.4],[218.14,17.03],[213.55,16.89],[211.16,17.67],[206.92,15.62],[205.96,10.22],[201.48,5.76],[195.84,7.77],[189.81,5.24],[183.92,2.81],[181.7,0.93],[176.37,-1.76],[170.77,0.91],[168.14,1.35],[165.88,0.6],[164.05,-2.8],[159.86,-3.61],[158.34,-2.13],[156.85,5.82],[155.85,6.85],[151.53,5.39],[147.01,0.3],[147.65,-1.94],[149.15,-5.08],[148.38,-7.07],[143.84,-8.76],[139.99,-9.46],[136.06,-8.51],[133.37,-5.1],[134.76,0.68],[132.78,3.62],[129.03,3.72],[124.15,0.18],[117.85,-2.67],[116.32,-7.57],[111.5,-7.65],[110.21,-9.64],[111.87,-14.7],[112.14,-17.17],[111.92,-18.15],[110.86,-19.3],[108.85,-20.3],[107.53,-21.09],[105.42,-20.64],[103.55,-19.45],[101.28,-18.9],[96.85,-19.63],[87.68,-15.76],[76.37,-16.0],[67.89,-9.13],[63.48,-8.09],[60.71,0.18],[60.23,8.35],[57.6,10.01],[54.52,15.84],[47.15,22.47],[44.65,23.65],[39.87,24.08],[37.77,24.68],[35.74,24.65],[32.99,24.05],[30.63,23.18],[29.07,22.64],[27.52,21.85],[26.14,20.88],[24.81,19.63],[22.14,14.67],[21.34,14.23],[20.47,14.37],[18.81,15.77],[15.76,18.28]]},{"k":"stream","p":[[52.65,40.68],[49.73,36.41],[49.35,32.97],[48.53,29.6],[45.75,26.08],[45.62,24.85],[45.28,24.42],[44.65,23.65]]},{"k":"stream","p":[[52.57,69.17],[51.19,66.88],[47.92,62.53],[46.42,59.13],[45.71,58.28],[42.96,56.82],[37.96,54.9],[33.24,53.94],[30.12,53.73],[25.35,54.0],[23.1,53.84],[20.01,53.36],[18.18,52.72],[13.64,50.32],[11.69,49.46],[7.86,47.37],[5.34,45.75],[4.55,45.56],[3.19,45.62],[1.97,45.18],[0.42,41.74],[-0.61,34.24],[-0.93,33.15],[-0.67,29.16]]}],"cliff":[[[-1.48,12.56],[7.56,10.71],[19.06,6.85]]],"rail":[[[241.29,16.48],[229.97,11.88],[217.8,6.9],[216.61,6.41],[215.42,5.94],[214.24,5.47],[213.07,5.02],[211.87,4.57],[210.68,4.13],[209.48,3.71],[208.3,3.3],[207.07,2.89],[205.85,2.51],[204.78,2.18],[203.72,1.88],[202.7,1.58],[201.7,1.3],[132.69,-17.85],[131.15,-18.28],[129.65,-18.69],[128.14,-19.09],[126.63,-19.47],[125.09,-19.82],[123.55,-20.15],[122.01,-20.49],[120.48,-20.8],[94.76,-26.15],[94.05,-26.29],[93.35,-26.42],[92.65,-26.54],[91.95,-26.64],[91.26,-26.73],[90.54,-26.81],[89.86,-26.86],[89.15,-26.91],[88.44,-26.92],[87.76,-26.92],[87.09,-26.91],[86.38,-26.88],[85.69,-26.84],[84.99,-26.77],[84.33,-26.69],[83.65,-26.61],[82.95,-26.5],[82.27,-26.36],[81.57,-26.22],[80.88,-26.06],[80.19,-25.86],[79.53,-25.66],[78.88,-25.46],[78.23,-25.23],[77.57,-25.0],[76.91,-24.75],[76.24,-24.47],[75.61,-24.2],[74.96,-23.9],[74.31,-23.59],[73.72,-23.24],[73.17,-22.9],[72.56,-22.55],[71.96,-22.16],[71.39,-21.77],[70.81,-21.35],[70.25,-20.92],[69.71,-20.47],[69.18,-20.02],[68.66,-19.54],[68.14,-19.08],[67.64,-18.59],[67.16,-18.11],[66.68,-17.61],[66.23,-17.1],[65.78,-16.56],[65.35,-16.04],[64.92,-15.48],[64.5,-14.91],[64.1,-14.31],[63.69,-13.7],[63.32,-13.1],[62.97,-12.5],[62.62,-11.87],[62.3,-11.26],[61.99,-10.61],[61.71,-9.99],[61.44,-9.34],[61.19,-8.71],[60.95,-8.05],[60.72,-7.42],[60.51,-6.75],[60.13,-5.43],[59.36,-2.55],[59.12,-1.62],[58.86,-0.72],[58.57,0.17],[58.28,1.03],[57.95,1.91],[57.62,2.76],[57.23,3.6],[56.83,4.43],[56.38,5.27],[55.92,6.07],[55.41,6.87],[54.88,7.64],[54.32,8.4],[53.75,9.14],[53.14,9.86],[52.51,10.55],[51.85,11.23],[51.18,11.88],[50.47,12.5],[49.75,13.08],[49.03,13.66],[48.3,14.23],[47.5,14.77],[46.7,15.28],[45.89,15.74],[45.07,16.19],[44.22,16.6],[43.37,16.98],[42.5,17.34],[41.63,17.68],[40.75,18.01],[39.86,18.33],[30.26,21.75]],[[-1.16,33.73],[-1.38,33.82],[-2.18,34.16],[-2.98,34.51],[-3.77,34.88],[-4.57,35.28],[-5.3,35.65],[-6.03,36.03],[-6.78,36.44],[-7.55,36.88],[-8.26,37.3],[-8.99,37.75],[-9.69,38.19],[-10.38,38.66],[-11.07,39.12],[-11.76,39.6],[-16.32,42.69],[-17.46,43.44],[-18.54,44.23],[-19.56,45.09],[-20.54,45.97],[-21.47,46.89],[-22.37,47.85],[-23.17,48.88],[-23.95,49.94],[-24.66,50.99],[-25.35,52.07],[-25.97,53.14],[-26.57,54.25],[-27.12,55.38],[-27.66,56.54],[-28.14,57.68],[-28.63,58.85],[-31.7,66.34],[-32.1,67.34],[-32.53,68.3],[-32.98,69.25],[-33.42,70.2],[-33.89,71.14],[-34.35,72.05],[-34.84,73.0],[-35.33,73.89],[-35.85,74.85],[-36.36,75.74],[-36.93,76.67],[-37.5,77.52],[-38.09,78.42],[-38.66,79.24],[-39.28,80.12],[-39.9,80.95],[-40.54,81.81],[-41.19,82.61],[-41.89,83.45],[-42.57,84.23],[-43.29,85.07],[-43.98,85.85],[-44.74,86.64],[-45.5,87.39],[-46.27,88.14],[-47.05,88.85],[-47.83,89.55],[-48.63,90.25],[-49.44,90.95],[-50.22,91.59],[-51.06,92.28],[-51.91,92.95],[-71.1,107.32],[-71.85,107.87],[-72.59,108.45],[-73.33,109.03],[-74.07,109.62],[-74.79,110.23],[-75.49,110.85],[-76.17,111.48],[-76.83,112.12],[-77.46,112.8],[-78.09,113.5],[-78.66,114.2],[-79.24,114.94],[-79.78,115.7],[-80.31,116.47],[-80.81,117.25],[-81.3,118.04],[-81.71,118.75],[-82.11,119.48],[-82.71,120.57],[-88.06,130.41],[-88.42,131.04],[-88.78,131.65],[-89.14,132.27],[-89.5,132.88],[-89.88,133.5],[-90.27,134.1],[-90.67,134.69],[-91.08,135.27],[-91.51,135.86],[-91.96,136.42],[-92.41,136.98],[-92.88,137.52],[-93.37,138.05],[-93.86,138.57],[-94.38,139.07],[-94.89,139.56],[-95.42,140.04],[-95.96,140.49],[-96.5,140.94],[-97.06,141.38],[-97.64,141.8],[-98.24,142.21],[-98.83,142.61],[-99.44,143.0],[-100.07,143.37],[-100.7,143.73],[-101.32,144.07],[-101.95,144.4],[-102.61,144.7],[-103.27,144.99],[-103.93,145.28],[-104.59,145.56],[-110.52,147.81],[-111.66,148.27],[-112.81,148.76],[-113.52,149.09],[-114.24,149.43],[-114.95,149.81],[-115.66,150.21],[-116.35,150.62],[-117.04,151.01],[-117.56,151.41],[-118.08,151.78],[-118.6,152.15],[-119.1,152.54],[-119.61,152.93],[-120.12,153.32],[-120.62,153.71],[-121.1,154.1]],[[30.26,21.75],[26.88,22.96]],[[-0.47,33.45],[-0.6,33.5],[-1.16,33.73]],[[26.88,22.96],[16.51,26.77],[14.62,27.46],[12.72,28.18],[10.83,28.92],[9.03,29.67],[0.2,33.2],[-0.47,33.45]]],"trail":[{"c":"yellow","n":"Lesn\u00fd park - Vyhliadka","p":[[-22.89,-9.5],[-21.49,-8.22],[-19.57,-6.05]]},{"c":"yellow","n":"Lesn\u00fd park - Vyhliadka","p":[[-19.57,-6.05],[-16.85,-3.42]]},{"c":"yellow","n":"Lesn\u00fd park - Vyhliadka","p":[[-16.85,-3.42],[-15.17,-1.79]]},{"c":"yellow","n":"Lesn\u00fd park - Vyhliadka","p":[[-15.17,-1.79],[-8.39,-6.42]]},{"c":"yellow","n":"Lesn\u00fd park - Vyhliadka","p":[[-8.39,-6.42],[-2.1,-1.45],[5.06,3.38],[6.95,9.29]]},{"c":"yellow","n":"Prievidzsk\u00fd okruh","p":[[-35.17,9.19],[-38.1,11.89],[-41.21,13.68],[-43.1,14.32],[-45.24,15.28],[-46.56,17.43],[-51.25,21.31],[-52.18,24.07],[-53.92,26.18],[-54.82,27.08],[-58.35,30.61]]},{"c":"yellow","n":"Prievidzsk\u00fd okruh","p":[[-19.57,-6.05],[-23.04,-2.97],[-32.84,6.56],[-35.17,9.19]]},{"c":"yellow","n":"Prievidzsk\u00fd okruh","p":[[-22.89,-9.5],[-21.49,-8.22],[-19.57,-6.05]]},{"c":"yellow","n":"Prievidzsk\u00fd okruh","p":[[-22.89,-9.5],[-20.53,-10.9],[-19.59,-11.45],[-14.52,-14.67],[-12.84,-15.74],[-9.59,-17.82],[-9.09,-18.14],[-6.52,-19.72],[-3.62,-21.32],[-1.72,-22.18],[2.31,-23.78],[4.12,-24.31],[5.74,-24.63],[7.41,-24.86],[8.94,-24.97],[14.53,-25.28]]},{"c":"yellow","n":"Prievidzsk\u00fd okruh","p":[[14.53,-25.28],[23.52,-25.27],[29.54,-23.04],[33.95,-21.89],[37.61,-22.34],[41.65,-24.35],[49.22,-32.32],[51.27,-34.47],[55.99,-39.58],[60.79,-48.19],[62.55,-49.1],[68.99,-52.3],[74.11,-56.71],[79.37,-62.93],[88.04,-66.44],[90.44,-70.16],[92.68,-79.41],[92.18,-81.98],[89.64,-86.91],[90.16,-90.75],[94.17,-95.22],[98.2,-101.04],[101.14,-103.19],[105.06,-102.75],[113.05,-101.73],[115.97,-102.08],[118.37,-103.66],[119.89,-106.32],[122.11,-114.01],[125.47,-118.8],[129.33,-126.52],[130.58,-133.32],[129.5,-149.27],[131.35,-161.14],[134.73,-182.79],[136.6,-196.12],[140.42,-216.09],[140.03,-221.15],[138.7,-225.37],[138.28,-230.91],[139.49,-235.75],[142.57,-243.53],[145.02,-261.64],[144.3,-265.93],[136.46,-279.28],[134.78,-283.73],[134.44,-287.57]]},{"c":"green","n":null,"p":[[-57.59,-11.26],[-55.93,-11.11],[-53.5,-10.66],[-50.6,-9.77],[-46.66,-9.13],[-42.62,-10.16],[-37.48,-9.81],[-34.95,-9.17],[-31.19,-8.74],[-28.5,-9.08],[-25.11,-9.13],[-24.0,-8.84]]},{"c":"green","n":null,"p":[[-24.0,-8.84],[-23.68,-9.03],[-22.89,-9.5]]},{"c":"red","n":"Lesopark Prievidza","p":[[-57.59,-11.26],[-53.58,-12.65],[-50.87,-14.09],[-48.59,-15.27],[-45.99,-16.43],[-38.34,-17.84],[-33.18,-18.92],[-30.03,-19.47],[-28.47,-20.84]]},{"c":"red","n":"Lesopark Prievidza","p":[[-28.47,-20.84],[-27.87,-23.75],[-28.17,-24.38],[-36.68,-31.47],[-41.09,-34.86],[-47.45,-37.67],[-51.54,-40.32],[-54.72,-41.4],[-59.21,-44.8],[-60.8,-45.29],[-62.63,-45.47],[-64.74,-45.79],[-67.32,-45.41],[-70.72,-44.25],[-73.61,-44.1],[-77.78,-47.06],[-83.29,-50.13],[-85.73,-50.17],[-87.58,-50.89],[-90.2,-53.08]]}],"poi":[{"k":"information","n":"Kolk\u00e1re\u0148","d":"","x":-21.5,"z":-9.63},{"k":"pub","n":"Diwadlo","d":"","x":-23.3,"z":-6.61},{"k":"viewpoint","n":"","d":"","x":7.04,"z":9.57},{"k":"bench","n":"","d":"","x":-27.42,"z":-24.09},{"k":"bench","n":"","d":"","x":-31.24,"z":-27.0},{"k":"bench","n":"","d":"","x":7.54,"z":8.39},{"k":"bench","n":"","d":"","x":6.1,"z":8.69},{"k":"theatre","n":"Amfite\u00e1ter Lesopark Prievidza","d":"","x":-13.08,"z":5.53},{"k":"firepit","n":"","d":"","x":11.55,"z":14.22},{"k":"firepit","n":"","d":"","x":12.99,"z":13.47},{"k":"ruins","n":"","d":"b\u00fdval\u00fd Engli\u0161ov kame\u0148olom","x":41.6,"z":25.74}],"grid":{"nx":97,"nz":74,"w":95.35,"d":73.39,"min":293.2,"h":[68.6,69.3,69.9,70.2,70.4,70.4,70.4,70.4,70.4,70.5,70.6,70.7,70.8,70.9,71.2,71.7,72.4,73.1,74.0,74.9,75.8,76.7,77.6,78.6,79.5,80.7,81.7,82.5,83.3,84.1,84.9,85.6,86.4,87.3,88.1,89.1,90.0,90.9,91.8,92.7,93.4,94.0,94.7,95.2,95.7,96.2,96.4,96.5,96.5,96.5,96.4,96.3,96.2,96.0,95.8,95.5,95.3,95.3,95.5,95.9,96.5,97.1,97.8,98.5,98.9,99.4,99.8,100.1,100.4,100.8,101.2,101.6,102.0,102.4,102.9,103.4,103.9,104.5,105.1,105.8,106.4,107.0,107.6,108.0,108.2,108.5,108.7,108.9,108.9,108.9,108.7,108.5,108.2,107.9,107.6,107.1,106.6,68.5,69.2,69.8,70.2,70.4,70.4,70.5,70.5,70.5,70.6,70.7,70.8,71.0,71.2,71.5,71.9,72.6,73.4,74.3,75.2,76.1,76.9,77.9,78.9,79.8,80.9,81.9,82.7,83.5,84.3,85.0,85.8,86.6,87.4,88.2,89.2,90.1,91.0,91.9,92.7,93.4,94.1,94.8,95.4,95.9,96.3,96.6,96.7,96.7,96.6,96.6,96.4,96.3,96.0,95.7,95.4,95.2,95.1,95.2,95.6,96.1,96.7,97.4,97.9,98.4,98.8,99.2,99.5,99.8,100.2,100.6,101.0,101.5,101.9,102.4,102.9,103.5,104.0,104.7,105.4,106.0,106.6,107.2,107.6,107.9,108.1,108.4,108.5,108.6,108.5,108.4,108.1,107.8,107.4,107.1,106.6,106.0,68.5,69.2,69.8,70.3,70.5,70.6,70.7,70.7,70.8,71.0,71.1,71.2,71.4,71.6,71.9,72.4,73.1,73.9,74.7,75.6,76.5,77.3,78.3,79.2,80.1,81.3,82.2,83.0,83.8,84.6,85.3,86.0,86.8,87.6,88.4,89.3,90.2,91.0,91.9,92.8,93.5,94.1,94.8,95.5,96.0,96.5,96.7,96.8,96.8,96.7,96.6,96.4,96.2,95.9,95.6,95.2,94.9,94.8,94.9,95.2,95.6,96.2,96.7,97.2,97.6,98.1,98.4,98.7,99.1,99.4,99.8,100.3,100.8,101.2,101.7,102.3,102.9,103.4,104.1,104.8,105.5,106.1,106.6,107.0,107.4,107.7,107.9,108.1,108.2,108.1,107.9,107.6,107.2,106.9,106.5,105.9,105.2,68.6,69.3,69.9,70.4,70.7,70.9,71.0,71.2,71.4,71.6,71.8,71.9,72.1,72.4,72.7,73.2,73.8,74.6,75.4,76.2,77.0,77.9,78.8,79.7,80.6,81.7,82.6,83.4,84.2,85.0,85.6,86.3,87.0,87.8,88.5,89.4,90.3,91.1,91.9,92.7,93.4,94.1,94.9,95.5,96.1,96.5,96.8,96.8,96.8,96.6,96.5,96.3,96.0,95.7,95.3,94.9,94.6,94.4,94.4,94.6,95.0,95.4,95.9,96.4,96.7,97.1,97.5,97.8,98.1,98.5,98.9,99.3,99.8,100.4,100.9,101.5,102.0,102.6,103.3,104.0,104.7,105.3,105.9,106.4,106.7,107.0,107.3,107.5,107.6,107.6,107.3,107.0,106.6,106.2,105.7,105.1,104.3,68.6,69.3,70.0,70.5,70.9,71.2,71.5,71.8,72.0,72.3,72.5,72.7,73.0,73.2,73.5,74.0,74.6,75.3,76.1,76.9,77.6,78.4,79.3,80.2,81.1,82.2,83.1,83.9,84.6,85.3,85.9,86.5,87.3,88.0,88.7,89.5,90.3,91.1,91.9,92.7,93.4,94.1,94.9,95.6,96.1,96.6,96.8,96.8,96.7,96.5,96.3,96.1,95.8,95.4,95.0,94.6,94.2,93.9,93.9,94.0,94.3,94.7,95.1,95.5,95.8,96.2,96.5,96.8,97.2,97.6,97.9,98.4,98.9,99.5,100.0,100.6,101.2,101.8,102.5,103.3,103.9,104.6,105.2,105.7,106.1,106.5,106.8,107.0,107.1,107.1,106.9,106.5,106.1,105.6,105.1,104.4,103.5,68.7,69.4,70.1,70.7,71.2,71.7,72.1,72.5,72.8,73.2,73.5,73.7,74.0,74.2,74.5,75.0,75.6,76.2,76.9,77.6,78.3,79.1,79.9,80.8,81.7,82.8,83.6,84.4,85.1,85.7,86.3,86.8,87.5,88.2,88.8,89.6,90.4,91.1,91.9,92.6,93.3,94.1,94.8,95.6,96.1,96.6,96.8,96.8,96.6,96.4,96.1,95.9,95.5,95.1,94.7,94.2,93.7,93.5,93.4,93.4,93.6,93.9,94.2,94.5,94.8,95.1,95.5,95.8,96.1,96.5,96.9,97.4,97.9,98.5,99.0,99.6,100.3,100.9,101.6,102.4,103.1,103.8,104.4,104.9,105.4,105.8,106.2,106.4,106.6,106.5,106.3,105.9,105.5,105.0,104.4,103.6,102.7,68.8,69.6,70.3,71.0,71.6,72.2,72.8,73.3,73.8,74.2,74.5,74.8,75.1,75.3,75.7,76.1,76.6,77.2,77.8,78.4,79.1,79.8,80.6,81.5,82.3,83.4,84.2,84.9,85.6,86.2,86.7,87.2,87.8,88.4,89.0,89.7,90.4,91.1,91.8,92.6,93.3,94.0,94.8,95.5,96.1,96.5,96.7,96.7,96.5,96.2,95.9,95.6,95.2,94.7,94.2,93.7,93.2,92.9,92.7,92.7,92.9,93.1,93.3,93.5,93.7,94.0,94.3,94.6,95.0,95.4,95.8,96.3,96.8,97.4,98.0,98.6,99.2,99.9,100.6,101.4,102.1,102.8,103.5,104.1,104.6,105.0,105.5,105.8,106.0,105.9,105.7,105.3,104.8,104.2,103.6,102.7,101.7,68.9,69.7,70.5,71.3,72.0,72.7,73.4,74.1,74.7,75.2,75.6,75.8,76.1,76.4,76.7,77.1,77.6,78.1,78.6,79.2,79.8,80.5,81.3,82.1,82.9,84.0,84.8,85.4,86.1,86.6,87.1,87.5,88.1,88.6,89.2,89.8,90.5,91.1,91.8,92.5,93.2,93.9,94.7,95.4,96.1,96.5,96.6,96.6,96.3,96.0,95.6,95.2,94.8,94.3,93.8,93.2,92.7,92.4,92.1,92.1,92.1,92.2,92.4,92.5,92.7,93.0,93.3,93.6,93.9,94.3,94.7,95.2,95.8,96.4,97.0,97.6,98.3,98.9,99.7,100.5,101.2,101.9,102.7,103.2,103.8,104.3,104.8,105.2,105.4,105.4,105.1,104.7,104.1,103.5,102.8,101.9,100.8,69.1,69.9,70.8,71.6,72.4,73.2,74.1,74.9,75.5,76.1,76.5,76.8,77.1,77.4,77.7,78.1,78.6,79.0,79.5,80.0,80.5,81.1,81.9,82.7,83.5,84.5,85.3,86.0,86.5,87.1,87.5,87.9,88.4,88.9,89.4,90.0,90.5,91.1,91.7,92.4,93.1,93.8,94.6,95.3,95.9,96.4,96.5,96.4,96.1,95.7,95.3,94.9,94.4,93.9,93.4,92.8,92.2,91.8,91.6,91.4,91.4,91.4,91.5,91.6,91.8,92.0,92.3,92.6,92.9,93.3,93.8,94.3,94.8,95.4,96.0,96.7,97.4,98.0,98.8,99.6,100.4,101.1,101.8,102.4,103.0,103.6,104.1,104.5,104.8,104.7,104.5,104.0,103.4,102.8,102.0,101.1,99.9,69.5,70.3,71.2,72.1,73.0,73.9,74.9,75.8,76.5,77.2,77.6,77.9,78.3,78.5,78.8,79.2,79.6,80.0,80.4,80.8,81.3,81.9,82.6,83.4,84.2,85.2,86.0,86.6,87.1,87.6,88.0,88.3,88.8,89.2,89.6,90.2,90.7,91.2,91.7,92.3,92.9,93.6,94.4,95.1,95.7,96.1,96.2,96.0,95.7,95.3,94.8,94.4,93.9,93.3,92.8,92.2,91.6,91.2,90.8,90.6,90.6,90.5,90.5,90.6,90.7,90.9,91.2,91.5,91.9,92.3,92.7,93.2,93.8,94.4,95.0,95.7,96.4,97.1,97.8,98.6,99.4,100.1,100.9,101.5,102.1,102.7,103.3,103.7,103.9,103.9,103.6,103.1,102.5,101.8,101.0,100.0,98.7,70.0,70.8,71.7,72.7,73.6,74.6,75.7,76.6,77.4,78.1,78.6,78.9,79.2,79.5,79.8,80.1,80.5,80.8,81.2,81.6,82.0,82.6,83.3,84.0,84.8,85.8,86.6,87.2,87.7,88.1,88.5,88.8,89.2,89.6,89.9,90.4,90.8,91.2,91.7,92.3,92.8,93.5,94.2,94.9,95.4,95.7,95.8,95.6,95.2,94.8,94.3,93.8,93.3,92.7,92.2,91.6,91.0,90.5,90.2,90.0,89.8,89.8,89.7,89.7,89.8,90.0,90.3,90.6,91.0,91.4,91.8,92.4,93.0,93.6,94.2,94.9,95.6,96.3,97.0,97.8,98.6,99.3,100.0,100.7,101.3,101.9,102.5,102.9,103.1,103.1,102.8,102.3,101.6,100.9,100.1,99.0,97.6,70.6,71.4,72.4,73.3,74.3,75.4,76.5,77.5,78.4,79.1,79.5,79.9,80.2,80.5,80.8,81.1,81.4,81.7,82.0,82.3,82.8,83.3,83.9,84.7,85.5,86.5,87.2,87.8,88.3,88.7,89.0,89.3,89.6,90.0,90.3,90.6,91.0,91.3,91.7,92.2,92.6,93.2,93.9,94.5,95.0,95.3,95.3,95.1,94.6,94.1,93.6,93.1,92.6,92.0,91.5,90.8,90.3,89.8,89.5,89.2,89.1,89.0,88.9,88.9,89.0,89.2,89.5,89.8,90.2,90.6,91.0,91.6,92.2,92.8,93.4,94.1,94.8,95.5,96.2,97.0,97.7,98.4,99.2,99.8,100.3,101.0,101.5,102.0,102.2,102.1,101.8,101.3,100.6,99.9,99.0,97.8,96.4,71.4,72.2,73.2,74.2,75.2,76.4,77.5,78.5,79.4,80.1,80.6,81.0,81.3,81.6,81.8,82.1,82.4,82.6,82.9,83.2,83.6,84.0,84.7,85.5,86.2,87.2,88.0,88.5,89.0,89.3,89.6,89.9,90.2,90.5,90.7,90.9,91.2,91.4,91.7,92.0,92.4,92.9,93.5,94.0,94.4,94.6,94.6,94.3,93.8,93.3,92.8,92.2,91.7,91.1,90.6,90.0,89.4,89.0,88.6,88.4,88.2,88.1,88.0,88.0,88.1,88.3,88.6,88.9,89.3,89.7,90.2,90.7,91.4,92.0,92.6,93.3,94.0,94.6,95.4,96.1,96.8,97.5,98.2,98.7,99.3,99.9,100.5,100.9,101.1,101.0,100.6,100.1,99.4,98.6,97.7,96.4,95.0,72.3,73.2,74.2,75.2,76.2,77.4,78.6,79.6,80.5,81.2,81.7,82.0,82.3,82.6,82.8,83.1,83.3,83.5,83.8,84.0,84.4,84.8,85.5,86.2,87.0,88.0,88.7,89.2,89.7,90.0,90.3,90.5,90.8,91.0,91.2,91.3,91.4,91.5,91.7,91.9,92.2,92.6,93.0,93.4,93.7,93.8,93.7,93.4,92.9,92.4,91.8,91.3,90.7,90.2,89.7,89.1,88.6,88.1,87.8,87.6,87.4,87.3,87.2,87.2,87.3,87.5,87.8,88.2,88.6,89.0,89.5,90.0,90.7,91.3,91.9,92.6,93.3,93.9,94.6,95.3,95.9,96.6,97.2,97.8,98.3,98.8,99.3,99.7,99.9,99.8,99.4,98.8,98.1,97.3,96.4,95.1,93.5,73.3,74.2,75.2,76.2,77.2,78.4,79.6,80.6,81.5,82.2,82.7,83.0,83.3,83.6,83.8,84.0,84.2,84.4,84.6,84.8,85.1,85.6,86.2,86.9,87.7,88.7,89.4,90.0,90.4,90.7,91.0,91.2,91.4,91.6,91.7,91.7,91.7,91.7,91.7,91.8,92.0,92.2,92.5,92.8,93.0,93.0,92.9,92.5,92.0,91.4,90.9,90.3,89.8,89.3,88.8,88.2,87.7,87.3,87.0,86.8,86.7,86.6,86.5,86.5,86.6,86.9,87.2,87.6,88.0,88.4,88.9,89.5,90.1,90.7,91.4,92.1,92.7,93.3,93.9,94.6,95.2,95.7,96.3,96.8,97.3,97.8,98.3,98.6,98.7,98.6,98.2,97.6,96.8,96.0,95.0,93.7,92.1,74.4,75.3,76.3,77.3,78.4,79.6,80.8,81.8,82.7,83.4,83.9,84.2,84.4,84.6,84.8,85.0,85.2,85.4,85.5,85.7,86.0,86.4,87.0,87.7,88.5,89.5,90.2,90.8,91.2,91.5,91.7,91.9,92.1,92.2,92.2,92.1,92.0,91.9,91.8,91.7,91.8,91.9,92.0,92.1,92.2,92.1,91.9,91.5,90.9,90.3,89.8,89.2,88.7,88.2,87.7,87.2,86.8,86.4,86.1,85.9,85.8,85.7,85.7,85.7,85.8,86.1,86.4,86.8,87.2,87.7,88.2,88.7,89.4,90.0,90.7,91.3,92.0,92.5,93.1,93.7,94.2,94.8,95.3,95.7,96.1,96.6,97.0,97.3,97.4,97.2,96.7,96.1,95.4,94.5,93.5,92.1,90.4,75.3,76.2,77.3,78.3,79.3,80.5,81.7,82.7,83.6,84.3,84.8,85.0,85.3,85.5,85.7,85.9,86.0,86.1,86.2,86.4,86.7,87.1,87.7,88.4,89.2,90.2,90.9,91.4,91.8,92.1,92.3,92.5,92.7,92.7,92.6,92.5,92.2,92.0,91.8,91.6,91.6,91.5,91.6,91.6,91.5,91.4,91.1,90.6,90.1,89.4,88.9,88.3,87.8,87.3,86.9,86.4,86.0,85.6,85.4,85.2,85.1,85.0,85.0,85.0,85.1,85.4,85.8,86.2,86.6,87.1,87.6,88.2,88.8,89.5,90.1,90.8,91.4,91.9,92.4,93.0,93.5,94.0,94.4,94.8,95.2,95.6,96.0,96.2,96.3,96.0,95.6,95.0,94.2,93.3,92.3,90.8,89.1,76.6,77.5,78.6,79.6,80.6,81.8,83.0,84.0,84.9,85.5,86.0,86.2,86.5,86.6,86.8,87.0,87.1,87.2,87.2,87.4,87.6,88.0,88.6,89.3,90.1,91.0,91.7,92.2,92.6,92.9,93.1,93.3,93.4,93.4,93.2,92.9,92.5,92.2,91.8,91.5,91.3,91.1,90.9,90.8,90.6,90.3,89.9,89.4,88.8,88.2,87.6,87.0,86.5,86.0,85.6,85.2,84.8,84.5,84.2,84.1,84.0,83.9,83.9,84.0,84.1,84.4,84.8,85.2,85.7,86.2,86.7,87.2,87.9,88.5,89.2,89.8,90.4,90.9,91.4,91.9,92.4,92.8,93.2,93.6,93.9,94.2,94.5,94.7,94.7,94.4,93.9,93.3,92.5,91.6,90.5,89.0,87.2,77.5,78.4,79.5,80.5,81.6,82.7,83.9,84.9,85.8,86.4,86.9,87.1,87.3,87.5,87.6,87.8,87.9,87.9,88.0,88.1,88.3,88.6,89.2,89.9,90.7,91.7,92.4,92.8,93.2,93.5,93.6,93.8,93.8,93.8,93.5,93.2,92.7,92.3,91.8,91.4,91.1,90.8,90.5,90.2,89.9,89.5,89.1,88.5,87.9,87.2,86.6,86.0,85.5,85.0,84.6,84.2,83.8,83.5,83.2,83.0,82.9,82.9,82.9,82.9,83.0,83.3,83.7,84.1,84.6,85.1,85.6,86.2,86.8,87.5,88.1,88.8,89.3,89.8,90.4,90.9,91.3,91.7,92.2,92.5,92.8,93.1,93.3,93.5,93.4,93.1,92.6,92.0,91.1,90.2,89.1,87.5,85.6,78.1,79.1,80.2,81.3,82.3,83.4,84.6,85.6,86.4,87.1,87.5,87.8,87.9,88.1,88.2,88.4,88.5,88.5,88.5,88.6,88.8,89.2,89.7,90.4,91.2,92.1,92.8,93.3,93.6,93.8,94.0,94.1,94.1,94.0,93.8,93.3,92.8,92.3,91.8,91.3,90.9,90.5,90.1,89.8,89.4,88.9,88.4,87.8,87.1,86.4,85.8,85.2,84.6,84.1,83.7,83.2,82.8,82.5,82.2,82.0,81.9,81.8,81.8,81.8,81.9,82.2,82.6,83.0,83.4,84.0,84.4,85.0,85.7,86.3,86.9,87.6,88.2,88.7,89.3,89.8,90.3,90.7,91.2,91.5,91.8,92.0,92.3,92.4,92.4,92.0,91.5,90.8,89.9,89.0,87.9,86.2,84.2,78.6,79.7,80.8,81.8,82.9,84.0,85.2,86.1,87.0,87.6,88.0,88.2,88.4,88.6,88.7,88.8,88.9,88.9,89.0,89.0,89.2,89.6,90.1,90.8,91.5,92.5,93.1,93.5,93.9,94.1,94.2,94.3,94.3,94.2,93.9,93.4,92.8,92.3,91.7,91.2,90.7,90.3,89.8,89.4,89.0,88.4,87.8,87.2,86.5,85.7,85.0,84.4,83.8,83.3,82.8,82.3,81.9,81.5,81.2,81.0,80.8,80.7,80.6,80.6,80.7,81.0,81.3,81.7,82.2,82.7,83.2,83.7,84.4,85.0,85.7,86.3,86.9,87.5,88.1,88.7,89.2,89.7,90.2,90.5,90.8,91.1,91.3,91.4,91.3,91.0,90.4,89.7,88.8,87.9,86.7,85.0,82.9,79.1,80.1,81.3,82.4,83.4,84.5,85.6,86.6,87.4,88.0,88.4,88.6,88.8,88.9,89.0,89.2,89.3,89.3,89.3,89.4,89.6,89.9,90.5,91.1,91.8,92.7,93.3,93.8,94.0,94.2,94.3,94.4,94.3,94.2,93.9,93.4,92.8,92.2,91.6,91.1,90.5,90.0,89.5,89.0,88.6,88.0,87.3,86.6,85.9,85.0,84.3,83.6,82.9,82.4,81.8,81.3,80.8,80.4,80.0,79.8,79.5,79.4,79.2,79.1,79.2,79.4,79.8,80.1,80.6,81.0,81.5,82.1,82.7,83.3,84.0,84.7,85.3,85.9,86.6,87.3,87.9,88.5,89.1,89.4,89.7,90.0,90.2,90.3,90.3,89.9,89.3,88.6,87.6,86.7,85.4,83.7,81.5,79.4,80.5,81.7,82.8,83.8,84.9,86.0,86.9,87.7,88.3,88.7,88.9,89.0,89.2,89.3,89.4,89.5,89.6,89.6,89.7,89.9,90.2,90.7,91.4,92.1,92.9,93.5,93.9,94.1,94.3,94.3,94.4,94.3,94.1,93.8,93.3,92.7,92.1,91.5,90.9,90.4,89.9,89.3,88.8,88.3,87.6,86.9,86.2,85.4,84.5,83.7,82.9,82.2,81.5,80.9,80.3,79.8,79.3,78.9,78.5,78.2,77.9,77.7,77.6,77.6,77.8,78.1,78.4,78.9,79.3,79.8,80.3,81.0,81.6,82.2,82.9,83.6,84.3,85.1,85.9,86.7,87.4,88.0,88.5,88.8,89.1,89.3,89.4,89.3,88.9,88.3,87.6,86.6,85.6,84.3,82.5,80.2,79.6,80.8,82.0,83.1,84.1,85.2,86.2,87.1,87.8,88.4,88.8,89.0,89.2,89.3,89.4,89.6,89.7,89.7,89.8,89.9,90.1,90.4,90.9,91.5,92.2,93.0,93.5,93.9,94.1,94.2,94.3,94.3,94.2,94.0,93.7,93.2,92.6,92.0,91.4,90.9,90.3,89.8,89.2,88.6,88.1,87.4,86.7,85.9,85.0,84.0,83.2,82.3,81.5,80.8,80.1,79.4,78.8,78.2,77.7,77.3,76.9,76.5,76.2,76.0,76.0,76.1,76.4,76.7,77.1,77.6,78.0,78.5,79.2,79.8,80.5,81.2,82.0,82.7,83.6,84.6,85.5,86.4,87.1,87.6,88.0,88.3,88.5,88.7,88.6,88.2,87.5,86.7,85.7,84.7,83.3,81.5,79.1,79.8,81.0,82.3,83.4,84.4,85.4,86.5,87.3,88.0,88.6,88.9,89.1,89.3,89.4,89.6,89.7,89.8,89.9,90.0,90.1,90.3,90.6,91.1,91.7,92.3,93.1,93.6,93.9,94.1,94.2,94.2,94.1,94.0,93.8,93.5,93.0,92.4,91.9,91.3,90.7,90.2,89.6,89.0,88.5,87.9,87.1,86.4,85.5,84.5,83.5,82.5,81.6,80.7,79.9,79.2,78.4,77.6,77.0,76.4,75.8,75.4,74.9,74.5,74.3,74.2,74.2,74.5,74.8,75.1,75.5,75.9,76.5,77.1,77.7,78.4,79.1,80.0,80.8,81.9,83.0,84.1,85.1,85.9,86.5,87.0,87.3,87.5,87.7,87.6,87.2,86.5,85.7,84.7,83.6,82.2,80.2,77.8,79.9,81.2,82.5,83.7,84.6,85.6,86.6,87.4,88.1,88.7,89.0,89.2,89.4,89.5,89.6,89.8,89.9,90.0,90.1,90.3,90.5,90.8,91.2,91.8,92.4,93.1,93.6,93.9,94.0,94.1,94.0,94.0,93.8,93.6,93.3,92.8,92.3,91.7,91.2,90.6,90.0,89.5,88.9,88.3,87.7,86.9,86.1,85.2,84.1,83.0,82.0,81.0,80.0,79.2,78.3,77.4,76.6,75.9,75.2,74.5,74.0,73.5,73.0,72.6,72.5,72.5,72.7,72.9,73.2,73.6,74.0,74.5,75.1,75.8,76.4,77.2,78.1,79.0,80.2,81.5,82.7,83.8,84.8,85.5,86.0,86.3,86.6,86.8,86.7,86.3,85.6,84.7,83.7,82.5,81.1,79.0,76.5,80.0,81.3,82.7,83.8,84.8,85.7,86.7,87.5,88.1,88.7,89.0,89.2,89.4,89.5,89.7,89.8,90.0,90.1,90.2,90.4,90.6,90.9,91.3,91.9,92.4,93.1,93.5,93.8,93.9,93.9,93.9,93.8,93.6,93.4,93.0,92.6,92.1,91.6,91.0,90.4,89.9,89.3,88.7,88.1,87.5,86.7,85.8,84.9,83.8,82.6,81.5,80.5,79.4,78.5,77.6,76.6,75.7,74.9,74.1,73.4,72.7,72.1,71.6,71.1,70.9,70.9,71.0,71.2,71.5,71.8,72.2,72.7,73.3,73.9,74.5,75.3,76.2,77.2,78.5,79.9,81.3,82.6,83.7,84.4,85.0,85.4,85.6,85.8,85.7,85.3,84.6,83.8,82.7,81.5,80.0,77.9,75.3,79.9,81.3,82.6,83.8,84.7,85.7,86.6,87.4,88.0,88.6,88.9,89.1,89.3,89.5,89.6,89.8,90.0,90.1,90.2,90.4,90.6,90.9,91.4,91.9,92.4,93.0,93.4,93.6,93.7,93.7,93.6,93.5,93.3,93.1,92.7,92.3,91.8,91.3,90.8,90.2,89.6,89.1,88.4,87.8,87.2,86.4,85.5,84.5,83.3,82.1,81.0,79.9,78.8,77.8,76.8,75.8,74.8,73.9,73.1,72.3,71.6,70.9,70.2,69.7,69.4,69.3,69.4,69.5,69.7,70.0,70.3,70.7,71.3,71.8,72.4,73.2,74.1,75.2,76.6,78.1,79.6,81.0,82.2,83.0,83.6,84.0,84.3,84.5,84.4,84.0,83.3,82.5,81.3,80.2,78.7,76.5,73.9,79.7,81.0,82.4,83.5,84.5,85.4,86.4,87.1,87.8,88.3,88.7,88.9,89.1,89.3,89.5,89.7,89.9,90.0,90.2,90.4,90.6,90.9,91.3,91.8,92.3,92.9,93.2,93.4,93.5,93.4,93.3,93.1,92.9,92.7,92.3,91.9,91.4,90.9,90.4,89.9,89.3,88.7,88.1,87.5,86.8,86.0,85.1,84.1,82.9,81.6,80.5,79.4,78.2,77.2,76.2,75.1,74.0,73.1,72.2,71.3,70.6,69.9,69.1,68.6,68.2,68.0,67.9,68.0,68.1,68.3,68.5,68.8,69.3,69.8,70.4,71.1,72.0,73.1,74.5,76.2,77.7,79.2,80.4,81.3,81.9,82.4,82.7,82.9,82.9,82.5,81.8,81.0,79.9,78.7,77.2,75.0,72.3,79.3,80.6,82.0,83.1,84.1,85.0,86.0,86.7,87.4,88.0,88.3,88.6,88.8,89.0,89.2,89.4,89.7,89.9,90.1,90.3,90.5,90.8,91.2,91.7,92.1,92.6,93.0,93.1,93.2,93.1,92.9,92.7,92.5,92.2,91.9,91.4,91.0,90.5,90.1,89.5,89.0,88.4,87.7,87.1,86.4,85.6,84.7,83.7,82.5,81.3,80.1,79.0,77.8,76.7,75.7,74.6,73.5,72.6,71.6,70.7,69.9,69.1,68.4,67.7,67.3,67.0,66.8,66.8,66.8,66.9,67.0,67.3,67.7,68.1,68.5,69.2,70.1,71.2,72.6,74.3,75.9,77.4,78.7,79.6,80.2,80.7,81.1,81.3,81.3,81.0,80.3,79.5,78.4,77.3,75.8,73.6,70.9,78.7,80.0,81.3,82.5,83.4,84.4,85.3,86.1,86.8,87.4,87.8,88.0,88.3,88.6,88.8,89.0,89.3,89.5,89.8,90.1,90.3,90.6,91.0,91.4,91.8,92.3,92.5,92.7,92.7,92.5,92.3,92.1,91.8,91.6,91.2,90.8,90.4,90.0,89.5,89.0,88.4,87.9,87.2,86.6,85.9,85.1,84.1,83.1,82.0,80.8,79.7,78.5,77.4,76.3,75.2,74.1,73.0,72.0,71.0,70.1,69.3,68.4,67.6,66.9,66.4,66.0,65.7,65.5,65.4,65.3,65.3,65.4,65.7,66.0,66.3,66.9,67.7,68.7,70.2,71.8,73.5,75.0,76.3,77.2,77.9,78.5,78.9,79.1,79.2,78.9,78.3,77.5,76.5,75.4,73.9,71.7,69.0,77.9,79.1,80.4,81.6,82.5,83.5,84.4,85.3,86.0,86.6,87.1,87.4,87.7,88.0,88.3,88.6,88.9,89.2,89.4,89.8,90.1,90.4,90.7,91.1,91.4,91.8,92.1,92.2,92.1,91.9,91.7,91.5,91.2,90.9,90.5,90.2,89.8,89.4,88.9,88.4,87.9,87.3,86.7,86.0,85.4,84.5,83.6,82.7,81.6,80.4,79.3,78.2,77.1,76.0,75.0,73.8,72.7,71.7,70.7,69.8,68.9,68.0,67.2,66.4,65.8,65.3,64.9,64.5,64.2,63.9,63.8,63.8,63.9,64.0,64.2,64.7,65.3,66.3,67.7,69.4,71.0,72.5,73.8,74.8,75.5,76.1,76.6,76.9,77.0,76.7,76.2,75.5,74.5,73.5,72.0,69.9,67.2,76.9,78.2,79.4,80.5,81.5,82.5,83.5,84.3,85.1,85.8,86.3,86.6,87.0,87.4,87.7,88.0,88.4,88.7,89.1,89.4,89.7,90.1,90.4,90.7,91.0,91.4,91.6,91.6,91.5,91.3,91.1,90.8,90.5,90.2,89.8,89.5,89.1,88.8,88.4,87.9,87.4,86.8,86.1,85.5,84.8,84.0,83.1,82.2,81.2,80.1,79.1,78.0,76.9,75.9,74.8,73.7,72.6,71.6,70.6,69.7,68.8,67.9,67.0,66.2,65.6,64.9,64.3,63.8,63.3,62.8,62.5,62.3,62.2,62.2,62.3,62.6,63.1,64.0,65.4,67.0,68.5,70.0,71.4,72.3,73.1,73.7,74.2,74.6,74.7,74.5,74.1,73.4,72.6,71.6,70.2,68.1,65.4,75.9,77.1,78.3,79.4,80.4,81.4,82.4,83.3,84.1,84.8,85.4,85.8,86.2,86.6,87.0,87.4,87.8,88.2,88.6,89.0,89.4,89.7,90.0,90.3,90.6,90.8,91.0,91.0,90.9,90.6,90.3,90.0,89.7,89.3,89.0,88.7,88.4,88.1,87.7,87.2,86.7,86.2,85.5,84.9,84.2,83.4,82.6,81.7,80.7,79.7,78.8,77.8,76.7,75.7,74.7,73.5,72.5,71.5,70.5,69.5,68.7,67.8,66.8,66.0,65.2,64.4,63.6,62.9,62.2,61.5,61.1,60.7,60.4,60.2,60.1,60.2,60.6,61.4,62.7,64.2,65.8,67.3,68.6,69.5,70.3,71.0,71.5,72.0,72.2,72.1,71.7,71.1,70.3,69.5,68.1,66.1,63.4,74.9,76.0,77.1,78.2,79.2,80.2,81.3,82.2,83.1,83.9,84.5,84.9,85.4,85.9,86.3,86.7,87.2,87.6,88.1,88.6,89.0,89.3,89.6,89.8,90.0,90.2,90.3,90.3,90.1,89.9,89.5,89.2,88.8,88.5,88.2,87.9,87.6,87.3,86.9,86.5,86.0,85.5,84.8,84.1,83.5,82.7,81.9,81.1,80.2,79.3,78.4,77.4,76.4,75.4,74.4,73.3,72.3,71.3,70.3,69.3,68.4,67.5,66.6,65.7,64.8,63.8,62.9,62.0,61.1,60.2,59.5,59.0,58.5,58.1,57.8,57.8,58.1,58.8,59.9,61.4,62.9,64.3,65.6,66.6,67.3,68.1,68.7,69.2,69.5,69.4,69.1,68.7,68.0,67.2,65.9,63.9,61.3,74.0,75.0,76.1,77.2,78.2,79.2,80.3,81.3,82.2,83.0,83.6,84.1,84.7,85.2,85.6,86.2,86.7,87.2,87.7,88.2,88.6,88.9,89.2,89.4,89.6,89.7,89.8,89.7,89.5,89.2,88.8,88.4,88.0,87.7,87.4,87.1,86.8,86.6,86.3,85.9,85.4,84.8,84.2,83.5,82.9,82.1,81.3,80.6,79.8,78.9,78.0,77.2,76.2,75.2,74.3,73.2,72.1,71.2,70.2,69.2,68.3,67.4,66.4,65.4,64.5,63.4,62.3,61.2,60.1,59.0,58.2,57.5,56.9,56.3,55.9,55.7,55.9,56.5,57.5,58.9,60.4,61.8,63.0,64.0,64.8,65.5,66.2,66.8,67.1,67.1,66.9,66.5,65.9,65.2,64.0,62.1,59.5,73.2,74.1,75.2,76.2,77.2,78.3,79.4,80.3,81.2,82.1,82.7,83.3,83.9,84.4,85.0,85.5,86.1,86.6,87.2,87.7,88.1,88.5,88.7,88.9,89.0,89.1,89.1,89.0,88.7,88.3,87.9,87.5,87.0,86.7,86.4,86.1,85.9,85.7,85.4,85.0,84.5,83.9,83.3,82.6,81.9,81.2,80.5,79.8,79.0,78.1,77.4,76.5,75.6,74.6,73.7,72.6,71.6,70.6,69.6,68.6,67.6,66.7,65.6,64.6,63.6,62.4,61.1,59.9,58.7,57.5,56.5,55.6,54.8,54.2,53.6,53.2,53.3,53.8,54.8,56.1,57.5,58.8,60.0,61.0,61.8,62.6,63.3,63.9,64.3,64.4,64.3,64.0,63.5,62.8,61.7,59.8,57.3,72.6,73.5,74.5,75.4,76.4,77.4,78.5,79.5,80.4,81.2,81.9,82.5,83.2,83.7,84.3,84.9,85.5,86.1,86.6,87.2,87.7,88.0,88.2,88.3,88.4,88.4,88.3,88.2,87.8,87.4,86.9,86.4,86.0,85.6,85.3,85.0,84.8,84.6,84.3,83.9,83.4,82.9,82.2,81.5,80.9,80.1,79.4,78.7,78.0,77.2,76.4,75.6,74.7,73.7,72.8,71.7,70.7,69.7,68.7,67.6,66.6,65.6,64.5,63.4,62.3,60.9,59.6,58.3,56.9,55.6,54.5,53.5,52.6,51.8,51.2,50.7,50.6,51.1,52.0,53.2,54.5,55.7,56.9,57.8,58.7,59.5,60.3,60.9,61.4,61.5,61.5,61.2,60.8,60.3,59.2,57.4,54.9,72.1,73.0,73.9,74.9,75.8,76.8,77.9,78.8,79.7,80.5,81.2,81.8,82.5,83.1,83.7,84.3,85.0,85.6,86.2,86.7,87.2,87.5,87.7,87.8,87.8,87.7,87.6,87.4,87.0,86.5,86.0,85.5,84.9,84.5,84.2,83.9,83.7,83.5,83.2,82.8,82.3,81.8,81.1,80.4,79.7,79.0,78.2,77.6,76.8,76.0,75.3,74.5,73.6,72.7,71.7,70.6,69.6,68.6,67.5,66.4,65.3,64.2,63.0,61.9,60.7,59.3,57.9,56.5,55.1,53.7,52.5,51.5,50.5,49.7,48.9,48.4,48.3,48.6,49.4,50.6,51.8,52.9,54.1,55.0,55.8,56.7,57.5,58.1,58.6,58.8,58.8,58.7,58.4,57.9,56.9,55.2,52.7,71.8,72.7,73.5,74.4,75.3,76.2,77.2,78.1,78.9,79.8,80.5,81.1,81.8,82.5,83.1,83.7,84.4,85.0,85.6,86.2,86.6,86.9,87.1,87.1,87.0,86.9,86.7,86.4,85.9,85.4,84.8,84.2,83.7,83.2,82.9,82.6,82.4,82.1,81.8,81.4,80.9,80.3,79.6,78.9,78.2,77.4,76.7,76.0,75.3,74.5,73.8,73.0,72.1,71.1,70.1,69.0,68.0,66.9,65.8,64.6,63.5,62.3,61.0,59.8,58.5,57.1,55.6,54.2,52.7,51.3,50.1,49.0,48.0,47.1,46.3,45.7,45.5,45.8,46.5,47.6,48.7,49.7,50.8,51.7,52.5,53.4,54.2,54.8,55.4,55.6,55.7,55.7,55.4,55.0,54.2,52.5,50.1,71.7,72.5,73.3,74.1,74.9,75.8,76.7,77.4,78.2,79.0,79.8,80.4,81.2,81.8,82.5,83.1,83.8,84.4,85.0,85.5,86.0,86.3,86.4,86.3,86.2,85.9,85.7,85.3,84.8,84.2,83.5,82.9,82.3,81.8,81.4,81.1,80.8,80.6,80.3,79.8,79.3,78.7,77.9,77.2,76.4,75.7,74.9,74.2,73.5,72.7,71.9,71.1,70.2,69.2,68.2,67.1,66.0,64.9,63.7,62.4,61.2,59.9,58.5,57.2,55.8,54.3,52.9,51.4,50.0,48.5,47.3,46.3,45.2,44.3,43.5,42.9,42.6,42.8,43.5,44.4,45.3,46.3,47.3,48.1,48.9,49.8,50.6,51.3,51.9,52.2,52.3,52.3,52.2,51.9,51.1,49.6,47.3,71.8,72.5,73.3,74.1,74.8,75.5,76.3,77.0,77.7,78.5,79.2,79.9,80.6,81.3,82.0,82.6,83.3,83.9,84.5,85.1,85.5,85.7,85.8,85.7,85.5,85.1,84.8,84.4,83.8,83.1,82.4,81.7,81.0,80.5,80.1,79.7,79.4,79.2,78.8,78.3,77.8,77.1,76.4,75.6,74.8,74.0,73.3,72.5,71.8,70.9,70.2,69.3,68.3,67.3,66.3,65.2,64.0,62.9,61.6,60.2,58.9,57.4,55.9,54.5,53.1,51.6,50.1,48.7,47.3,45.9,44.7,43.6,42.6,41.7,40.9,40.3,40.0,40.2,40.7,41.5,42.3,43.1,44.0,44.8,45.6,46.4,47.3,48.0,48.6,48.9,49.1,49.2,49.2,49.0,48.3,46.8,44.7,71.9,72.6,73.4,74.0,74.6,75.3,75.9,76.5,77.2,77.9,78.6,79.3,80.1,80.8,81.4,82.1,82.7,83.3,83.9,84.5,84.9,85.1,85.1,84.9,84.6,84.2,83.8,83.3,82.7,81.9,81.2,80.4,79.6,79.0,78.6,78.2,77.9,77.6,77.2,76.7,76.1,75.4,74.6,73.8,73.0,72.2,71.4,70.6,69.8,69.0,68.2,67.3,66.3,65.2,64.2,63.0,61.8,60.6,59.3,57.7,56.3,54.7,53.0,51.5,50.0,48.5,47.0,45.7,44.3,42.9,41.8,40.8,39.8,39.0,38.2,37.6,37.3,37.3,37.7,38.4,39.1,39.8,40.5,41.3,42.0,42.9,43.7,44.4,45.1,45.5,45.7,45.9,46.0,45.9,45.3,43.9,41.9,72.1,72.8,73.4,74.0,74.5,75.0,75.5,76.0,76.6,77.2,77.9,78.6,79.4,80.2,80.8,81.5,82.1,82.7,83.3,83.8,84.2,84.3,84.2,84.0,83.6,83.1,82.6,82.1,81.4,80.5,79.7,78.9,78.0,77.4,76.9,76.4,76.1,75.8,75.3,74.8,74.2,73.4,72.6,71.7,70.9,70.1,69.2,68.4,67.6,66.7,65.8,64.9,63.9,62.8,61.7,60.5,59.3,58.0,56.6,54.9,53.3,51.6,49.8,48.1,46.6,45.1,43.7,42.4,41.0,39.7,38.7,37.7,36.7,35.9,35.2,34.6,34.3,34.3,34.6,35.0,35.6,36.2,36.8,37.5,38.2,39.1,39.9,40.6,41.3,41.7,42.1,42.3,42.5,42.5,41.9,40.7,38.9,72.3,72.9,73.5,74.0,74.5,74.8,75.2,75.6,76.1,76.7,77.3,78.1,78.9,79.6,80.3,80.9,81.6,82.1,82.7,83.2,83.5,83.6,83.5,83.2,82.8,82.2,81.6,81.0,80.2,79.3,78.4,77.5,76.7,75.9,75.4,74.9,74.5,74.2,73.7,73.1,72.5,71.7,70.8,69.9,69.1,68.2,67.3,66.5,65.6,64.6,63.8,62.8,61.7,60.6,59.5,58.3,57.0,55.7,54.2,52.4,50.7,48.9,46.9,45.2,43.7,42.1,40.7,39.5,38.2,37.0,35.9,35.0,34.1,33.4,32.7,32.1,31.7,31.7,31.9,32.2,32.6,33.1,33.7,34.3,35.0,35.8,36.6,37.4,38.0,38.5,38.9,39.3,39.5,39.6,39.1,38.0,36.2,72.4,73.0,73.5,74.0,74.3,74.6,74.8,75.1,75.5,76.0,76.7,77.4,78.1,78.9,79.6,80.2,80.8,81.3,81.8,82.3,82.6,82.7,82.5,82.1,81.6,80.9,80.3,79.6,78.8,77.8,76.8,75.9,74.9,74.2,73.6,73.0,72.6,72.2,71.7,71.0,70.3,69.5,68.6,67.7,66.8,65.8,64.9,64.1,63.1,62.2,61.3,60.3,59.2,58.0,56.9,55.6,54.3,53.0,51.4,49.6,47.8,45.8,43.8,42.0,40.4,38.9,37.5,36.4,35.2,34.0,33.0,32.1,31.3,30.6,29.9,29.4,29.0,28.9,29.0,29.2,29.5,29.9,30.4,30.9,31.6,32.4,33.2,33.9,34.6,35.1,35.6,36.0,36.3,36.4,36.1,35.0,33.2,72.4,73.0,73.4,73.8,74.0,74.2,74.3,74.5,74.8,75.3,75.9,76.5,77.3,78.0,78.6,79.2,79.8,80.3,80.7,81.1,81.4,81.4,81.1,80.7,80.1,79.3,78.6,77.9,77.0,75.9,74.9,73.9,72.9,72.0,71.4,70.8,70.3,69.8,69.2,68.5,67.8,66.9,66.0,65.0,64.0,63.1,62.1,61.2,60.2,59.2,58.3,57.3,56.1,55.0,53.8,52.5,51.2,49.8,48.2,46.4,44.5,42.5,40.5,38.7,37.1,35.6,34.3,33.2,32.1,31.0,30.1,29.2,28.5,27.8,27.2,26.7,26.3,26.1,26.2,26.3,26.5,26.8,27.2,27.6,28.3,29.0,29.8,30.6,31.2,31.8,32.2,32.7,33.1,33.3,33.1,32.0,30.2,72.4,72.9,73.3,73.6,73.7,73.8,73.9,73.9,74.2,74.6,75.1,75.7,76.4,77.0,77.6,78.2,78.7,79.1,79.5,79.8,80.0,80.0,79.6,79.1,78.5,77.6,76.9,76.1,75.1,74.0,72.9,71.9,70.8,69.9,69.2,68.5,67.9,67.4,66.7,66.0,65.2,64.3,63.2,62.2,61.2,60.2,59.2,58.3,57.3,56.2,55.3,54.2,53.1,51.9,50.7,49.4,48.1,46.7,45.1,43.2,41.4,39.4,37.4,35.6,34.1,32.7,31.4,30.4,29.3,28.3,27.4,26.7,25.9,25.3,24.8,24.3,23.9,23.8,23.7,23.8,23.9,24.1,24.4,24.9,25.5,26.2,27.0,27.7,28.4,28.9,29.4,29.8,30.2,30.5,30.4,29.4,27.7,72.3,72.7,73.1,73.3,73.4,73.4,73.3,73.3,73.5,73.8,74.2,74.7,75.3,75.9,76.5,76.9,77.3,77.7,78.0,78.3,78.4,78.3,77.9,77.3,76.6,75.7,74.8,74.0,72.9,71.8,70.7,69.6,68.4,67.5,66.7,65.9,65.3,64.7,63.9,63.1,62.2,61.3,60.2,59.1,58.1,57.0,55.9,55.0,53.9,52.9,51.9,50.8,49.6,48.4,47.3,45.9,44.6,43.2,41.7,39.9,38.1,36.2,34.2,32.5,31.1,29.7,28.6,27.6,26.6,25.7,24.9,24.2,23.5,23.0,22.5,22.1,21.7,21.5,21.5,21.5,21.6,21.7,22.0,22.4,22.9,23.6,24.3,25.0,25.7,26.2,26.7,27.1,27.6,27.9,27.8,27.0,25.5,72.2,72.5,72.8,72.9,72.9,72.8,72.6,72.5,72.6,72.8,73.1,73.5,74.0,74.5,74.9,75.3,75.6,75.8,76.1,76.2,76.2,76.0,75.5,74.9,74.1,73.1,72.2,71.3,70.2,69.0,67.8,66.6,65.5,64.4,63.6,62.7,61.9,61.2,60.4,59.4,58.5,57.5,56.3,55.2,54.1,52.9,51.8,50.8,49.8,48.6,47.6,46.5,45.3,44.1,43.0,41.6,40.3,39.0,37.5,35.8,34.1,32.3,30.5,28.9,27.6,26.3,25.3,24.4,23.6,22.7,22.0,21.4,20.8,20.4,20.0,19.6,19.3,19.1,19.1,19.0,19.1,19.2,19.4,19.7,20.2,20.9,21.5,22.2,22.7,23.3,23.7,24.2,24.6,24.9,24.8,24.3,23.2,72.1,72.3,72.5,72.6,72.5,72.3,72.1,71.9,71.9,72.0,72.2,72.5,72.9,73.3,73.6,73.8,74.0,74.1,74.2,74.3,74.2,73.9,73.3,72.6,71.8,70.7,69.7,68.8,67.6,66.4,65.2,64.0,62.7,61.6,60.7,59.7,58.8,58.0,57.1,56.1,55.0,53.9,52.7,51.5,50.4,49.2,48.0,47.0,45.9,44.7,43.7,42.6,41.3,40.1,39.0,37.7,36.4,35.1,33.7,32.1,30.6,28.9,27.3,25.9,24.7,23.5,22.6,21.8,21.0,20.3,19.7,19.1,18.7,18.3,17.9,17.6,17.4,17.2,17.2,17.1,17.1,17.2,17.4,17.7,18.2,18.7,19.4,19.9,20.5,20.9,21.4,21.8,22.2,22.5,22.5,22.1,21.3,71.9,72.1,72.2,72.1,72.0,71.7,71.4,71.2,71.1,71.1,71.1,71.3,71.6,71.8,72.0,72.1,72.2,72.2,72.2,72.1,71.9,71.5,70.9,70.1,69.2,68.0,67.0,66.0,64.8,63.5,62.2,61.0,59.7,58.5,57.5,56.4,55.4,54.5,53.5,52.3,51.3,50.1,48.8,47.5,46.4,45.1,43.9,42.8,41.7,40.5,39.5,38.3,37.1,35.9,34.8,33.5,32.2,31.0,29.7,28.3,26.9,25.5,24.0,22.8,21.7,20.7,19.9,19.2,18.5,17.9,17.4,16.9,16.5,16.2,16.0,15.7,15.5,15.4,15.4,15.3,15.3,15.4,15.6,15.9,16.3,16.8,17.3,17.8,18.3,18.8,19.2,19.5,19.9,20.2,20.2,20.0,19.5,71.7,71.8,71.8,71.6,71.4,71.1,70.7,70.4,70.1,70.0,70.0,70.0,70.1,70.2,70.2,70.2,70.1,70.0,69.9,69.7,69.4,68.9,68.1,67.2,66.3,65.0,63.9,62.8,61.6,60.3,59.0,57.7,56.4,55.1,54.0,52.8,51.6,50.6,49.5,48.3,47.1,45.8,44.5,43.1,41.9,40.6,39.4,38.2,37.1,35.9,34.8,33.6,32.4,31.2,30.1,28.8,27.6,26.5,25.3,24.0,22.8,21.6,20.4,19.3,18.5,17.6,16.9,16.3,15.8,15.2,14.8,14.5,14.2,14.0,13.8,13.6,13.5,13.4,13.4,13.4,13.4,13.4,13.6,13.8,14.2,14.6,15.1,15.6,16.0,16.4,16.7,17.1,17.4,17.7,17.8,17.7,17.4,71.5,71.5,71.3,71.1,70.8,70.4,70.0,69.6,69.2,69.0,68.8,68.8,68.7,68.7,68.6,68.4,68.2,68.0,67.7,67.4,66.9,66.4,65.5,64.5,63.5,62.2,61.0,59.9,58.6,57.2,55.9,54.6,53.2,51.9,50.7,49.4,48.2,47.0,45.7,44.3,43.1,41.7,40.3,38.9,37.5,36.1,34.8,33.7,32.5,31.2,30.1,28.9,27.6,26.5,25.3,24.1,22.9,21.8,20.7,19.6,18.6,17.7,16.7,15.8,15.1,14.4,13.8,13.3,12.9,12.4,12.1,11.9,11.7,11.6,11.5,11.4,11.3,11.3,11.3,11.3,11.3,11.3,11.4,11.6,11.9,12.3,12.7,13.1,13.4,13.8,14.1,14.4,14.6,14.9,15.0,15.1,15.0,71.2,71.1,70.9,70.6,70.2,69.7,69.2,68.7,68.3,67.9,67.7,67.5,67.3,67.1,66.8,66.6,66.2,65.9,65.5,65.0,64.5,63.8,62.9,61.9,60.8,59.4,58.1,57.0,55.7,54.3,53.0,51.6,50.2,48.8,47.5,46.1,44.8,43.5,42.1,40.5,39.1,37.6,36.1,34.5,33.1,31.6,30.2,29.0,27.7,26.4,25.2,23.9,22.6,21.4,20.3,19.1,17.8,16.7,15.7,14.8,14.1,13.4,12.6,11.9,11.4,10.8,10.4,10.0,9.7,9.3,9.0,8.9,8.8,8.8,8.8,8.8,8.8,8.8,8.8,8.8,8.8,8.8,8.9,9.1,9.3,9.6,9.9,10.2,10.5,10.8,11.0,11.2,11.5,11.7,11.8,12.0,12.2,70.8,70.5,70.2,69.8,69.3,68.7,68.1,67.5,67.0,66.5,66.1,65.8,65.4,65.0,64.7,64.2,63.7,63.3,62.8,62.2,61.6,60.8,59.8,58.7,57.6,56.1,54.8,53.6,52.2,50.8,49.5,48.1,46.6,45.2,43.9,42.4,41.0,39.7,38.1,36.3,34.7,33.2,31.6,30.0,28.4,26.7,25.3,24.1,22.8,21.4,20.1,18.8,17.5,16.4,15.3,14.0,12.7,11.6,10.6,10.1,9.7,9.2,8.6,8.1,7.7,7.3,7.1,6.8,6.5,6.2,6.1,6.1,6.1,6.2,6.3,6.4,6.5,6.5,6.5,6.5,6.5,6.5,6.5,6.7,6.9,7.1,7.3,7.5,7.7,8.0,8.1,8.3,8.6,8.7,8.8,9.1,9.7,70.2,69.9,69.5,69.0,68.4,67.7,67.0,66.3,65.7,65.1,64.6,64.1,63.6,63.1,62.6,62.0,61.4,60.8,60.2,59.5,58.8,57.9,56.9,55.7,54.5,53.0,51.7,50.4,49.1,47.6,46.2,44.9,43.3,41.9,40.6,39.1,37.7,36.3,34.6,32.7,31.1,29.6,27.9,26.3,24.7,23.0,21.5,20.3,19.1,17.7,16.4,15.1,13.8,12.7,11.7,10.5,9.2,8.1,7.2,6.9,6.7,6.4,5.9,5.6,5.3,5.1,5.0,4.8,4.6,4.4,4.3,4.4,4.6,4.8,4.9,5.1,5.2,5.3,5.3,5.3,5.3,5.2,5.3,5.4,5.6,5.8,5.9,6.1,6.3,6.4,6.6,6.8,7.0,7.0,7.1,7.6,8.4,69.5,69.1,68.6,68.1,67.4,66.6,65.7,65.0,64.2,63.5,62.8,62.2,61.6,60.9,60.3,59.6,58.9,58.2,57.5,56.7,55.8,54.9,53.8,52.6,51.4,49.8,48.5,47.2,45.8,44.4,43.0,41.6,40.1,38.6,37.3,35.8,34.4,33.0,31.3,29.6,28.0,26.5,24.9,23.3,21.8,20.2,18.8,17.7,16.5,15.2,14.1,12.9,11.7,10.6,9.7,8.6,7.5,6.4,5.7,5.4,5.3,5.2,4.9,4.6,4.5,4.4,4.3,4.3,4.2,4.1,4.1,4.2,4.5,4.8,5.0,5.2,5.4,5.5,5.5,5.5,5.5,5.5,5.5,5.6,5.8,6.0,6.2,6.3,6.5,6.7,6.8,7.0,7.2,7.2,7.4,7.9,8.7,68.6,68.1,67.5,66.8,66.0,65.1,64.1,63.2,62.3,61.4,60.6,59.9,59.0,58.2,57.5,56.6,55.7,55.0,54.1,53.2,52.3,51.3,50.1,48.8,47.6,46.0,44.7,43.4,42.0,40.5,39.1,37.7,36.2,34.7,33.4,32.0,30.6,29.3,27.7,26.1,24.8,23.4,21.9,20.4,19.1,17.7,16.4,15.4,14.4,13.3,12.3,11.3,10.3,9.4,8.5,7.6,6.7,5.9,5.4,5.1,5.0,4.9,4.8,4.7,4.7,4.7,4.7,4.8,4.8,4.9,5.0,5.2,5.5,5.8,6.1,6.4,6.7,6.8,6.8,6.8,6.8,6.8,6.9,7.0,7.2,7.4,7.6,7.8,8.0,8.2,8.4,8.5,8.7,8.8,9.0,9.5,10.3,67.6,67.0,66.3,65.5,64.6,63.6,62.5,61.5,60.4,59.4,58.4,57.5,56.5,55.6,54.7,53.7,52.7,51.8,50.9,49.8,48.8,47.8,46.5,45.3,44.0,42.4,41.1,39.8,38.4,36.9,35.5,34.1,32.5,31.2,29.9,28.5,27.1,25.9,24.6,23.2,22.0,20.7,19.4,18.1,16.9,15.7,14.7,13.8,13.0,12.1,11.3,10.5,9.6,8.9,8.2,7.4,6.7,6.1,5.7,5.5,5.4,5.4,5.4,5.4,5.5,5.6,5.7,5.8,6.0,6.2,6.4,6.7,7.0,7.4,7.8,8.1,8.3,8.5,8.6,8.6,8.6,8.6,8.7,8.8,9.1,9.3,9.6,9.9,10.1,10.3,10.5,10.6,10.8,11.0,11.3,11.8,12.4,66.5,65.9,65.1,64.2,63.2,62.0,60.8,59.6,58.5,57.3,56.2,55.1,54.0,52.9,51.8,50.7,49.6,48.6,47.6,46.5,45.4,44.3,43.0,41.7,40.5,38.9,37.5,36.3,34.9,33.4,32.0,30.6,29.1,27.8,26.5,25.2,23.9,22.8,21.6,20.4,19.3,18.2,17.0,15.9,14.9,13.8,13.0,12.2,11.5,10.7,10.1,9.5,8.8,8.2,7.6,7.0,6.5,6.1,5.8,5.7,5.6,5.7,5.8,5.9,6.0,6.2,6.4,6.6,6.9,7.2,7.5,7.8,8.2,8.7,9.1,9.5,9.8,10.0,10.1,10.1,10.1,10.2,10.3,10.5,10.7,11.0,11.3,11.6,11.9,12.1,12.3,12.5,12.7,12.9,13.2,13.6,14.2,65.2,64.6,63.7,62.7,61.6,60.3,58.9,57.6,56.3,54.9,53.6,52.4,51.1,49.8,48.6,47.4,46.1,45.0,43.9,42.7,41.6,40.4,39.1,37.8,36.6,35.0,33.6,32.4,31.0,29.5,28.1,26.7,25.3,24.0,22.8,21.6,20.4,19.4,18.3,17.2,16.3,15.3,14.2,13.2,12.3,11.4,10.7,10.1,9.5,8.9,8.5,8.0,7.5,7.0,6.5,6.0,5.6,5.4,5.2,5.2,5.2,5.4,5.6,5.8,6.1,6.3,6.6,7.0,7.4,7.8,8.2,8.6,9.1,9.6,10.1,10.6,10.9,11.1,11.3,11.3,11.3,11.4,11.6,11.7,12.0,12.3,12.7,13.0,13.3,13.6,13.8,13.9,14.1,14.3,14.6,15.1,15.6,64.0,63.3,62.3,61.2,60.0,58.5,57.0,55.5,54.1,52.6,51.2,49.8,48.3,46.9,45.5,44.2,42.8,41.6,40.3,39.0,37.7,36.5,35.2,33.9,32.6,31.0,29.7,28.4,27.0,25.5,24.1,22.7,21.3,20.0,18.9,17.8,16.8,15.8,14.9,13.9,13.0,12.1,11.1,10.2,9.5,8.7,8.1,7.6,7.2,6.8,6.5,6.2,5.8,5.5,5.2,4.8,4.6,4.4,4.4,4.5,4.7,5.0,5.3,5.6,6.0,6.4,6.8,7.3,7.7,8.3,8.7,9.3,9.9,10.4,11.0,11.5,11.9,12.1,12.3,12.3,12.3,12.4,12.5,12.7,13.0,13.3,13.7,14.1,14.4,14.7,14.9,15.1,15.2,15.4,15.7,16.2,16.7,62.9,62.1,61.1,59.9,58.5,57.0,55.3,53.7,52.1,50.5,48.9,47.4,45.7,44.2,42.7,41.3,39.8,38.4,37.0,35.5,34.1,32.8,31.4,30.1,28.9,27.3,25.9,24.6,23.1,21.6,20.2,18.7,17.2,15.9,14.9,14.0,13.0,12.2,11.3,10.4,9.6,8.8,8.0,7.2,6.5,5.8,5.4,5.1,4.9,4.7,4.5,4.3,4.2,4.0,3.8,3.7,3.5,3.5,3.6,3.8,4.2,4.6,5.1,5.5,5.9,6.6,7.2,7.7,8.3,8.9,9.4,10.0,10.7,11.3,12.0,12.6,13.0,13.2,13.2,13.2,13.2,13.2,13.3,13.5,13.8,14.2,14.6,15.0,15.4,15.7,15.9,16.1,16.3,16.5,16.7,17.1,17.7,61.6,60.8,59.6,58.3,56.8,55.1,53.2,51.5,49.7,47.9,46.2,44.6,42.8,41.1,39.5,37.9,36.3,34.9,33.2,31.5,29.9,28.6,27.2,25.9,24.6,23.0,21.6,20.3,18.8,17.3,15.8,14.3,12.7,11.4,10.5,9.7,9.0,8.2,7.4,6.5,5.9,5.3,4.6,4.0,3.3,2.7,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.5,2.8,3.3,3.8,4.4,4.9,5.4,6.0,6.9,7.7,8.4,9.0,9.7,10.4,11.1,11.8,12.5,13.2,13.9,14.4,14.5,14.4,14.4,14.4,14.3,14.3,14.6,15.0,15.5,15.9,16.4,16.8,17.2,17.3,17.5,17.7,17.8,18.0,18.4,19.1,60.4,59.5,58.3,56.9,55.3,53.4,51.3,49.4,47.5,45.6,43.8,42.0,40.1,38.2,36.6,34.9,33.3,31.7,29.9,28.0,26.4,25.0,23.6,22.3,21.1,19.5,18.1,16.8,15.4,13.8,12.4,10.9,9.2,7.9,7.2,6.6,5.9,5.3,4.5,3.8,3.3,2.8,2.3,1.8,1.2,0.6,0.5,0.7,0.9,1.0,1.1,1.3,1.4,1.5,1.7,1.8,1.9,2.0,2.3,3.0,3.7,4.3,4.9,5.5,6.2,7.2,8.2,9.0,9.7,10.6,11.3,12.1,12.9,13.7,14.5,15.2,15.7,15.8,15.7,15.7,15.7,15.6,15.6,15.9,16.4,17.0,17.4,17.9,18.4,18.8,18.9,19.0,19.3,19.4,19.5,19.9,20.5,59.3,58.3,57.0,55.5,53.8,51.7,49.5,47.4,45.4,43.3,41.4,39.5,37.5,35.6,33.8,32.1,30.4,28.8,27.0,25.1,23.4,22.1,20.7,19.4,18.3,16.7,15.5,14.3,12.9,11.4,10.1,8.7,7.1,6.0,5.3,4.8,4.3,3.8,3.2,2.6,2.2,1.8,1.4,0.9,0.4,0.0,0.0,0.3,0.5,0.7,0.9,1.1,1.3,1.4,1.6,1.8,1.9,2.1,2.5,3.2,3.9,4.6,5.2,5.9,6.6,7.7,8.8,9.7,10.5,11.4,12.3,13.1,14.0,14.9,15.7,16.5,17.1,17.3,17.2,17.3,17.3,17.3,17.4,17.8,18.3,18.9,19.4,19.9,20.5,20.8,20.9,21.0,21.2,21.3,21.4,21.7,22.3,58.0,57.0,55.6,54.0,52.1,49.8,47.4,45.2,43.0,40.7,38.7,36.7,34.6,32.6,30.8,29.0,27.3,25.7,24.0,22.2,20.7,19.3,18.0,16.8,15.7,14.4,13.2,12.1,10.9,9.6,8.4,7.2,6.0,5.0,4.5,4.1,3.7,3.4,3.0,2.5,2.2,1.9,1.6,1.2,0.9,0.6,0.6,0.8,1.1,1.3,1.5,1.7,1.9,2.1,2.2,2.4,2.5,2.7,3.1,3.7,4.4,5.1,5.8,6.6,7.4,8.5,9.5,10.5,11.5,12.5,13.4,14.3,15.3,16.2,17.1,18.0,18.7,19.0,19.2,19.4,19.6,19.7,20.0,20.4,20.9,21.5,22.1,22.7,23.2,23.5,23.6,23.7,23.8,23.8,23.9,24.2,24.7,56.7,55.6,54.2,52.4,50.4,47.9,45.3,42.8,40.5,38.1,35.9,33.9,31.7,29.6,27.8,25.9,24.2,22.6,21.1,19.5,18.0,16.8,15.5,14.4,13.5,12.2,11.2,10.3,9.2,8.2,7.2,6.3,5.3,4.6,4.2,3.9,3.7,3.6,3.4,3.1,2.9,2.7,2.4,2.2,2.0,1.8,1.9,2.0,2.2,2.4,2.7,2.8,3.0,3.1,3.2,3.3,3.4,3.6,4.0,4.5,5.2,5.9,6.6,7.4,8.2,9.3,10.4,11.4,12.5,13.6,14.6,15.7,16.7,17.7,18.7,19.6,20.4,21.0,21.4,21.7,22.0,22.4,22.8,23.3,23.9,24.5,25.2,25.7,26.2,26.5,26.6,26.7,26.7,26.6,26.7,26.9,27.2,55.6,54.5,53.0,51.1,48.9,46.2,43.4,40.8,38.3,35.8,33.5,31.4,29.1,27.0,25.1,23.3,21.5,20.0,18.5,17.0,15.7,14.5,13.3,12.3,11.5,10.4,9.4,8.6,7.8,6.9,6.1,5.4,4.7,4.2,4.0,3.8,3.8,3.8,3.8,3.7,3.6,3.4,3.3,3.1,3.0,3.0,3.0,3.1,3.3,3.5,3.7,3.9,4.0,4.1,4.1,4.1,4.2,4.4,4.7,5.3,5.8,6.5,7.3,8.1,9.0,10.0,11.2,12.3,13.5,14.8,15.8,16.9,18.1,19.2,20.2,21.2,22.0,22.7,23.4,23.9,24.3,24.8,25.4,25.9,26.5,27.2,27.9,28.5,29.0,29.3,29.4,29.3,29.2,29.1,29.2,29.3,29.5,54.2,53.1,51.5,49.5,47.1,44.3,41.2,38.4,35.7,33.0,30.6,28.5,26.1,24.0,22.1,20.2,18.4,16.9,15.5,14.1,12.8,11.7,10.6,9.7,8.9,8.0,7.2,6.5,5.8,5.1,4.5,3.9,3.5,3.2,3.1,3.1,3.3,3.5,3.6,3.7,3.8,3.7,3.6,3.6,3.5,3.6,3.7,3.8,4.0,4.3,4.5,4.7,4.8,4.8,4.8,4.8,4.8,5.0,5.3,5.9,6.4,7.1,8.0,8.8,9.7,10.8,12.1,13.3,14.7,16.0,17.2,18.4,19.6,20.7,21.8,22.9,23.9,24.7,25.4,26.1,26.6,27.2,27.9,28.6,29.2,30.0,30.8,31.4,31.9,32.2,32.2,32.1,31.9,31.8,31.7,31.8,31.8,52.9,51.8,50.1,48.0,45.4,42.3,39.0,36.0,33.1,30.4,27.9,25.7,23.3,21.1,19.1,17.2,15.5,14.0,12.6,11.2,9.9,8.9,7.9,7.1,6.4,5.6,4.9,4.4,3.8,3.3,2.9,2.5,2.2,2.0,2.1,2.3,2.6,3.0,3.3,3.6,3.7,3.8,3.8,3.8,3.9,4.0,4.1,4.3,4.6,4.8,5.1,5.3,5.4,5.4,5.4,5.3,5.3,5.5,5.8,6.4,7.0,7.7,8.5,9.4,10.4,11.6,13.0,14.3,15.7,17.2,18.5,19.7,21.0,22.3,23.4,24.6,25.7,26.5,27.4,28.1,28.8,29.5,30.3,31.0,31.7,32.6,33.4,34.0,34.6,34.8,34.9,34.7,34.5,34.2,34.1,34.0,34.1,51.7,50.5,48.8,46.5,43.8,40.6,37.1,33.9,30.9,28.0,25.4,23.2,20.7,18.5,16.5,14.6,12.9,11.5,10.1,8.7,7.5,6.5,5.6,4.9,4.3,3.6,3.0,2.6,2.2,1.9,1.5,1.3,1.1,1.1,1.4,1.8,2.3,2.8,3.2,3.6,3.8,4.0,4.1,4.2,4.3,4.5,4.6,4.9,5.2,5.4,5.7,5.9,6.0,6.0,5.9,5.9,5.8,5.9,6.3,6.8,7.5,8.2,9.1,10.0,11.0,12.3,13.7,15.2,16.7,18.2,19.6,20.9,22.3,23.6,24.8,26.1,27.2,28.1,29.1,29.9,30.7,31.5,32.4,33.1,34.0,34.9,35.7,36.4,37.0,37.2,37.2,37.0,36.7,36.4,36.2,36.1,36.1,50.2,49.0,47.2,44.8,42.0,38.6,34.9,31.6,28.4,25.4,22.8,20.5,18.0,15.8,13.8,11.9,10.2,8.9,7.5,6.2,5.1,4.1,3.3,2.7,2.3,1.7,1.3,1.0,0.8,0.6,0.4,0.3,0.3,0.5,0.8,1.4,2.1,2.7,3.3,3.8,4.1,4.4,4.6,4.7,4.9,5.1,5.3,5.5,5.8,6.1,6.3,6.5,6.6,6.6,6.5,6.4,6.4,6.5,6.8,7.4,8.0,8.8,9.6,10.6,11.6,13.0,14.5,16.0,17.6,19.2,20.6,22.0,23.5,24.8,26.1,27.4,28.6,29.7,30.7,31.7,32.6,33.5,34.4,35.3,36.2,37.1,38.0,38.8,39.4,39.6,39.6,39.4,39.0,38.7,38.4,38.3,38.2]}};
+/* =====================================================================
+   AREÁL – 3D model podľa skutočných dát
+   Podklad: © prispievatelia OpenStreetMap (ODbL), výšky: Terrain Tiles (AWS / Mapzen)
+   ===================================================================== */
+const focusSpot=(function site(){
+  const canvas=document.getElementById('site'),markers=document.getElementById('markers'),legend=document.getElementById('legend');
+  const G=PARK.grid,EX=1.4;
+  // výška terénu v bode (scéna: 1 jednotka = 10 m)
+  function H(x,z){const fx=Math.min(G.nx-1.001,Math.max(0,(x+G.w/2)/G.w*(G.nx-1))),fz=Math.min(G.nz-1.001,Math.max(0,(z+G.d/2)/G.d*(G.nz-1)));
+    const i=Math.floor(fx),j=Math.floor(fz),u=fx-i,v=fz-j,h=G.h,n=G.nx;
+    return (h[j*n+i]*(1-u)*(1-v)+h[j*n+i+1]*u*(1-v)+h[(j+1)*n+i]*(1-u)*v+h[(j+1)*n+i+1]*u*v)/10*EX}
+  const trailMid=(()=>{const q=[];PARK.trail.forEach(t=>t.p.forEach(p=>{if(Math.abs(p[0])<G.w/2-4&&Math.abs(p[1])<G.d/2-4)q.push(p)}));if(!q.length)return[0,0];const c=[q.reduce((a,p)=>a+p[0],0)/q.length,q.reduce((a,p)=>a+p[1],0)/q.length];return q.reduce((b,p)=>Math.hypot(p[0]-c[0],p[1]-c[1])<Math.hypot(b[0]-c[0],b[1]-c[1])?p:b)})();
+  const SPOTS=[
+    {n:1,name:'Parkovisko',pos:[-23.9,-9.6],text:'Bezplatné parkovisko pri vstupe do lesoparku, na konci ulice Lesný park (odbočka z Bôrovej).'},
+    {n:2,name:'Reštaurácia Lesopark',pos:[-14.4,-6.7],text:'Pizzeria a regionálna kuchyňa s terasou. Po – št 11:00 – 19:00, pi – so 11:00 – 20:00, ne 13:00 – 19:00. Jedlo aj so sebou a donáška.'},
+    {n:3,name:'Detské ihrisko',pos:[-21.9,-.6],text:'Ihrisko pre deti do 15 rokov. Apríl – august 8:00 – 20:00, september – október 8:00 – 18:00.'},
+    {n:4,name:'Amfiteáter',pos:[-13.1,5.5],text:'Prírodný amfiteáter, kde sa počas leta konajú koncerty a podujatia.'},
+    {n:5,name:'Vyhliadka',pos:[7,9.6],text:'Rozhľadňa s lavičkami na hrane skalnej steny nad údolím Handlovky. Výhľad na Prievidzu, Veľkú a Malú Lehôtku a Hradec.'},
+    {n:6,name:'Ohniská pod vyhliadkou',pos:[12.3,13.9],text:'Dve ohniská pod skalnou stenou, kúsok od vyhliadky.'},
+    {n:7,name:'Značené trasy',pos:trailMid,text:'Lesoparkom vedú žlté trasy „Lesný park – Vyhliadka“ a Prievidzský okruh (KST 8408) a červená okružná trasa „Lesopark Prievidza“.',trails:true},
+    {n:8,name:'Englišov kameňolom',pos:[41.6,25.7],text:'Pozostatky bývalého Englišovho kameňolomu na východnom okraji lesa, nad riekou Handlovka.'},
+  ];
+  let active=null,camTo=null,trailOn=null;
+  legend.innerHTML=SPOTS.map(s=>`<li data-n="${s.n}"><div class="row"><span class="num">${String(s.n).padStart(2,'0')}</span><span class="nm">${s.name}</span></div><div class="desc"><div>${s.text}</div></div></li>`).join('');
+  const mks=new Map();SPOTS.forEach(s=>{const m=document.createElement('div');m.className='mk';m.innerHTML=`${s.n}<span class="tip">${s.name}</span>`;m.onclick=()=>focus(s.n);markers.appendChild(m);mks.set(s.n,m)});
+  legend.addEventListener('click',e=>{const li=e.target.closest('li');if(li&&!e.target.closest('a'))focus(+li.dataset.n)});
+  function focus(n){active=active===n?null:n;const s=SPOTS.find(q=>q.n===active);
+    legend.querySelectorAll('li').forEach(li=>li.classList.toggle('on',+li.dataset.n===active));
+    mks.forEach((m,k)=>m.classList.toggle('on',k===active));
+    trailOn&&trailOn(!!(s&&s.trails));camTo&&camTo(s||null)}
+  const jump=n=>{document.getElementById('areal').scrollIntoView({behavior:'smooth'});if(active!==n)setTimeout(()=>focus(n),500)};
+  if(!HAS_GL){markers.style.display='none';return jump}
+
+  const R=new THREE.WebGLRenderer({canvas,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));
+  R.outputEncoding=THREE.sRGBEncoding;R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;
+  const S=new THREE.Scene();S.background=new THREE.Color('#e7e0d2');
+  const cam=new THREE.PerspectiveCamera(30,1,1,600);
+  S.add(new THREE.HemisphereLight('#ffffff','#a89c86',.55));
+  const sun=new THREE.DirectionalLight('#fff1dc',.85);sun.position.set(-40,70,-30);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);
+  Object.assign(sun.shadow.camera,{left:-60,right:60,top:50,bottom:-50,near:1,far:220});sun.shadow.bias=-.0006;S.add(sun);
+  const W=G.w,D=G.d,W2=W/2,D2=D/2,rnd=mkRand(7);
+  const inBox=(x,z,m=0)=>x>-W2+m&&x<W2-m&&z>-D2+m&&z<D2-m;
+
+  // terén s vrstevnicami (každých 5 m, hrubšia každých 25 m)
+  const tg=new THREE.PlaneGeometry(W,D,(G.nx-1)*2,(G.nz-1)*2);tg.rotateX(-Math.PI/2);
+  const tp=tg.attributes.position;for(let i=0;i<tp.count;i++)tp.setY(i,H(tp.getX(i),tp.getZ(i)));tg.computeVertexNormals();
+  const tm=new THREE.MeshStandardMaterial({color:'#e4dccb',roughness:1});tm.extensions={derivatives:true};
+  tm.onBeforeCompile=sh=>{
+    sh.vertexShader=sh.vertexShader.replace('#include <common>','#include <common>\nvarying float vH;').replace('#include <begin_vertex>','#include <begin_vertex>\nvH=position.y;');
+    sh.fragmentShader=sh.fragmentShader.replace('#include <common>','#include <common>\nvarying float vH;').replace('#include <dithering_fragment>',`#include <dithering_fragment>
+      float hh=vH/${(0.5*EX).toFixed(3)}; float d=abs(fract(hh)-0.5); float w=fwidth(hh);
+      float ln=smoothstep(0.5-w*1.4,0.5-w*0.3,d);
+      float major=step(mod(floor(hh+0.5),5.0),0.5);
+      gl_FragColor.rgb*=1.0-ln*mix(0.12,0.3,major);`)};
+  const terr=new THREE.Mesh(tg,tm);terr.receiveShadow=true;S.add(terr);
+  const skirtM=new THREE.MeshStandardMaterial({color:'#b89a74',roughness:.9,side:THREE.DoubleSide}),BASE=-2.5;
+  function skirt(pts){const v=[],idx=[];pts.forEach(([x,z],i)=>{v.push(x,BASE,z,x,H(x,z),z);if(i){const a=(i-1)*2;idx.push(a,a+2,a+1,a+1,a+2,a+3)}});
+    const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(v,3));g.setIndex(idx);g.computeVertexNormals();S.add(new THREE.Mesh(g,skirtM))}
+  const ed=f=>[...Array(161)].map((_,i)=>f(i/160));
+  skirt(ed(t=>[-W2+t*W,D2]));skirt(ed(t=>[-W2+t*W,-D2]));skirt(ed(t=>[W2,-D2+t*D]));skirt(ed(t=>[-W2,-D2+t*D]));
+  const plinth=new THREE.Mesh(new THREE.BoxGeometry(W+2,.6,D+2),new THREE.MeshStandardMaterial({color:'#2a2a27',roughness:.8}));plinth.position.y=BASE-.3;S.add(plinth);
+
+  // pomôcky: orezanie línie na výrez, prevzorkovanie, pás po teréne
+  function clipLine(p){const out=[];let cur=[];p.forEach(q=>{if(inBox(q[0],q[1],.05))cur.push(q);else{if(cur.length>1)out.push(cur);cur=[]}});if(cur.length>1)out.push(cur);return out}
+  function resample(p,step=.4){const o=[p[0]];for(let i=1;i<p.length;i++){const [ax,az]=p[i-1],[bx,bz]=p[i],L=Math.hypot(bx-ax,bz-az),n=Math.max(1,Math.ceil(L/step));for(let k=1;k<=n;k++)o.push([ax+(bx-ax)*k/n,az+(bz-az)*k/n])}return o}
+  function ribbon(p,w,lift){const q=resample(p),v=[],idx=[];
+    q.forEach((c,i)=>{const a=q[Math.max(0,i-1)],b=q[Math.min(q.length-1,i+1)];let dx=b[0]-a[0],dz=b[1]-a[1];const L=Math.hypot(dx,dz)||1;dx/=L;dz/=L;
+      const nx=-dz*w/2,nz=dx*w/2,x1=c[0]+nx,z1=c[1]+nz,x2=c[0]-nx,z2=c[1]-nz;v.push(x1,H(x1,z1)+lift,z1,x2,H(x2,z2)+lift,z2);
+      if(i){const k=(i-1)*2;idx.push(k,k+2,k+1,k+1,k+2,k+3)}});
+    const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(v,3));g.setIndex(idx);g.computeVertexNormals();return g}
+  const merge=(list,m)=>{list.forEach(g=>{const me=new THREE.Mesh(g,m);me.receiveShadow=true;S.add(me)})};
+  const mat=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.9},o));
+
+  // obsadenosť – kde nesmú rásť stromy
+  const OC=.5,ONX=Math.ceil(W/OC),ONZ=Math.ceil(D/OC),occ=new Uint8Array(ONX*ONZ);
+  const mark=(x,z,r)=>{for(let a=-r;a<=r;a+=OC)for(let b=-r;b<=r;b+=OC){const i=Math.floor((x+a+W2)/OC),j=Math.floor((z+b+D2)/OC);if(i>=0&&j>=0&&i<ONX&&j<ONZ)occ[j*ONX+i]=1}};
+  const occAt=(x,z)=>occ[Math.floor((z+D2)/OC)*ONX+Math.floor((x+W2)/OC)];
+
+  // cesty a chodníky
+  const WID={residential:.75,service:.55,tertiary:.8,track:.45,path:.32,footway:.36,steps:.36,cycleway:.3,unclassified:.6};
+  const road=mat('#8f8a82'),path=mat('#a4845a'),steps=mat('#7d6247');
+  const roads=[],paths=[],stp=[];
+  PARK.paths.forEach(p=>clipLine(p.p).forEach(c=>{const w=WID[p.k]||.3;(p.k==='steps'?stp:(w>=.55?roads:paths)).push(ribbon(c,w,.03));resample(c,.4).forEach(q=>mark(q[0],q[1],w>=.55?1:.7))}));
+  merge(roads,road);merge(paths,path);merge(stp,steps);
+  // značené trasy
+  const trailMats=[];
+  PARK.trail.forEach(t=>clipLine(t.p).forEach(c=>{const m=mat(t.c==='red'?'#b8452a':'#d9a21b',{emissive:t.c==='red'?'#b8452a':'#d9a21b',emissiveIntensity:0,transparent:true,opacity:.0});trailMats.push(m);S.add(new THREE.Mesh(ribbon(c,.6,.1),m))}));
+  let trailT=0;trailOn=v=>{trailT=v?1:0};
+  // voda
+  const water=mat('#8fb3c2',{roughness:.3,metalness:.1});
+  PARK.water.forEach(w=>clipLine(w.p).forEach(c=>{S.add(new THREE.Mesh(ribbon(c,w.k==='river'?.9:.3,.04),water));resample(c).forEach(q=>mark(q[0],q[1],1))}));
+  // železnica
+  PARK.rail.forEach(r=>clipLine(r).forEach(c=>S.add(new THREE.Mesh(ribbon(c,.3,.05),mat('#5e5a55')))));
+  // skalná stena
+  PARK.cliff.forEach(c=>clipLine(c).forEach(q=>{const g=ribbon(q,.5,.06);S.add(new THREE.Mesh(g,mat('#8a8278')));
+    resample(q,.3).forEach(([x,z],i)=>{if(i%2)return;const r=new THREE.Mesh(new THREE.DodecahedronGeometry(.28,0),mat('#9b948a'));r.position.set(x,H(x,z)-.05,z);r.scale.set(1,1.8,1);r.rotation.y=i;r.castShadow=true;S.add(r)})}));
+
+  // plochy
+  const areaM={parking:mat('#a7a39c'),playground:mat('#d9c9a3'),pitch:mat('#c5cbb0'),shelter:mat('#a07e5a'),dog_park:mat('#cfd3bd'),fence:mat('#b9b5ad')};
+  PARK.areas.forEach(a=>{if(!a.p.every(q=>inBox(q[0],q[1])))return;const sh=new THREE.Shape(a.p.map(([x,z])=>new THREE.Vector2(x,-z)));
+    const g=new THREE.ShapeGeometry(sh);g.rotateX(-Math.PI/2);const pa=g.attributes.position;for(let i=0;i<pa.count;i++)pa.setY(i,H(pa.getX(i),pa.getZ(i))+.06);g.computeVertexNormals();
+    const m=new THREE.Mesh(g,areaM[a.k]||areaM.fence);m.receiveShadow=true;S.add(m);
+    const xs=a.p.map(q=>q[0]),zs=a.p.map(q=>q[1]);for(let x=Math.min(...xs);x<=Math.max(...xs);x+=OC)for(let z=Math.min(...zs);z<=Math.max(...zs);z+=OC)mark(x,z,.3)});
+
+  // budovy (vytiahnuté pôdorysy)
+  const bldM=mat('#f6f3ec',{roughness:.85}),bldHi=mat('#e9d9c2',{roughness:.85}),bldWood=mat('#b89573');
+  PARK.bld.forEach(b=>{if(!b.p.every(q=>inBox(q[0],q[1])))return;const base=Math.min(...b.p.map(([x,z])=>H(x,z)))-.2;
+    const sh=new THREE.Shape(b.p.map(([x,z])=>new THREE.Vector2(x,-z)));const g=new THREE.ExtrudeGeometry(sh,{depth:b.h+.25,bevelEnabled:false});g.rotateX(-Math.PI/2);
+    const m=new THREE.Mesh(g,b.n?bldHi:b.w?bldWood:bldM);m.position.y=base;m.castShadow=m.receiveShadow=true;S.add(m);
+    const xs=b.p.map(q=>q[0]),zs=b.p.map(q=>q[1]);for(let x=Math.min(...xs);x<=Math.max(...xs);x+=OC)for(let z=Math.min(...zs);z<=Math.max(...zs);z+=OC)mark(x,z,.4)});
+
+  // body: vyhliadka, ohniská, lavičky, amfiteáter
+  const put=(o,x,z,y=0)=>{o.position.set(x,H(x,z)+y,z);o.traverse(q=>{if(q.isMesh){q.castShadow=true;q.receiveShadow=true}});S.add(o);mark(x,z,.7);return o};
+  const box=(w,h,d,m)=>new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);
+  const conc=mat('#bdbab3'),metal=mat('#a4a8aa'),greenR=mat('#557a4f'),woodM=mat('#a07e5a'),stone=mat('#8d8a84'),ember=new THREE.MeshBasicMaterial({color:'#d8672e'});
+  PARK.poi.forEach(p=>{
+    if(p.k==='viewpoint'){const t=new THREE.Group();[[-.22,-.22],[.22,-.22],[-.22,.22],[.22,.22]].forEach(([x,z])=>{const q=box(.09,.9,.09,conc);q.position.set(x,.45,z);t.add(q)});
+      const pl=box(.65,.06,.65,metal);pl.position.y=.93;t.add(pl);[[0,.32,.65,.03],[0,-.32,.65,.03],[.32,0,.03,.65],[-.32,0,.03,.65]].forEach(([x,z,w,d])=>{const r=box(w,.16,d,greenR);r.position.set(x,1.03,z);t.add(r)});
+      put(t,p.x,p.z,-.05)}
+    if(p.k==='firepit'){const g=new THREE.Group();const r=new THREE.Mesh(new THREE.TorusGeometry(.22,.07,5,12),stone);r.rotation.x=Math.PI/2;r.position.y=.06;g.add(r);const e=new THREE.Mesh(new THREE.SphereGeometry(.1,8,6),ember);e.position.y=.06;g.add(e);put(g,p.x,p.z)}
+    if(p.k==='bench'){const b=box(.4,.08,.14,woodM);b.position.y=.12;const g=new THREE.Group();g.add(b);put(g,p.x,p.z)}
+    if(p.k==='theatre'){const am=new THREE.Group();const e=.6,gx=H(p.x+e,p.z)-H(p.x-e,p.z),gz=H(p.x,p.z+e)-H(p.x,p.z-e);
+      for(let i=0;i<4;i++){const r0=.6+i*.32,sh=new THREE.Shape();sh.absarc(0,0,r0+.28,0,Math.PI,false);sh.absarc(0,0,r0,Math.PI,0,true);
+        const g=new THREE.ExtrudeGeometry(sh,{depth:.15+i*.14,bevelEnabled:false,curveSegments:20});g.rotateX(-Math.PI/2);const m=new THREE.Mesh(g,mat(i%2?'#d9d2c3':'#cbc3b1'));m.position.y=-.3;am.add(m)}
+      const st=new THREE.Mesh(new THREE.CylinderGeometry(.55,.55,.1,20,1,false,0,Math.PI),woodM);st.rotation.y=Math.PI/2;am.add(st);
+      put(am,p.x,p.z).rotation.y=Math.atan2(gx,gz)+Math.PI}
+  });
+
+  // les – borovice, agáty a duby: v lesných polygónoch a na zalesnenom svahu
+  const pip=(x,z,poly)=>{let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const [xi,zi]=poly[i],[xj,zj]=poly[j];if((zi>z)!==(zj>z)&&x<(xj-xi)*(z-zi)/(zj-zi)+xi)c=!c}return c};
+  const openP=PARK.open.map(o=>o.p);
+  const cones=[],balls=[];
+  for(let i=0;i<16000&&cones.length+balls.length<3000;i++){const x=(rnd()-.5)*(W-.8),z=(rnd()-.5)*(D-.8);
+    if(occAt(x,z))continue;const hr=H(x,z)/EX*10;
+    const forest=PARK.forest.some(f=>pip(x,z,f))||hr>38;if(!forest||openP.some(o=>pip(x,z,o)))continue;
+    if(fbm(x*.15,z*.15)<.28&&rnd()<.6)continue;
+    (rnd()<.42?cones:balls).push([x,z,.8+rnd()*.5,rnd()])}
+  const coneG=new THREE.ConeGeometry(.42,1.9,7);coneG.translate(0,1.25,0);const stemC=new THREE.CylinderGeometry(.05,.06,.5,5);stemC.translate(0,.25,0);
+  const ballG=new THREE.IcosahedronGeometry(.62,1);ballG.translate(0,1.25,0);const stemB=new THREE.CylinderGeometry(.05,.07,.8,5);stemB.translate(0,.4,0);
+  const dm=new THREE.Object3D(),col=new THREE.Color();
+  function inst(geo,list,pal,sy=1){const m=new THREE.InstancedMesh(geo,new THREE.MeshStandardMaterial({roughness:.9}),list.length);m.castShadow=true;m.receiveShadow=true;
+    list.forEach(([x,z,s,r],i)=>{dm.position.set(x,H(x,z)-.05,z);dm.scale.set(s,s*sy,s);dm.rotation.set(0,r*6,0);dm.updateMatrix();m.setMatrixAt(i,dm.matrix);m.setColorAt(i,col.set(pal[(r*pal.length)|0]))});S.add(m)}
+  inst(coneG,cones,['#5f6f55','#56664c','#687a5d']);inst(stemC,cones,['#7a5c44']);
+  inst(ballG,balls,['#8b9676','#7f8b6b','#95a07f','#76825f']);inst(stemB,balls,['#7d6a58']);
+
+  // kamera
+  const home=new THREE.Vector3(-8,H(-8,0)+1,2);
+  const orb={th:.35,ph:.88,r:120,tth:.35,tph:.88,tr:120,tg:home.clone(),ttg:home.clone()};
+  const baseR=()=>canvas.clientWidth<700?235:150;
+  let auto=true,drag=null;
+  camTo=s=>{if(s){orb.ttg.set(s.pos[0],H(s.pos[0],s.pos[1])+.5,s.pos[1]);orb.tr=s.trails?(canvas.clientWidth<700?190:120):(canvas.clientWidth<700?60:40);orb.tph=Math.min(orb.tph,.95)}else{orb.ttg.copy(home);orb.tr=baseR()}auto=false};
+  function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();if(!active)orb.tr=baseR()}
+  addEventListener('resize',resize);resize();orb.r=orb.tr+30;
+  canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,th:orb.tth,ph:orb.tph,m:e.pointerType==='mouse'};canvas.classList.add('drag')});
+  addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>3)auto=false;
+    orb.tth=drag.th-dx*.006;if(drag.m)orb.tph=Math.min(1.3,Math.max(.3,drag.ph-dy*.005))});
+  addEventListener('pointerup',()=>{drag=null;canvas.classList.remove('drag')});
+  document.getElementById('mIn').onclick=()=>{orb.tr=Math.max(14,orb.tr*.78)};
+  document.getElementById('mOut').onclick=()=>{orb.tr=Math.min(300,orb.tr*1.28)};
+  document.getElementById('mReset').onclick=()=>{orb.tph=.88;if(active)focus(active);else camTo(null)};
+
+  const isVis=onVisible(canvas),v=new THREE.Vector3();let last=performance.now(),tr=0;
+  (function loop(now){requestAnimationFrame(loop);if(!isVis())return;const dt=Math.min(.05,(now-last)/1000);last=now;
+    if(auto)orb.tth+=dt*.04;const k1=1-Math.exp(-dt*5),k2=1-Math.exp(-dt*3.5);
+    orb.th+=(orb.tth-orb.th)*k1;orb.ph+=(orb.tph-orb.ph)*k1;orb.r+=(orb.tr-orb.r)*k2;orb.tg.lerp(orb.ttg,k2);
+    cam.position.set(orb.tg.x+orb.r*Math.sin(orb.ph)*Math.sin(orb.th),orb.tg.y+orb.r*Math.cos(orb.ph),orb.tg.z+orb.r*Math.sin(orb.ph)*Math.cos(orb.th));cam.lookAt(orb.tg);
+    tr+=(trailT-tr)*k1;trailMats.forEach(m=>{m.opacity=.45+tr*.55;m.emissiveIntensity=tr*.45});
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    SPOTS.forEach(s=>{v.set(s.pos[0],H(s.pos[0],s.pos[1])+1.2,s.pos[1]).project(cam);const m=mks.get(s.n);
+      m.classList.toggle('off',v.z>1||Math.abs(v.x)>1.05||Math.abs(v.y)>1.05);m.style.transform=`translate(${(v.x*.5+.5)*w}px,${(-v.y*.5+.5)*h}px)`});
+    R.render(S,cam)})(last);
+  return jump;
+})();
+document.getElementById('exp').addEventListener('click',e=>{const b=e.target.closest('.go');if(b)focusSpot(+b.dataset.spot)});
+</script>
+</body>
+</html>
